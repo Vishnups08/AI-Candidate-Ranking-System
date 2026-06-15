@@ -12,6 +12,15 @@ import sys
 import time
 from pathlib import Path
 import os
+
+# Force the ranking step to be network-free. Models load from the repo-local
+# ./models snapshot (see precompute/download_models.py). Setting these BEFORE
+# importing sentence-transformers / huggingface_hub guarantees no accidental
+# Hub call, matching the Stage-3 sandbox (network off).
+os.environ.setdefault("HF_HUB_OFFLINE", "1")
+os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+
 import numpy as np
 
 # Add project root to path

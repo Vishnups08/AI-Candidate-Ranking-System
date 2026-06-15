@@ -2,5 +2,10 @@ __pycache__/
 *.pyc
 precompute/embeddings/
 output/
-presentation/
 .env
+
+# Local model snapshots (~1.1 GB) — reproduced by precompute/download_models.py
+models/
+
+# Build logs
+*.log

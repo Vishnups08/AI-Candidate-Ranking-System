@@ -4,6 +4,7 @@ Combines feature scores with behavioral multiplier, sorts, and outputs CSV.
 """
 
 import csv
+import time
 from typing import Optional
 
 import numpy as np
@@ -62,16 +63,20 @@ class CandidateRanker:
         # Optional Cross-Encoder Re-Ranking
         if config.USE_CROSS_ENCODER and len(scored) > 0:
             print(f"  Re-ranking top {min(len(scored), config.CROSS_ENCODER_TOP_K)} candidates with Cross-Encoder...")
+            ce_start = time.time()
             top_for_rerank = scored[:config.CROSS_ENCODER_TOP_K]
-            
+
             try:
                 from sentence_transformers import CrossEncoder
-                import torch
-                device = "cuda" if torch.cuda.is_available() else "cpu"
-                ce_model = CrossEncoder(config.CROSS_ENCODER_MODEL, device=device)
-                
+                # CPU only, loaded from the repo-local snapshot so it works
+                # network-off. local_files_only=True only when the snapshot
+                # exists, so a fresh clone can still pull it once.
+                ce_path = config._local_model_path(config.CROSS_ENCODER_MODEL)
+                ce_is_local = ce_path != config.CROSS_ENCODER_MODEL
+                ce_model = CrossEncoder(ce_path, device="cpu", local_files_only=ce_is_local)
+
                 query_text = self.jd.jd_core_text if hasattr(self.jd, 'jd_core_text') else f"{self.jd.title} {' '.join(self.jd.must_have_skills)}"
-                
+
                 # Build pairs
                 pairs = []
                 for entry in top_for_rerank:
@@ -83,14 +88,14 @@ class CandidateRanker:
                     summary = prof.get("summary", "")
                     cand_text = f"{title}. Skills: {skills}. {summary}"[:config.EMBEDDING_MAX_TEXT_LENGTH]
                     pairs.append([query_text, cand_text])
-                    
+
                 # Score pairs
                 ce_scores = ce_model.predict(pairs)
-                
+
                 # Normalize cross-encoder scores to [0, 1] for blending
                 # Sigmoid is typical for CrossEncoders trained on MS MARCO
                 ce_scores_norm = 1 / (1 + np.exp(-ce_scores))
-                
+
                 # Blend scores
                 for entry, ce_score in zip(top_for_rerank, ce_scores_norm):
                     orig_score = entry["final_score"]
@@ -98,17 +103,23 @@ class CandidateRanker:
                     entry["bi_encoder_score"] = orig_score
                     entry["cross_encoder_score"] = float(ce_score)
                     entry["final_score"] = blended
-                    
+
                 # Re-sort top_for_rerank based on blended score
                 top_for_rerank.sort(key=lambda x: (-round(x["final_score"], 4), x["candidate"]["candidate_id"]))
-                
+
                 # Merge back
                 scored[:config.CROSS_ENCODER_TOP_K] = top_for_rerank
-                
-            except ImportError:
-                print("    Warning: sentence_transformers not installed, skipping cross-encoder")
-            except Exception as e:
-                print(f"    Warning: cross-encoder failed: {e}")
+                print(f"    Cross-encoder applied to {len(pairs)} candidates "
+                      f"(local={ce_is_local}) in {time.time() - ce_start:.1f}s")
+
+            except ImportError as e:
+                # A silent fallback would make the reproduced CSV differ from the
+                # submitted one. Fail loudly so the discrepancy can never happen.
+                raise RuntimeError(
+                    "sentence-transformers is required for cross-encoder re-ranking "
+                    "but is not installed. Install it, or set config.USE_CROSS_ENCODER=False "
+                    "and regenerate the submission so the CSV matches the code path."
+                ) from e
 
         # Take top 100
         top_k = scored[:config.TOP_K]
