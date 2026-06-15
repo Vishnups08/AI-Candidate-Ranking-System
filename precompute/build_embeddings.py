@@ -32,25 +32,25 @@ def build_profile_text(candidate: dict) -> str:
     """
     profile = candidate.get("profile", {})
     skills = candidate.get("skills", [])
-    career = candidate.get("career_history", [])[:3]
+    career = candidate.get("career_history", [])[:2]
 
+    # Order matters: the most reliable fit signal is title + summary + skills.
+    # The summary is where genuine candidates describe retrieval/ranking/recsys
+    # work in plain language. Role *descriptions* are largely scrambled filler in
+    # this dataset, so we include only a short snippet of the current role.
     parts = [
-        # Core identity
         f"{profile.get('current_title', '')} at {profile.get('current_company', '')}",
-        f"Industry: {profile.get('current_industry', '')}",
-        # Profile text
         profile.get("headline", ""),
         profile.get("summary", ""),
-        # Skills
-        "Skills: " + ", ".join(s.get("name", "") for s in skills[:15]),
-        # Career snippets (first 80 chars of each recent role description)
+        "Skills: " + ", ".join(s.get("name", "") for s in skills[:20]),
     ]
-    for role in career:
-        desc = role.get("description", "")[:80]
-        if desc:
-            parts.append(f"{role.get('title', '')}: {desc}")
+    if career:
+        snippet = career[0].get("description", "")[:160]
+        if snippet:
+            parts.append(f"Recent role: {career[0].get('title','')} — {snippet}")
 
-    return " ".join(p for p in parts if p).strip()
+    text = " ".join(p for p in parts if p).strip()
+    return text[:config.EMBEDDING_MAX_TEXT_LENGTH]
 
 
 def build_role_texts(candidate: dict) -> list[str]:
@@ -61,7 +61,7 @@ def build_role_texts(candidate: dict) -> list[str]:
         desc = role.get("description", "").strip()
         title = role.get("title", "").strip()
         if desc:
-            texts.append(f"{title}: {desc[:config.EMBEDDING_MAX_TEXT_LENGTH]}")
+            texts.append(f"{title}: {desc}"[:config.EMBEDDING_MAX_TEXT_LENGTH])
         elif title:
             texts.append(title)
     return texts
@@ -93,11 +93,12 @@ def main():
     print(f"Model: {config.EMBEDDING_MODEL}")
     print("=" * 60)
 
-    # Load model
+    # Load model (prefer the repo-local snapshot for offline reproducibility)
     print("\n[1/4] Loading embedding model...")
     start = time.time()
-    model = SentenceTransformer(config.EMBEDDING_MODEL)
-    print(f"  Model loaded in {time.time() - start:.1f}s")
+    _model_path = config._local_model_path(config.EMBEDDING_MODEL)
+    model = SentenceTransformer(_model_path, device="cpu")
+    print(f"  Model loaded from {_model_path} in {time.time() - start:.1f}s")
 
     # Load candidates
     print(f"\n[2/4] Loading candidates from {args.candidates}...")

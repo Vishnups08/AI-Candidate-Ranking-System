@@ -28,8 +28,9 @@ def main():
 
     print("Building JD embedding...")
 
-    # Load model
-    model = SentenceTransformer(config.EMBEDDING_MODEL)
+    # Load model (prefer the repo-local snapshot for offline reproducibility)
+    _model_path = config._local_model_path(config.EMBEDDING_MODEL)
+    model = SentenceTransformer(_model_path, device="cpu")
 
     # Get JD text
     jd = load_jd_requirements()

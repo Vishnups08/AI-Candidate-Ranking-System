@@ -3,6 +3,26 @@ Configuration for the Redrob AI Candidate Ranking Pipeline.
 All weights, thresholds, and constants in one place for easy tuning.
 """
 
+import os
+from pathlib import Path
+
+# =============================================================================
+# Offline model store
+# =============================================================================
+# Models are pre-downloaded into this repo-local directory by
+# precompute/download_models.py. The ranking step loads them from here with
+# local_files_only=True so it never touches the network (Stage-3 requirement).
+PROJECT_ROOT = Path(__file__).resolve().parent
+MODELS_DIR = PROJECT_ROOT / "models"
+
+
+def _local_model_path(repo_id: str) -> str:
+    """Return the repo-local snapshot path for a HF model id, or the id itself
+    if not yet downloaded (so the offline downloader can fetch it)."""
+    local = MODELS_DIR / repo_id.replace("/", "__")
+    return str(local) if local.exists() else repo_id
+
+
 # =============================================================================
 # Embedding Model
 # =============================================================================
@@ -13,15 +33,23 @@ EMBEDDING_DIM = 768
 EMBEDDING_QUERY_PREFIX = "Represent this job description for retrieval: "
 EMBEDDING_PASSAGE_PREFIX = "Represent this professional profile for retrieval: "
 
-# Max text length for embeddings (chars) — increased from 256 for richer signal
-EMBEDDING_MAX_TEXT_LENGTH = 512
+# Max text length for embeddings (chars). The candidate summary + skills carry
+# the real fit signal (genuine candidates describe retrieval/ranking work in the
+# summary); the career-role *descriptions* are largely scrambled filler in this
+# dataset, so we prioritize the coherent fields and cap modestly. 640 chars
+# keeps CPU precompute ~20 min for 28K candidates while preserving the signal.
+EMBEDDING_MAX_TEXT_LENGTH = 640
+# Cross-encoder document text can be a bit longer (only top-300 candidates).
+CROSS_ENCODER_MAX_TEXT_LENGTH = 900
 
 # =============================================================================
 # Cross-Encoder Re-Ranking
 # =============================================================================
 USE_CROSS_ENCODER = True
 CROSS_ENCODER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
-CROSS_ENCODER_TOP_K = 500
+# Only the top-50 affects 80% of the composite (NDCG@10/@50); 300 gives the
+# re-ranker enough headroom while staying well inside the 5-min CPU budget.
+CROSS_ENCODER_TOP_K = 300
 CROSS_ENCODER_WEIGHT = 0.3  # Weight of cross-encoder score in final rank (remaining is bi-encoder composite)
 
 # =============================================================================
