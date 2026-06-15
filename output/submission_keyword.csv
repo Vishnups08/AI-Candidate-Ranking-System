@@ -1,0 +1,101 @@
+candidate_id,rank,score,reasoning
+CAND_0018499,1,1.0971,"7 years applied ML/AI experience; career history shows production deployment at Zomato. Based in Noida, Uttar Pradesh; notice period 15 days."
+CAND_0002025,2,1.0964,"Strong fit: Senior AI Engineer with expertise in FAISS, TensorFlow, scikit-learn, OpenSearch; career includes Built and shipped a production recommendation system at a marketplace product, going from offline experimentation to .."
+CAND_0046525,3,1.0553,"Senior Machine Learning Engineer (6 yrs) with 5 relevant AI/ML skills; actively looking (open to work), based in Pune, Maharashtra."
+CAND_0052682,4,1.0287,Career trajectory shows progression in AI/ML: currently NLP Engineer at Aganitha with 7 years total experience. Matches the product-over-research profile the JD emphasizes.
+CAND_0071974,5,1.0287,"Senior AI Engineer with 8 years at product company Netflix; relevant skills include LoRA, Weaviate, Pinecone. Strong platform engagement (response rate 76%)."
+CAND_0055905,6,1.0275,8 years applied ML/AI experience; career history shows production deployment at Flipkart. Based in London; notice period 30 days.
+CAND_0081846,7,0.9937,"Strong fit: Lead AI Engineer with expertise in Data Science, Information Retrieval, Elasticsearch, PyTorch; career includes Built a RAG-based ranking pipeline serving 50M+ queries per month for an internal recruiter-facing search product."
+CAND_0079064,8,0.9867,"Senior Data Scientist (5 yrs) with 5 relevant AI/ML skills; actively looking (open to work), based in Noida, Uttar Pradesh."
+CAND_0079387,9,0.9741,Career trajectory shows progression in AI/ML: currently AI Engineer at Microsoft with 7 years total experience. Matches the product-over-research profile the JD emphasizes.
+CAND_0048558,10,0.9719,"Data Scientist with 7 years at product company Rephrase.ai; relevant skills include Information Retrieval, OpenSearch, Qdrant. Strong platform engagement (response rate 80%)."
+CAND_0011687,11,0.97,"Good match for AI engineering: Senior NLP Engineer at Niramai, 8 years. Strong engagement signals. Minor gap: limited recent activity."
+CAND_0077337,12,0.9697,"7 years in Fintech; Staff Machine Learning Engineer at Paytm. Relevant skills: Semantic Search, QLoRA, Pinecone. Good availability."
+CAND_0005538,13,0.9658,Senior AI Engineer with 5 relevant AI skills and 6 years experience. Product company background at Adobe. Response rate 81%.
+CAND_0037566,14,0.9649,"Solid profile: Machine Learning Engineer (7 yrs) with background in Internet. Pinecone, NLP expertise. Based in Bangalore, Karnataka."
+CAND_0010603,15,0.9647,"Good match for AI engineering: ML Engineer at BYJU'S, 5 years. Strong engagement signals. Minor gap: limited recent activity."
+CAND_0042029,16,0.9637,"6 years in E-commerce; Senior Data Scientist at Flipkart. Relevant skills: PyTorch, NLP, RAG. Good availability."
+CAND_0086022,17,0.9629,Senior Applied Scientist with 5 relevant AI skills and 5 years experience. Product company background at Sarvam AI. Response rate 55%.
+CAND_0044222,18,0.9617,"Solid profile: AI Engineer (8 yrs) with background in Insurance Tech. Vector Search, OpenSearch expertise. Based in Vizag, Andhra Pradesh."
+CAND_0074225,19,0.9604,"Good match for AI engineering: Machine Learning Engineer at Unacademy, 4 years. Strong engagement signals. Minor gap: notice period 120 days."
+CAND_0030348,20,0.9596,"4 years in EdTech; Machine Learning Engineer at BYJU'S. Relevant skills: Deep Learning, MLOps, PyTorch. Good availability."
+CAND_0004402,21,0.9586,AI Research Engineer with 5 relevant AI skills and 6 years experience. Product company background at Yellow.ai. Response rate 83%.
+CAND_0088025,22,0.9574,"Solid profile: Staff Machine Learning Engineer (9 yrs) with background in AI/ML. Pinecone, QLoRA expertise. Based in Jaipur, Rajasthan."
+CAND_0027801,23,0.9573,"Good match for AI engineering: NLP Engineer at InMobi, 7 years. Strong engagement signals. Minor gap: notice period 120 days."
+CAND_0006557,24,0.9569,"8 years in Fintech; NLP Engineer at Paytm. Relevant skills: Data Science, Elasticsearch, OpenSearch. Concern: 120-day notice period."
+CAND_0041669,25,0.9554,Recommendation Systems Engineer with 5 relevant AI skills and 8 years experience. Product company background at CRED. Response rate 77%.
+CAND_0027691,26,0.9553,"Solid profile: NLP Engineer (6 yrs) with background in Conversational AI. LoRA, Recommendation Systems expertise. Based in Pune, Maharashtra."
+CAND_0042100,27,0.9504,"Good match for AI engineering: Machine Learning Engineer at Freshworks, 7 years. Strong engagement signals. Minor gap: limited recent activity."
+CAND_0006418,28,0.9498,"6 years in Conversational AI; Machine Learning Engineer at Verloop.io. Relevant skills: Semantic Search, Embeddings, TensorFlow. Good availability."
+CAND_0070398,29,0.9497,Machine Learning Engineer with 5 relevant AI skills and 7 years experience. Product company background at Genpact AI. Response rate 60%.
+CAND_0028793,30,0.9493,"Solid profile: Search Engineer (7 yrs) with background in Internet. Embeddings, LoRA expertise. Based in Trivandrum, Kerala."
+CAND_0051004,31,0.9469,"Partial match: 5 yrs, Senior Data Scientist. Has production experience but skill overlap is moderate. Located in Delhi, Delhi."
+CAND_0098846,32,0.9464,"AI Engineer at upGrad (8 yrs). Relevant skills: Hugging Face Transformers, QLoRA. Trade-offs: moderate platform activity, response rate 62%."
+CAND_0068932,33,0.9456,"ML Engineer with 5 years experience at Krutrim. Some relevant skills (MLOps, Milvus). Weaker signals: lower engagement metrics."
+CAND_0037944,34,0.945,"Partial match: 5 yrs, Senior Data Scientist. Has production experience but skill overlap is moderate. Located in Jaipur, Rajasthan."
+CAND_0058688,35,0.9449,"AI Engineer at Vedantu (7 yrs). Relevant skills: scikit-learn, Embeddings. Trade-offs: moderate platform activity, response rate 74%."
+CAND_0093193,36,0.9419,"Senior Machine Learning Engineer with 8 years experience at Niramai. Some relevant skills (Ranking Systems, Qdrant). Weaker signals: lower engagement metrics."
+CAND_0018549,37,0.9393,"Partial match: 7 yrs, Recommendation Systems Engineer. Has production experience but skill overlap is moderate. Located in Coimbatore, Tamil Nadu."
+CAND_0020877,38,0.9391,"Applied ML Engineer at CRED (5 yrs). Relevant skills: QLoRA, Elasticsearch. Trade-offs: moderate platform activity, response rate 66%."
+CAND_0076163,39,0.9385,"NLP Engineer with 7 years experience at Ola. Some relevant skills (Weaviate, Semantic Search). Weaker signals: lower engagement metrics."
+CAND_0046064,40,0.9369,"Partial match: 9 yrs, Senior NLP Engineer. Has production experience but skill overlap is moderate. Located in Coimbatore, Tamil Nadu."
+CAND_0072688,41,0.9359,"Data Scientist at Niramai (7 yrs). Relevant skills: Milvus, Data Science. Trade-offs: moderate platform activity, response rate 87%."
+CAND_0040887,42,0.9347,"Machine Learning Engineer with 5 years experience at Netflix. Some relevant skills (FAISS, MLflow). Weaker signals: based outside preferred location."
+CAND_0006567,43,0.9331,"Partial match: 8 yrs, Senior AI Engineer. Has production experience but skill overlap is moderate. Located in Noida, Uttar Pradesh."
+CAND_0053591,44,0.9329,"AI Engineer at Ola (5 yrs). Relevant skills: Embeddings, Milvus. Trade-offs: moderate platform activity, response rate 81%."
+CAND_0054100,45,0.9327,"Junior ML Engineer with 6 years experience at Zoho. Some relevant skills (Vector Search, Semantic Search). Weaker signals: lower engagement metrics."
+CAND_0097176,46,0.9327,"Partial match: 6 yrs, ML Engineer. Has production experience but skill overlap is moderate. Located in Gurgaon, Haryana."
+CAND_0050454,47,0.9319,"AI Engineer at Rephrase.ai (7 yrs). Relevant skills: PyTorch, QLoRA. Trade-offs: moderate platform activity, response rate 77%."
+CAND_0096172,48,0.9319,"NLP Engineer with 5 years experience at Krutrim. Some relevant skills (OpenSearch, Elasticsearch). Weaker signals: lower engagement metrics."
+CAND_0036184,49,0.931,"Partial match: 6 yrs, Recommendation Systems Engineer. Has production experience but skill overlap is moderate. Located in Trivandrum, Kerala."
+CAND_0030784,50,0.9302,"Data Scientist at Yellow.ai (4 yrs). Relevant skills: Embeddings, RAG. Trade-offs: notice period 90 days, response rate 90%."
+CAND_0047721,51,0.9282,"Senior Data Scientist with 7 years experience at Microsoft. Some relevant skills (MLOps, Milvus). Weaker signals: lower engagement metrics."
+CAND_0011162,52,0.9272,"Partial match: 6 yrs, Recommendation Systems Engineer. Has production experience but skill overlap is moderate. Located in Coimbatore, Tamil Nadu."
+CAND_0066999,53,0.927,"Recommendation Systems Engineer at Microsoft (6 yrs). Relevant skills: OpenSearch, FAISS. Trade-offs: moderate platform activity, response rate 63%."
+CAND_0033445,54,0.9236,"ML Engineer with 7 years experience at Vedantu. Some relevant skills (Deep Learning, Information Retrieval). Weaker signals: lower engagement metrics."
+CAND_0099806,55,0.9236,"Partial match: 5 yrs, AI Engineer. Has production experience but skill overlap is moderate. Located in Bhubaneswar, Odisha."
+CAND_0015582,56,0.9223,"ML Engineer at Genpact AI (4 yrs). Relevant skills: Qdrant, Sentence Transformers. Trade-offs: notice period 120 days, response rate 82%."
+CAND_0010257,57,0.9219,"Senior Data Scientist with 6 years experience at Google. Some relevant skills (Milvus, TensorFlow). Weaker signals: lower engagement metrics."
+CAND_0064256,58,0.9207,"Partial match: 6 yrs, Junior ML Engineer. Has production experience but skill overlap is moderate. Located in Kolkata, West Bengal."
+CAND_0062247,59,0.9198,"AI Engineer at Google (7 yrs). Relevant skills: Pinecone, Vector Search. Trade-offs: moderate platform activity, response rate 78%."
+CAND_0015057,60,0.9195,"ML Engineer with 5 years experience at Meesho. Some relevant skills (Sentence Transformers, Vector Search). Weaker signals: lower engagement metrics."
+CAND_0015578,61,0.9193,"AI Engineer at Zoho; 5 years experience. Some relevant skills: Embeddings, NLP. Based in Delhi, Delhi, moderate engagement."
+CAND_0011432,62,0.919,Borderline candidate: 8 yrs as Senior Data Scientist. Has 5 relevant skills; some product company experience.
+CAND_0067866,63,0.9179,"Adjacent profile: Senior Software Engineer (ML) with 6 years, primarily in IT Services. Limited direct AI/ML experience but some relevant skills. Included for strong behavioral signals."
+CAND_0043860,64,0.9178,"Junior ML Engineer at Aganitha; 6 years experience. Some relevant skills: Semantic Search, Information Retrieval. Based in Bhubaneswar, Odisha, moderate engagement."
+CAND_0095619,65,0.9169,Borderline candidate: 16 yrs as NLP Engineer. Has 5 relevant skills; some product company experience.
+CAND_0005649,66,0.9132,"Adjacent profile: Senior Data Scientist with 7 years, primarily in AI/ML. Limited direct AI/ML experience but some relevant skills. Included for strong behavioral signals."
+CAND_0044855,67,0.9128,"Senior Data Scientist at Flipkart; 7 years experience. Some relevant skills: Hugging Face Transformers, OpenSearch. Based in Coimbatore, Tamil Nadu, moderate engagement."
+CAND_0064904,68,0.912,Borderline candidate: 5 yrs as AI Engineer. Has 5 relevant skills; some product company experience.
+CAND_0004972,69,0.9118,"Adjacent profile: ML Engineer with 6 years, primarily in AI/ML. Limited direct AI/ML experience but some relevant skills. Included for strong behavioral signals."
+CAND_0061655,70,0.9118,"Machine Learning Engineer at Krutrim; 5 years experience. Some relevant skills: Pinecone, Machine Learning. Based in Jaipur, Rajasthan, moderate engagement."
+CAND_0016163,71,0.9114,Borderline candidate: 7 yrs as Applied ML Engineer. Has 5 relevant skills; some product company experience.
+CAND_0030468,72,0.9107,"Adjacent profile: Senior Applied Scientist with 5 years, primarily in Food Delivery. Limited direct AI/ML experience but some relevant skills. Included for strong behavioral signals."
+CAND_0045887,73,0.9104,"Data Scientist at PharmEasy; 3 years experience. Some relevant skills: Fine-tuning LLMs, Embeddings. Based in Chennai, Tamil Nadu, moderate engagement."
+CAND_0065195,74,0.9096,Borderline candidate: 5 yrs as Search Engineer. Has 5 relevant skills; some product company experience.
+CAND_0087630,75,0.9089,"Adjacent profile: AI Engineer with 7 years, primarily in EdTech. Limited direct AI/ML experience but some relevant skills. Included for some skill overlap."
+CAND_0010149,76,0.9068,"ML Engineer at Glance; 7 years experience. Some relevant skills: Milvus, Vector Search. Based in Bangalore, Karnataka, moderate engagement."
+CAND_0024620,77,0.9066,Borderline candidate: 6 yrs as AI Engineer. Has 5 relevant skills; some product company experience.
+CAND_0039754,78,0.9059,"Adjacent profile: Senior Applied Scientist with 16 years, primarily in Internet. Limited direct AI/ML experience but some relevant skills. Included for strong behavioral signals."
+CAND_0014440,79,0.9053,"Recommendation Systems Engineer at CRED; 6 years experience. Some relevant skills: Elasticsearch, Milvus. Based in Chennai, Tamil Nadu, moderate engagement."
+CAND_0052328,80,0.9053,Borderline candidate: 6 yrs as Recommendation Systems Engineer. Has 5 relevant skills; some product company experience.
+CAND_0079284,81,0.9035,"Adjacent profile: Machine Learning Engineer with 5 years, primarily in Internet. Limited direct AI/ML experience but some relevant skills. Included for strong behavioral signals."
+CAND_0007411,82,0.9031,"Senior Machine Learning Engineer at Amazon; 8 years experience. Some relevant skills: OpenSearch, Fine-tuning LLMs. Based in Kochi, Kerala, limited recent platform activity."
+CAND_0081053,83,0.903,Borderline candidate: 5 yrs as NLP Engineer. Has 5 relevant skills; some product company experience.
+CAND_0074735,84,0.9024,"Adjacent profile: Applied ML Engineer with 6 years, primarily in AI/ML. Limited direct AI/ML experience but some relevant skills. Included for strong behavioral signals."
+CAND_0090155,85,0.901,"ML Engineer at Swiggy; 6 years experience. Some relevant skills: Milvus, Qdrant. Based in Pune, Maharashtra, moderate engagement."
+CAND_0030031,86,0.9008,Borderline candidate: 6 yrs as AI Engineer. Has 5 relevant skills; some product company experience.
+CAND_0081852,87,0.8999,"Adjacent profile: Senior Data Scientist with 6 years, primarily in AI/ML. Limited direct AI/ML experience but some relevant skills. Included for some skill overlap."
+CAND_0083879,88,0.8996,"Machine Learning Engineer at Ola; 7 years experience. Some relevant skills: MLOps, Fine-tuning LLMs. Based in Noida, Uttar Pradesh, moderate engagement."
+CAND_0017178,89,0.8981,Borderline candidate: 4 yrs as ML Engineer. Has 5 relevant skills; some product company experience.
+CAND_0007412,90,0.8973,"Adjacent profile: Applied ML Engineer with 7 years, primarily in SaaS. Limited direct AI/ML experience but some relevant skills. Included for strong behavioral signals."
+CAND_0033987,91,0.8969,"ML Engineer at Wysa; 7 years experience. Some relevant skills: Recommendation Systems, Deep Learning. Based in Delhi, Delhi, moderate engagement."
+CAND_0077285,92,0.8969,Borderline candidate: 6 yrs as Recommendation Systems Engineer. Has 5 relevant skills; some product company experience.
+CAND_0043637,93,0.8964,"Adjacent profile: Junior ML Engineer with 6 years, primarily in AI/ML. Limited direct AI/ML experience but some relevant skills. Included for strong behavioral signals."
+CAND_0093912,94,0.896,"Senior Data Scientist at Razorpay; 5 years experience. Some relevant skills: Milvus, Embeddings. Based in Chandigarh, Chandigarh, moderate engagement."
+CAND_0070514,95,0.8949,Borderline candidate: 6 yrs as AI Specialist. Has 5 relevant skills; some product company experience.
+CAND_0047492,96,0.8946,"Adjacent profile: ML Engineer with 5 years, primarily in Insurance Tech. Limited direct AI/ML experience but some relevant skills. Included for strong behavioral signals."
+CAND_0057563,97,0.8925,"NLP Engineer at Locobuzz; 7 years experience. Some relevant skills: Deep Learning, RAG. Based in Indore, Madhya Pradesh, moderate engagement."
+CAND_0033649,98,0.8921,Borderline candidate: 5 yrs as Data Scientist. Has 5 relevant skills; some product company experience.
+CAND_0050876,99,0.8919,"Adjacent profile: Applied ML Engineer with 6 years, primarily in SaaS. Limited direct AI/ML experience but some relevant skills. Included for strong behavioral signals."
+CAND_0092255,100,0.8919,"ML Engineer at InMobi; 5 years experience. Some relevant skills: Machine Learning, PyTorch. Based in Noida, Uttar Pradesh, moderate engagement."
