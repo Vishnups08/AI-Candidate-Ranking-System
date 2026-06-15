@@ -1,0 +1,1031 @@
+
+==============================================================================
+STRATUM: strong_title  (14 candidates)
+==============================================================================
+
+[CAND_0000273]  (stratum=strong_title)
+  Title       : ML Engineer @ BYJU'S (10001+)
+  Experience  : 5.8 yrs | Kolkata, West Bengal, India | industry: EdTech
+  Headline    : ML Engineer | 5.8 yrs in analytics & ML
+  Summary     : Data scientist / ML engineer with 5.8 years of experience in applied machine learning. Worked across predictive modeling, NLP, analytics, and lightweight deployment workflows. Most of my recent work has been on predictive modeling for customer-facing problems — churn, conversion, lifetime value. I'm strongest at the modeling and analysis side; comfortable with Python, scikit-learn, pandas, and sta
+  Skills      : TTS(adv), Forecasting(adv), Spring Boot(int), Fine-tuning LLMs(int), Feature Engineering(int), Diffusion Models(int), Redis(beg), Qdrant(int), Project Management(int), LlamaIndex(int), Scrum(beg), BentoML(int), Weights & Biases(adv), Object Detection(adv), Time Series(adv), Learning to Rank(int)
+  Role        : ML Engineer @ BYJU'S (32mo) — Built recommendation-style features at a mid-stage startup — lighter weight than ranking systems at FAANG, but production. Used a combination of collaborative filtering (matrix factorization in implicit-feedback library)
+  Role        : Senior Software Engineer (ML) @ Yellow.ai (37mo) — Worked on time-series forecasting models for supply-chain demand prediction at a logistics company. Built models in Prophet, LightGBM, and (for one project) a small LSTM — the LightGBM model ended up shipping. Also ran s
+  Signals     : open_to_work=True resp_rate=0.47 last_active=2026-05-07 notice=60d github=29.2 saved=31
+
+[CAND_0000422]  (stratum=strong_title)
+  Title       : AI Research Engineer @ Haptik (201-500)
+  Experience  : 6.3 yrs | Kolkata, West Bengal, India | industry: Conversational AI
+  Headline    : AI Research Engineer | Data Science & ML enthusiast
+  Summary     : Data scientist / ML engineer with 6.3 years of experience in applied machine learning. Worked across predictive modeling, NLP, analytics, and lightweight deployment workflows. My current role is split between dashboarding/analytics and shipping production ML models. I'm strongest at the modeling and analysis side; comfortable with Python, scikit-learn, pandas, and standard MLOps tooling, but I'm s
+  Skills      : MLflow(int), Python(adv), Photoshop(beg), Milvus(adv), Java(beg), OpenCV(adv), Learning to Rank(int), OpenSearch(int), CNN(int), YOLO(adv), Reinforcement Learning(adv)
+  Role        : AI Research Engineer @ Haptik (32mo) — Built NLP pipelines for sentiment analysis and document classification — primarily for an internal feedback-analytics dashboard. Started with sklearn-based bag-of-words models, then moved to transformer-based classifiers
+  Role        : Data Scientist @ Saarthi.ai (24mo) — Worked on customer-facing predictive modeling for an e-commerce platform — churn prediction, conversion likelihood, lifetime value estimation. Used scikit-learn and XGBoost; main models were gradient-boosted trees with ~
+  Role        : Data Scientist @ Rephrase.ai (19mo) — Built recommendation-style features at a mid-stage startup — lighter weight than ranking systems at FAANG, but production. Used a combination of collaborative filtering (matrix factorization in implicit-feedback library)
+  Signals     : open_to_work=True resp_rate=0.79 last_active=2026-03-24 notice=90d github=-1 saved=18
+
+[CAND_0000666]  (stratum=strong_title)
+  Title       : Data Scientist @ PhonePe (5001-10000)
+  Experience  : 6.5 yrs | Vizag, Andhra Pradesh, India | industry: Fintech
+  Headline    : Data Scientist | Building ML-powered solutions
+  Summary     : Data scientist / ML engineer with 6.5 years of experience in applied machine learning. Worked across predictive modeling, NLP, analytics, and lightweight deployment workflows. Most of my recent work has been on predictive modeling for customer-facing problems — churn, conversion, lifetime value. I'm strongest at the modeling and analysis side; comfortable with Python, scikit-learn, pandas, and sta
+  Skills      : LangChain(int), Sentence Transformers(adv), Time Series(adv), Computer Vision(adv), CNN(int), Feature Engineering(adv), SAP(beg), Reinforcement Learning(adv), JavaScript(int), Weaviate(adv), LoRA(int), Deep Learning(adv), Object Detection(int), MLflow(adv), Data Science(adv), PyTorch(adv), CSS(beg)
+  Role        : Data Scientist @ PhonePe (15mo) — Worked on customer-facing predictive modeling for an e-commerce platform — churn prediction, conversion likelihood, lifetime value estimation. Used scikit-learn and XGBoost; main models were gradient-boosted trees with ~
+  Role        : AI Research Engineer @ Flipkart (49mo) — Built computer vision models for our product's image moderation feature using PyTorch — fine-tuned ResNet variants on a labeled dataset of ~200K images. Set up the training pipeline (data loading, augmentation, evaluatio
+  Role        : ML Engineer @ upGrad (13mo) — Built recommendation-style features at a mid-stage startup — lighter weight than ranking systems at FAANG, but production. Used a combination of collaborative filtering (matrix factorization in implicit-feedback library)
+  Signals     : open_to_work=True resp_rate=0.29 last_active=2026-02-23 notice=60d github=49.3 saved=5
+
+[CAND_0000981]  (stratum=strong_title)
+  Title       : ML Engineer @ Wysa (51-200)
+  Experience  : 6.4 yrs | Bhubaneswar, Odisha, India | industry: HealthTech AI
+  Headline    : ML Engineer | Data Science & ML enthusiast
+  Summary     : Data scientist / ML engineer with 6.4 years of experience in applied machine learning. Worked across predictive modeling, NLP, analytics, and lightweight deployment workflows. I've been working on recommendation-style features but lighter on the deep-learning side — mostly classical methods like collaborative filtering and gradient-boosted models. I'm strongest at the modeling and analysis side; c
+  Skills      : Semantic Search(adv), Computer Vision(adv), Image Classification(int), SQL(int), Data Science(int), scikit-learn(int), GANs(int), pgvector(adv), Pinecone(adv), Next.js(beg), Airflow(int), OpenSearch(adv), MLflow(int), OpenCV(int)
+  Role        : ML Engineer @ Wysa (42mo) — Built recommendation-style features at a mid-stage startup — lighter weight than ranking systems at FAANG, but production. Used a combination of collaborative filtering (matrix factorization in implicit-feedback library)
+  Role        : Senior Software Engineer (ML) @ Zoho (34mo) — Built NLP pipelines for sentiment analysis and document classification — primarily for an internal feedback-analytics dashboard. Started with sklearn-based bag-of-words models, then moved to transformer-based classifiers
+  Signals     : open_to_work=False resp_rate=0.55 last_active=2026-02-20 notice=120d github=70.3 saved=1
+
+[CAND_0001131]  (stratum=strong_title)
+  Title       : ML Engineer @ Wysa (51-200)
+  Experience  : 5.8 yrs | Chennai, Tamil Nadu, India | industry: HealthTech AI
+  Headline    : ML Engineer | Building ML-powered solutions
+  Summary     : Data scientist / ML engineer with 5.8 years of experience in applied machine learning. Worked across predictive modeling, NLP, analytics, and lightweight deployment workflows. I've spent the last couple of years building NLP-based classification and information extraction pipelines. I'm strongest at the modeling and analysis side; comfortable with Python, scikit-learn, pandas, and standard MLOps t
+  Skills      : Semantic Search(int), Speech Recognition(adv), Computer Vision(int), Vector Search(adv), RAG(adv), Time Series(int), PyTorch(adv), Kubeflow(int), LoRA(int), Data Science(int), Next.js(beg)
+  Role        : ML Engineer @ Wysa (43mo) — Built computer vision models for our product's image moderation feature using PyTorch — fine-tuned ResNet variants on a labeled dataset of ~200K images. Set up the training pipeline (data loading, augmentation, evaluatio
+  Role        : Data Scientist @ Ola (26mo) — Worked on customer-facing predictive modeling for an e-commerce platform — churn prediction, conversion likelihood, lifetime value estimation. Used scikit-learn and XGBoost; main models were gradient-boosted trees with ~
+  Signals     : open_to_work=True resp_rate=0.58 last_active=2026-03-27 notice=90d github=51.2 saved=28
+
+[CAND_0001151]  (stratum=strong_title)
+  Title       : Junior ML Engineer @ Aganitha (51-200)
+  Experience  : 5.0 yrs | Chennai, Tamil Nadu, India | industry: AI/ML
+  Headline    : Junior ML Engineer | Building ML-powered solutions
+  Summary     : Data scientist / ML engineer with 5.0 years of experience in applied machine learning. Worked across predictive modeling, NLP, analytics, and lightweight deployment workflows. Most of my recent work has been on predictive modeling for customer-facing problems — churn, conversion, lifetime value. I'm strongest at the modeling and analysis side; comfortable with Python, scikit-learn, pandas, and sta
+  Skills      : BM25(int), Statistical Modeling(adv), MLflow(int), Weights & Biases(int), CNN(adv), pgvector(int), OpenCV(adv), ASR(adv), Milvus(adv), Kubeflow(adv), Docker(int), Object Detection(int), LlamaIndex(int)
+  Role        : Junior ML Engineer @ Aganitha (19mo) — Built recommendation-style features at a mid-stage startup — lighter weight than ranking systems at FAANG, but production. Used a combination of collaborative filtering (matrix factorization in implicit-feedback library)
+  Role        : Data Scientist @ Haptik (22mo) — Worked on time-series forecasting models for supply-chain demand prediction at a logistics company. Built models in Prophet, LightGBM, and (for one project) a small LSTM — the LightGBM model ended up shipping. Also ran s
+  Role        : Senior Software Engineer (ML) @ Wysa (18mo) — Contributed to ML feature engineering and model deployment for a fraud-detection product. My main role was engineering: building the Flask-based prediction API, integrating with the feature store, and writing the model-s
+  Signals     : open_to_work=False resp_rate=0.56 last_active=2026-03-21 notice=45d github=-1 saved=35
+
+[CAND_0001494]  (stratum=strong_title)
+  Title       : Data Scientist @ Haptik (201-500)
+  Experience  : 6.4 yrs | Kochi, Kerala, India | industry: Conversational AI
+  Headline    : Data Scientist | Building ML-powered solutions
+  Summary     : Data scientist / ML engineer with 6.4 years of experience in applied machine learning. Worked across predictive modeling, NLP, analytics, and lightweight deployment workflows. I've spent the last couple of years building NLP-based classification and information extraction pipelines. I'm strongest at the modeling and analysis side; comfortable with Python, scikit-learn, pandas, and standard MLOps t
+  Skills      : MLflow(adv), Sales(beg), CNN(int), Vector Search(adv), Kubeflow(adv), PEFT(adv), Forecasting(adv), Weaviate(int), React(int), RAG(int), OpenCV(adv), GANs(int), Time Series(adv), NLP(int)
+  Role        : Data Scientist @ Haptik (38mo) — Built recommendation-style features at a mid-stage startup — lighter weight than ranking systems at FAANG, but production. Used a combination of collaborative filtering (matrix factorization in implicit-feedback library)
+  Role        : Junior ML Engineer @ Wysa (38mo) — Built recommendation-style features at a mid-stage startup — lighter weight than ranking systems at FAANG, but production. Used a combination of collaborative filtering (matrix factorization in implicit-feedback library)
+  Signals     : open_to_work=True resp_rate=0.3 last_active=2026-02-24 notice=90d github=53.4 saved=16
+
+[CAND_0001651]  (stratum=strong_title)
+  Title       : Data Scientist @ Meesho (1001-5000)
+  Experience  : 6.5 yrs | Hyderabad, Telangana, India | industry: E-commerce
+  Headline    : Data Scientist | Data Science & ML enthusiast
+  Summary     : Data scientist / ML engineer with 6.5 years of experience in applied machine learning. Worked across predictive modeling, NLP, analytics, and lightweight deployment workflows. I've spent the last couple of years building NLP-based classification and information extraction pipelines. I'm strongest at the modeling and analysis side; comfortable with Python, scikit-learn, pandas, and standard MLOps t
+  Skills      : Weaviate(adv), Recommendation Systems(adv), QLoRA(int), SAP(beg), Sales(int), Speech Recognition(int), scikit-learn(int), Image Classification(int), Reinforcement Learning(int), Object Detection(adv), Databricks(beg), Kubeflow(int)
+  Role        : Data Scientist @ Meesho (14mo) — Contributed to ML feature engineering and model deployment for a fraud-detection product. My main role was engineering: building the Flask-based prediction API, integrating with the feature store, and writing the model-s
+  Role        : Computer Vision Engineer @ Rephrase.ai (14mo) — Contributed to ML feature engineering and model deployment for a fraud-detection product. My main role was engineering: building the Flask-based prediction API, integrating with the feature store, and writing the model-s
+  Role        : AI Research Engineer @ Swiggy (49mo) — Worked on time-series forecasting models for supply-chain demand prediction at a logistics company. Built models in Prophet, LightGBM, and (for one project) a small LSTM — the LightGBM model ended up shipping. Also ran s
+  Signals     : open_to_work=False resp_rate=0.51 last_active=2026-03-27 notice=90d github=-1 saved=9
+
+[CAND_0001707]  (stratum=strong_title)
+  Title       : Data Scientist @ Vedantu (1001-5000)
+  Experience  : 5.6 yrs | Pune, Maharashtra, India | industry: EdTech
+  Headline    : Data Scientist | Data Science & ML enthusiast
+  Summary     : Data scientist / ML engineer with 5.6 years of experience in applied machine learning. Worked across predictive modeling, NLP, analytics, and lightweight deployment workflows. I've been working on recommendation-style features but lighter on the deep-learning side — mostly classical methods like collaborative filtering and gradient-boosted models. I'm strongest at the modeling and analysis side; c
+  Skills      : OpenCV(int), Sentence Transformers(adv), Image Classification(adv), Flask(beg), TTS(int), BentoML(adv), Time Series(adv), Feature Engineering(adv), Statistical Modeling(int), QLoRA(int), FAISS(adv), MLflow(int), Photoshop(beg), Weaviate(adv)
+  Role        : Data Scientist @ Vedantu (27mo) — Built NLP pipelines for sentiment analysis and document classification — primarily for an internal feedback-analytics dashboard. Started with sklearn-based bag-of-words models, then moved to transformer-based classifiers
+  Role        : ML Engineer @ Paytm (39mo) — Built computer vision models for our product's image moderation feature using PyTorch — fine-tuned ResNet variants on a labeled dataset of ~200K images. Set up the training pipeline (data loading, augmentation, evaluatio
+  Signals     : open_to_work=True resp_rate=0.48 last_active=2026-02-27 notice=90d github=-1 saved=19
+
+[CAND_0002025]  (stratum=strong_title)
+  Title       : Senior AI Engineer @ Apple (10001+)
+  Experience  : 5.9 yrs | Trivandrum, Kerala, India | industry: Consumer Electronics
+  Headline    : Senior AI Engineer | Building AI-native search & ranking systems
+  Summary     : Senior AI engineer with 5.9 years of hands-on experience building production ML systems, with a focus on search, retrieval, and ranking. Most recently, I designed the company's first hybrid retrieval system combining BM25 with dense vector recall, across a corpus of 30M+ candidate profiles. My day-to-day work spans embedding model selection and fine-tuning, hybrid retrieval architecture, learning-
+  Skills      : Diffusion Models(int), FAISS(exp), TensorFlow(exp), scikit-learn(exp), OpenSearch(adv), Haystack(exp), Weaviate(adv), Sentence Transformers(exp), QLoRA(exp), NLP(exp), Pinecone(adv), Recommendation Systems(exp), Deep Learning(exp), Python(exp), LangChain(exp), Weights & Biases(adv), OpenCV(adv), Prompt Engineering(adv)
+  Role        : Senior AI Engineer @ Apple (42mo) — Built and shipped a production recommendation system at a marketplace product, going from offline experimentation to live A/B test in 5 months. The system combined collaborative filtering (matrix factorization), content-
+  Role        : Lead AI Engineer @ Aganitha (28mo) — Fine-tuned LLaMA-2-7B and Mistral-7B variants using LoRA and QLoRA for domain-specific candidate-JD matching. Built the data curation pipeline that generated 200K high-quality preference pairs from recruiter labels, plus
+  Signals     : open_to_work=True resp_rate=0.8 last_active=2026-05-26 notice=30d github=96.9 saved=22
+
+[CAND_0002037]  (stratum=strong_title)
+  Title       : ML Engineer @ Locobuzz (51-200)
+  Experience  : 5.5 yrs | Indore, Madhya Pradesh, India | industry: AI/ML
+  Headline    : ML Engineer | Data Science & ML enthusiast
+  Summary     : Data scientist / ML engineer with 5.5 years of experience in applied machine learning. Worked across predictive modeling, NLP, analytics, and lightweight deployment workflows. I've spent the last couple of years building NLP-based classification and information extraction pipelines. I'm strongest at the modeling and analysis side; comfortable with Python, scikit-learn, pandas, and standard MLOps t
+  Skills      : Fine-tuning LLMs(int), pgvector(adv), CNN(adv), Computer Vision(adv), gRPC(int), Time Series(adv), MLOps(int), OpenCV(int), Milvus(int), Deep Learning(adv), Figma(int), TTS(int), Machine Learning(adv), Object Detection(int), Pinecone(adv), Elasticsearch(int), LoRA(int)
+  Role        : ML Engineer @ Locobuzz (31mo) — Built NLP pipelines for sentiment analysis and document classification — primarily for an internal feedback-analytics dashboard. Started with sklearn-based bag-of-words models, then moved to transformer-based classifiers
+  Role        : AI Specialist @ upGrad (34mo) — Built recommendation-style features at a mid-stage startup — lighter weight than ranking systems at FAANG, but production. Used a combination of collaborative filtering (matrix factorization in implicit-feedback library)
+  Signals     : open_to_work=False resp_rate=0.37 last_active=2026-04-17 notice=60d github=29.5 saved=37
+
+[CAND_0002120]  (stratum=strong_title)
+  Title       : ML Engineer @ HCL (10001+)
+  Experience  : 6.5 yrs | Berlin, Germany | industry: IT Services
+  Headline    : ML Engineer | 6.5 yrs in analytics & ML
+  Summary     : Data scientist / ML engineer with 6.5 years of experience in applied machine learning. Worked across predictive modeling, NLP, analytics, and lightweight deployment workflows. I've been working on recommendation-style features but lighter on the deep-learning side — mostly classical methods like collaborative filtering and gradient-boosted models. I'm strongest at the modeling and analysis side; c
+  Skills      : RAG(adv), ETL(int), Hugging Face Transformers(int), Information Retrieval(adv), Six Sigma(int), Pinecone(adv), Reinforcement Learning(adv), Data Science(int), Object Detection(int), Statistical Modeling(adv), PostgreSQL(beg), Embeddings(int), Webpack(int), Qdrant(int)
+  Role        : ML Engineer @ HCL (31mo) — Built NLP pipelines for sentiment analysis and document classification — primarily for an internal feedback-analytics dashboard. Started with sklearn-based bag-of-words models, then moved to transformer-based classifiers
+  Role        : AI Specialist @ BYJU'S (46mo) — Built recommendation-style features at a mid-stage startup — lighter weight than ranking systems at FAANG, but production. Used a combination of collaborative filtering (matrix factorization in implicit-feedback library)
+  Signals     : open_to_work=True resp_rate=0.72 last_active=2026-05-20 notice=45d github=50.4 saved=29
+
+[CAND_0002526]  (stratum=strong_title)
+  Title       : Data Scientist @ Wipro (10001+)
+  Experience  : 5.4 yrs | Vizag, Andhra Pradesh, India | industry: IT Services
+  Headline    : Data Scientist | Building ML-powered solutions
+  Summary     : Data scientist / ML engineer with 5.4 years of experience in applied machine learning. Worked across predictive modeling, NLP, analytics, and lightweight deployment workflows. I've spent the last couple of years building NLP-based classification and information extraction pipelines. I'm strongest at the modeling and analysis side; comfortable with Python, scikit-learn, pandas, and standard MLOps t
+  Skills      : Computer Vision(int), Semantic Search(int), Embeddings(int), BM25(int), MLOps(adv), Apache Flink(beg), Data Science(adv), Statistical Modeling(int), MLflow(adv), CNN(adv), PEFT(adv), Fine-tuning LLMs(adv)
+  Role        : Data Scientist @ Wipro (27mo) — Worked on customer-facing predictive modeling for an e-commerce platform — churn prediction, conversion likelihood, lifetime value estimation. Used scikit-learn and XGBoost; main models were gradient-boosted trees with ~
+  Role        : AI Specialist @ PharmEasy (25mo) — Worked on customer-facing predictive modeling for an e-commerce platform — churn prediction, conversion likelihood, lifetime value estimation. Used scikit-learn and XGBoost; main models were gradient-boosted trees with ~
+  Role        : Data Scientist @ upGrad (12mo) — Worked on time-series forecasting models for supply-chain demand prediction at a logistics company. Built models in Prophet, LightGBM, and (for one project) a small LSTM — the LightGBM model ended up shipping. Also ran s
+  Signals     : open_to_work=True resp_rate=0.68 last_active=2026-04-27 notice=45d github=68.9 saved=19
+
+[CAND_0002706]  (stratum=strong_title)
+  Title       : Junior ML Engineer @ Zoho (10001+)
+  Experience  : 6.9 yrs | Trivandrum, Kerala, India | industry: SaaS
+  Headline    : Junior ML Engineer | 6.9 yrs in analytics & ML
+  Summary     : Data scientist / ML engineer with 6.9 years of experience in applied machine learning. Worked across predictive modeling, NLP, analytics, and lightweight deployment workflows. My current role is split between dashboarding/analytics and shipping production ML models. I'm strongest at the modeling and analysis side; comfortable with Python, scikit-learn, pandas, and standard MLOps tooling, but I'm s
+  Skills      : Six Sigma(int), TensorFlow(adv), LLMs(int), dbt(int), PostgreSQL(int), GANs(int), Semantic Search(int), Haystack(int), Fine-tuning LLMs(adv), MLflow(int), Time Series(adv), CNN(adv), Prompt Engineering(adv), Object Detection(int), Data Science(int)
+  Role        : Junior ML Engineer @ Zoho (24mo) — Worked on time-series forecasting models for supply-chain demand prediction at a logistics company. Built models in Prophet, LightGBM, and (for one project) a small LSTM — the LightGBM model ended up shipping. Also ran s
+  Role        : Junior ML Engineer @ InMobi (48mo) — Worked on customer-facing predictive modeling for an e-commerce platform — churn prediction, conversion likelihood, lifetime value estimation. Used scikit-learn and XGBoost; main models were gradient-boosted trees with ~
+  Role        : ML Engineer @ BYJU'S (10mo) — Worked on customer-facing predictive modeling for an e-commerce platform — churn prediction, conversion likelihood, lifetime value estimation. Used scikit-learn and XGBoost; main models were gradient-boosted trees with ~
+  Signals     : open_to_work=True resp_rate=0.58 last_active=2026-05-22 notice=90d github=78.9 saved=34
+
+==============================================================================
+STRATUM: plain_language  (14 candidates)
+==============================================================================
+
+[CAND_0000002]  (stratum=plain_language)
+  Title       : Operations Manager @ Wipro (10001+)
+  Experience  : 12.5 yrs | Chennai, Tamil Nadu, India | industry: IT Services
+  Headline    : Operations Manager | 12.5+ yrs experience
+  Summary     : Professional with 12.5+ years of experience. My professional background is in marketing manager — I've built and led teams, owned KPIs, and driven business outcomes in this domain. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I ca
+  Skills      : Project Management(int), React(int), Photoshop(int), TypeScript(beg), Marketing(beg), Kafka(int), JavaScript(beg), Feature Engineering(int), GCP(int)
+  Role        : Operations Manager @ Wipro (43mo) — Customer support team lead at a SaaS product. Managed a team of 8 support agents handling tier-1 and tier-2 tickets; owned the escalation process to engineering and the customer-feedback loop to product. Built out the su
+  Role        : Operations Manager @ Wipro (14mo) — Mechanical engineering design role at a hardware-product company. Led the design of two product subsystems through full lifecycle: concept, DFM/DFMA review, prototype, production tooling. Comfortable with CAD (SolidWorks
+  Role        : Marketing Manager @ Acme Corp (54mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Signals     : open_to_work=True resp_rate=0.29 last_active=2025-11-12 notice=60d github=-1 saved=10
+
+[CAND_0000031]  (stratum=plain_language)
+  Title       : Recommendation Systems Engineer @ Swiggy (5001-10000)
+  Experience  : 6.0 yrs | Hyderabad, Telangana, India | industry: Food Delivery
+  Headline    : Recommendation Systems Engineer | Search, Ranking & Retrieval
+  Summary     : Machine learning engineer with 6.0 years of experience building ML-powered features in production. Strong background in NLP, recommendation systems, and applied AI; comfortable across the ML stack from feature engineering through deployment. Recently, I led the team that migrated our keyword-search-based product to embedding-based retrieval. I've learned that most retrieval problems are actually e
+  Skills      : Go(int), MLflow(adv), FAISS(adv), Pinecone(exp), Angular(beg), Image Classification(adv), Machine Learning(adv), Speech Recognition(int), BentoML(int), MLOps(int), Embeddings(exp), Information Retrieval(exp), Hugging Face Transformers(exp), Feature Engineering(adv), Sentence Transformers(exp), scikit-learn(adv), Marketing(int)
+  Role        : Recommendation Systems Engineer @ Swiggy (14mo) — Trained and shipped multiple ranking models for our product's discovery feed using XGBoost and LightGBM. Designed features across three families: content metadata, user behavior signals, and item engagement history. Owne
+  Role        : Search Engineer @ Mad Street Den (16mo) — Trained and shipped multiple ranking models for our product's discovery feed using XGBoost and LightGBM. Designed features across three families: content metadata, user behavior signals, and item engagement history. Owne
+  Role        : NLP Engineer @ Uber (27mo) — Trained and shipped multiple ranking models for our product's discovery feed using XGBoost and LightGBM. Designed features across three families: content metadata, user behavior signals, and item engagement history. Owne
+  Signals     : open_to_work=True resp_rate=0.91 last_active=2026-05-24 notice=60d github=32.6 saved=13
+
+[CAND_0000138]  (stratum=plain_language)
+  Title       : Business Analyst @ Wayne Enterprises (10001+)
+  Experience  : 8.3 yrs | Bhubaneswar, Odisha, India | industry: Conglomerate
+  Headline    : Business Analyst | 8.3+ yrs experience
+  Summary     : Professional with 8.3+ years of experience. I've spent my career in marketing manager roles, mostly focused on driving outcomes through process, people, and customer relationships. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I ca
+  Skills      : Spark(int), SQL(beg), Accounting(beg), GCP(beg), Marketing(beg), gRPC(int), Angular(beg), Rust(beg), PowerPoint(int), BigQuery(int)
+  Role        : Business Analyst @ Wayne Enterprises (34mo) — Operations management role at a logistics company. Owned daily fulfillment operations across 3 warehouses, managing a team of 80 across receiving, picking, packing, and outbound. Built and tracked the operational KPIs (o
+  Role        : Business Analyst @ Globex Inc (40mo) — Business analyst at a consulting firm, working primarily with retail and CPG clients. Conducted business diagnostics, process re-engineering work, and digital transformation strategy projects. Strong on stakeholder manag
+  Role        : Marketing Manager @ Wipro (24mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Signals     : open_to_work=False resp_rate=0.75 last_active=2026-05-20 notice=120d github=0.2 saved=1
+
+[CAND_0000230]  (stratum=plain_language)
+  Title       : Project Manager @ Dunder Mifflin (201-500)
+  Experience  : 1.9 yrs | Chennai, Tamil Nadu, India | industry: Paper Products
+  Headline    : Project Manager | Helping teams scale
+  Summary     : Professional with 1.9+ years of experience. My professional background is in marketing manager — I've built and led teams, owned KPIs, and driven business outcomes in this domain. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can
+  Skills      : Salesforce CRM(int), Tailwind(int), Docker(int), Flask(int), MLOps(adv), Vue.js(int)
+  Role        : Project Manager @ Dunder Mifflin (22mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Signals     : open_to_work=False resp_rate=0.16 last_active=2025-11-03 notice=90d github=36.4 saved=3
+
+[CAND_0000235]  (stratum=plain_language)
+  Title       : Business Analyst @ Dunder Mifflin (201-500)
+  Experience  : 10.4 yrs | Mumbai, Maharashtra, India | industry: Paper Products
+  Headline    : Business Analyst | 10.4+ yrs experience
+  Summary     : Professional with 10.4+ years of experience. I've spent my career in marketing manager roles, mostly focused on driving outcomes through process, people, and customer relationships. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I c
+  Skills      : FastAPI(beg), Hadoop(beg), Spring Boot(int), Django(int), Tally(beg), GCP(int), Spark(beg), Azure(beg), Speech Recognition(int), ETL(int), dbt(beg)
+  Role        : Business Analyst @ Dunder Mifflin (43mo) — Operations management role at a logistics company. Owned daily fulfillment operations across 3 warehouses, managing a team of 80 across receiving, picking, packing, and outbound. Built and tracked the operational KPIs (o
+  Role        : Project Manager @ TCS (34mo) — Business analyst at a consulting firm, working primarily with retail and CPG clients. Conducted business diagnostics, process re-engineering work, and digital transformation strategy projects. Strong on stakeholder manag
+  Role        : Marketing Manager @ Infosys (39mo) — Marketing leadership role at a B2B SaaS company. Owned the demand-generation function — content marketing, paid acquisition, SEO, email nurture. Built and managed a team of 5 across content, performance marketing, and ma
+  Signals     : open_to_work=False resp_rate=0.6 last_active=2025-11-23 notice=30d github=22.5 saved=0
+
+[CAND_0000237]  (stratum=plain_language)
+  Title       : Mechanical Engineer @ Pied Piper (11-50)
+  Experience  : 14.9 yrs | Kolkata, West Bengal, India | industry: Software
+  Headline    : Mechanical Engineer | 14.9+ yrs experience
+  Summary     : Professional with 14.9+ years of experience. My professional background is in marketing manager — I've built and led teams, owned KPIs, and driven business outcomes in this domain. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I ca
+  Skills      : Redux(beg), Illustrator(int), React(int), Django(int), Excel(int)
+  Role        : Mechanical Engineer @ Pied Piper (16mo) — Brand design and creative direction at a consumer-products company. Owned brand identity (logo, visual system, typography), packaging design, and digital creative across web and social. Led the recent rebrand and managed
+  Role        : Customer Support @ Dunder Mifflin (46mo) — Enterprise sales of cloud software solutions into the mid-market segment. Carried a $1.8M ARR quota and consistently delivered against it across the last three years. Owned the full sales cycle: prospecting, discovery, t
+  Role        : HR Manager @ Globex Inc (20mo) — Customer support team lead at a SaaS product. Managed a team of 8 support agents handling tier-1 and tier-2 tickets; owned the escalation process to engineering and the customer-feedback loop to product. Built out the su
+  Signals     : open_to_work=False resp_rate=0.2 last_active=2025-11-14 notice=90d github=-1 saved=1
+
+[CAND_0000241]  (stratum=plain_language)
+  Title       : Content Writer @ Wipro (10001+)
+  Experience  : 7.7 yrs | Hyderabad, Telangana, India | industry: IT Services
+  Headline    : Content Writer | Driving business outcomes
+  Summary     : Professional with 7.7+ years of experience. My professional background is in marketing manager — I've built and led teams, owned KPIs, and driven business outcomes in this domain. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can
+  Skills      : CI/CD(beg), Figma(int), Django(int), Agile(beg), ETL(int), YOLO(int), gRPC(beg)
+  Role        : Content Writer @ Wipro (50mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Role        : Civil Engineer @ Stark Industries (26mo) — Marketing leadership role at a B2B SaaS company. Owned the demand-generation function — content marketing, paid acquisition, SEO, email nurture. Built and managed a team of 5 across content, performance marketing, and ma
+  Role        : Marketing Manager @ Globex Inc (15mo) — Marketing leadership role at a B2B SaaS company. Owned the demand-generation function — content marketing, paid acquisition, SEO, email nurture. Built and managed a team of 5 across content, performance marketing, and ma
+  Signals     : open_to_work=False resp_rate=0.3 last_active=2025-10-03 notice=120d github=-1 saved=1
+
+[CAND_0000242]  (stratum=plain_language)
+  Title       : Project Manager @ Globex Inc (501-1000)
+  Experience  : 9.1 yrs | Kochi, Kerala, India | industry: Manufacturing
+  Headline    : Project Manager | 9.1+ yrs experience
+  Summary     : Professional with 9.1+ years of experience. My professional background is in marketing manager — I've built and led teams, owned KPIs, and driven business outcomes in this domain. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can
+  Skills      : Django(int), Redis(beg), Kubernetes(int), Node.js(int), Illustrator(int), Terraform(int), Apache Flink(int), Object Detection(adv), REST APIs(int), Spark(beg)
+  Role        : Project Manager @ Globex Inc (22mo) — Brand design and creative direction at a consumer-products company. Owned brand identity (logo, visual system, typography), packaging design, and digital creative across web and social. Led the recent rebrand and managed
+  Role        : Graphic Designer @ Initech (44mo) — Mechanical engineering design role at a hardware-product company. Led the design of two product subsystems through full lifecycle: concept, DFM/DFMA review, prototype, production tooling. Comfortable with CAD (SolidWorks
+  Role        : Project Manager @ Dunder Mifflin (18mo) — Marketing leadership role at a B2B SaaS company. Owned the demand-generation function — content marketing, paid acquisition, SEO, email nurture. Built and managed a team of 5 across content, performance marketing, and ma
+  Signals     : open_to_work=True resp_rate=0.38 last_active=2026-02-11 notice=30d github=-1 saved=4
+
+[CAND_0000276]  (stratum=plain_language)
+  Title       : Marketing Manager @ Globex Inc (501-1000)
+  Experience  : 1.6 yrs | Mumbai, Maharashtra, India | industry: Manufacturing
+  Headline    : Marketing Manager | Helping teams scale
+  Summary     : Professional with 1.6+ years of experience. I've spent my career in marketing manager roles, mostly focused on driving outcomes through process, people, and customer relationships. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I ca
+  Skills      : Data Pipelines(beg), Microservices(beg), Tally(beg), ETL(int), MongoDB(beg)
+  Role        : Marketing Manager @ Globex Inc (19mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Signals     : open_to_work=True resp_rate=0.48 last_active=2026-02-23 notice=90d github=-1 saved=1
+
+[CAND_0000289]  (stratum=plain_language)
+  Title       : Content Writer @ Pied Piper (11-50)
+  Experience  : 13.3 yrs | Hyderabad, Telangana, India | industry: Software
+  Headline    : Content Writer | 13.3+ yrs experience
+  Summary     : Professional with 13.3+ years of experience. I'm a marketing manager with substantial experience in cross-functional collaboration, stakeholder management, and execution. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can apply my
+  Skills      : Spark(beg), MongoDB(beg), Go(beg), Illustrator(int), Salesforce CRM(int)
+  Role        : Content Writer @ Pied Piper (30mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Role        : Graphic Designer @ Dunder Mifflin (13mo) — Mechanical engineering design role at a hardware-product company. Led the design of two product subsystems through full lifecycle: concept, DFM/DFMA review, prototype, production tooling. Comfortable with CAD (SolidWorks
+  Role        : Mechanical Engineer @ Wipro (44mo) — Enterprise sales of cloud software solutions into the mid-market segment. Carried a $1.8M ARR quota and consistently delivered against it across the last three years. Owned the full sales cycle: prospecting, discovery, t
+  Signals     : open_to_work=False resp_rate=0.24 last_active=2025-10-16 notice=90d github=-1 saved=11
+
+[CAND_0000314]  (stratum=plain_language)
+  Title       : Business Analyst @ Wayne Enterprises (10001+)
+  Experience  : 11.7 yrs | Chandigarh, Chandigarh, India | industry: Conglomerate
+  Headline    : Business Analyst | Helping teams scale
+  Summary     : Professional with 11.7+ years of experience. I'm a marketing manager with substantial experience in cross-functional collaboration, stakeholder management, and execution. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can apply my
+  Skills      : PostgreSQL(int), Kubernetes(beg), Project Management(int), Django(int), Apache Beam(int), CNN(adv), Airflow(int), Marketing(beg), Spark(beg), Docker(beg), Rust(beg)
+  Role        : Business Analyst @ Wayne Enterprises (48mo) — Customer support team lead at a SaaS product. Managed a team of 8 support agents handling tier-1 and tier-2 tickets; owned the escalation process to engineering and the customer-feedback loop to product. Built out the su
+  Role        : Content Writer @ Acme Corp (45mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Role        : Graphic Designer @ Globex Inc (36mo) — Marketing leadership role at a B2B SaaS company. Owned the demand-generation function — content marketing, paid acquisition, SEO, email nurture. Built and managed a team of 5 across content, performance marketing, and ma
+  Signals     : open_to_work=True resp_rate=0.75 last_active=2026-03-25 notice=120d github=-1 saved=5
+
+[CAND_0000319]  (stratum=plain_language)
+  Title       : Project Manager @ Pied Piper (11-50)
+  Experience  : 7.4 yrs | Delhi, Delhi, India | industry: Software
+  Headline    : Project Manager | Helping teams scale
+  Summary     : Professional with 7.4+ years of experience. I'm a marketing manager with substantial experience in cross-functional collaboration, stakeholder management, and execution. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can apply my 
+  Skills      : Forecasting(int), Apache Beam(beg), SQL(int), Sales(int), SAP(beg), FastAPI(beg), SEO(int), React(int)
+  Role        : Project Manager @ Pied Piper (33mo) — Operations management role at a logistics company. Owned daily fulfillment operations across 3 warehouses, managing a team of 80 across receiving, picking, packing, and outbound. Built and tracked the operational KPIs (o
+  Role        : Marketing Manager @ Globex Inc (37mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Role        : Mechanical Engineer @ Initech (18mo) — Brand design and creative direction at a consumer-products company. Owned brand identity (logo, visual system, typography), packaging design, and digital creative across web and social. Led the recent rebrand and managed
+  Signals     : open_to_work=True resp_rate=0.77 last_active=2026-02-07 notice=30d github=-1 saved=2
+
+[CAND_0000338]  (stratum=plain_language)
+  Title       : Operations Manager @ Acme Corp (201-500)
+  Experience  : 7.9 yrs | Dubai, UAE | industry: Manufacturing
+  Headline    : Operations Manager | Driving business outcomes
+  Summary     : Professional with 7.9+ years of experience. My professional background is in marketing manager — I've built and led teams, owned KPIs, and driven business outcomes in this domain. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can
+  Skills      : JavaScript(beg), Microservices(beg), REST APIs(int), Tailwind(int), Snowflake(beg)
+  Role        : Operations Manager @ Acme Corp (38mo) — Business analyst at a consulting firm, working primarily with retail and CPG clients. Conducted business diagnostics, process re-engineering work, and digital transformation strategy projects. Strong on stakeholder manag
+  Role        : Business Analyst @ Acme Corp (56mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Signals     : open_to_work=False resp_rate=0.73 last_active=2025-12-12 notice=90d github=20.0 saved=11
+
+[CAND_0000409]  (stratum=plain_language)
+  Title       : Business Analyst @ Initech (51-200)
+  Experience  : 2.8 yrs | Seattle, USA | industry: Software
+  Headline    : Business Analyst | Helping teams scale
+  Summary     : Professional with 2.8+ years of experience. My professional background is in marketing manager — I've built and led teams, owned KPIs, and driven business outcomes in this domain. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can
+  Skills      : Azure(int), Data Pipelines(beg), Databricks(int), Rust(beg), Terraform(int)
+  Role        : Business Analyst @ Initech (33mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Signals     : open_to_work=True resp_rate=0.33 last_active=2026-01-10 notice=90d github=-1 saved=0
+
+==============================================================================
+STRATUM: keyword_stuffer  (14 candidates)
+==============================================================================
+
+[CAND_0000074]  (stratum=keyword_stuffer)
+  Title       : Operations Manager @ Dunder Mifflin (201-500)
+  Experience  : 1.9 yrs | Indore, Madhya Pradesh, India | industry: Paper Products
+  Headline    : Operations Manager | Generative AI explorer
+  Summary     : Operations Manager with 1.9+ years of experience driving outcomes in my domain. I have built strong functional expertise in the typical responsibilities of the role, including team management, stakeholder communication, and project delivery. Recently I've been excited about how AI and GenAI tools can augment my work. I've been taking online courses on RAG and vector databases, experimenting with L
+  Skills      : Go(int), gRPC(int), Next.js(beg), Webpack(int), AWS(beg), Information Retrieval(int), Hugging Face Transformers(adv), Sentence Transformers(adv), Recommendation Systems(adv), Embeddings(adv), RAG(adv), LLMs(adv), FAISS(adv), Vector Search(adv), Pinecone(int)
+  Role        : Operations Manager @ Dunder Mifflin (22mo) — Marketing leadership role at a B2B SaaS company. Owned the demand-generation function — content marketing, paid acquisition, SEO, email nurture. Built and managed a team of 5 across content, performance marketing, and ma
+  Signals     : open_to_work=False resp_rate=0.73 last_active=2025-11-03 notice=60d github=-1 saved=2
+
+[CAND_0000203]  (stratum=keyword_stuffer)
+  Title       : Operations Manager @ Wayne Enterprises (10001+)
+  Experience  : 4.0 yrs | Sydney, Australia | industry: Conglomerate
+  Headline    : Operations Manager | AI enthusiast | Building with LLMs
+  Summary     : Operations Manager with 4.0+ years of experience driving outcomes in my domain. I have built strong functional expertise in the typical responsibilities of the role, including team management, stakeholder communication, and project delivery. Recently I've been excited about how AI and GenAI tools can augment my work. I've been taking online courses on RAG and vector databases, experimenting with L
+  Skills      : Project Management(int), Terraform(int), Spark(int), HTML(beg), Node.js(beg), GraphQL(int), CI/CD(beg), Kubernetes(beg), Sales(beg), AWS(beg), Embeddings(adv), Semantic Search(adv), LangChain(adv), Fine-tuning LLMs(int), Information Retrieval(adv), FAISS(adv), Pinecone(int), Prompt Engineering(adv)
+  Role        : Operations Manager @ Wayne Enterprises (14mo) — Operations management role at a logistics company. Owned daily fulfillment operations across 3 warehouses, managing a team of 80 across receiving, picking, packing, and outbound. Built and tracked the operational KPIs (o
+  Role        : Customer Support @ Pied Piper (15mo) — Brand design and creative direction at a consumer-products company. Owned brand identity (logo, visual system, typography), packaging design, and digital creative across web and social. Led the recent rebrand and managed
+  Role        : Operations Manager @ Wipro (17mo) — Senior accounting role at a mid-sized company — month-end close, financial reporting, statutory compliance (GAAP / Ind-AS), and tax filings. Owned the GL, fixed-asset register, and the audit-readiness function. Managed a
+  Signals     : open_to_work=False resp_rate=0.7 last_active=2026-04-20 notice=30d github=-1 saved=7
+
+[CAND_0000410]  (stratum=keyword_stuffer)
+  Title       : Graphic Designer @ Wipro (10001+)
+  Experience  : 10.1 yrs | Toronto, Canada | industry: IT Services
+  Headline    : Graphic Designer | Exploring AI & GenAI applications
+  Summary     : Graphic Designer with 10.1+ years of experience driving outcomes in my domain. I have built strong functional expertise in the typical responsibilities of the role, including team management, stakeholder communication, and project delivery. Recently I've been excited about how AI and GenAI tools can augment my work. I've been taking online courses on RAG and vector databases, experimenting with La
+  Skills      : Content Writing(beg), Microservices(int), Flask(int), REST APIs(int), SAP(beg), Vector Search(adv), Sentence Transformers(int), Semantic Search(int), RAG(adv), Embeddings(adv), Prompt Engineering(adv), Hugging Face Transformers(adv), Recommendation Systems(int), FAISS(adv)
+  Role        : Graphic Designer @ Wipro (14mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Role        : Content Writer @ Initech (21mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Role        : Sales Executive @ Wipro (13mo) — Enterprise sales of cloud software solutions into the mid-market segment. Carried a $1.8M ARR quota and consistently delivered against it across the last three years. Owned the full sales cycle: prospecting, discovery, t
+  Signals     : open_to_work=True resp_rate=0.5 last_active=2026-02-28 notice=30d github=-1 saved=8
+
+[CAND_0000671]  (stratum=keyword_stuffer)
+  Title       : Project Manager @ Infosys (10001+)
+  Experience  : 5.2 yrs | Gurgaon, Haryana, India | industry: IT Services
+  Headline    : Project Manager | AI enthusiast | Building with LLMs
+  Summary     : Project Manager with 5.2+ years of experience driving outcomes in my domain. I have built strong functional expertise in the typical responsibilities of the role, including team management, stakeholder communication, and project delivery. Recently I've been excited about how AI and GenAI tools can augment my work. I've been taking online courses on RAG and vector databases, experimenting with Lang
+  Skills      : Airflow(beg), Tailwind(beg), MongoDB(beg), Snowflake(beg), SQL(beg), Spring Boot(beg), Databricks(int), PostgreSQL(beg), Embeddings(int), Fine-tuning LLMs(adv), Vector Search(int), Pinecone(adv), Sentence Transformers(adv), LangChain(adv), Information Retrieval(adv), LLMs(adv), FAISS(int)
+  Role        : Project Manager @ Infosys (25mo) — Senior accounting role at a mid-sized company — month-end close, financial reporting, statutory compliance (GAAP / Ind-AS), and tax filings. Owned the GL, fixed-asset register, and the audit-readiness function. Managed a
+  Role        : Content Writer @ Wipro (37mo) — Marketing leadership role at a B2B SaaS company. Owned the demand-generation function — content marketing, paid acquisition, SEO, email nurture. Built and managed a team of 5 across content, performance marketing, and ma
+  Signals     : open_to_work=False resp_rate=0.42 last_active=2025-12-17 notice=60d github=14.0 saved=4
+
+[CAND_0000722]  (stratum=keyword_stuffer)
+  Title       : HR Manager @ Wayne Enterprises (10001+)
+  Experience  : 13.1 yrs | Singapore, Singapore | industry: Conglomerate
+  Headline    : HR Manager | AI enthusiast | Building with LLMs
+  Summary     : HR Manager with 13.1+ years of experience driving outcomes in my domain. I have built strong functional expertise in the typical responsibilities of the role, including team management, stakeholder communication, and project delivery. Recently I've been excited about how AI and GenAI tools can augment my work. I've been taking online courses on RAG and vector databases, experimenting with LangChai
+  Skills      : SEO(beg), Marketing(int), Sales(int), Agile(beg), CSS(int), Salesforce CRM(beg), Snowflake(beg), Fine-tuning LLMs(int), Recommendation Systems(adv), LLMs(adv), FAISS(int), RAG(adv), Prompt Engineering(adv), Sentence Transformers(int), Hugging Face Transformers(adv), Pinecone(adv)
+  Role        : HR Manager @ Wayne Enterprises (16mo) — Enterprise sales of cloud software solutions into the mid-market segment. Carried a $1.8M ARR quota and consistently delivered against it across the last three years. Owned the full sales cycle: prospecting, discovery, t
+  Role        : Business Analyst @ Infosys (51mo) — Enterprise sales of cloud software solutions into the mid-market segment. Carried a $1.8M ARR quota and consistently delivered against it across the last three years. Owned the full sales cycle: prospecting, discovery, t
+  Role        : Civil Engineer @ Infosys (26mo) — Business analyst at a consulting firm, working primarily with retail and CPG clients. Conducted business diagnostics, process re-engineering work, and digital transformation strategy projects. Strong on stakeholder manag
+  Signals     : open_to_work=False resp_rate=0.45 last_active=2026-04-02 notice=90d github=27.6 saved=0
+
+[CAND_0000815]  (stratum=keyword_stuffer)
+  Title       : Project Manager @ Initech (51-200)
+  Experience  : 2.5 yrs | Chennai, Tamil Nadu, India | industry: Software
+  Headline    : Project Manager | AI enthusiast | Building with LLMs
+  Summary     : Project Manager with 2.5+ years of experience driving outcomes in my domain. I have built strong functional expertise in the typical responsibilities of the role, including team management, stakeholder communication, and project delivery. Recently I've been excited about how AI and GenAI tools can augment my work. I've been taking online courses on RAG and vector databases, experimenting with Lang
+  Skills      : Feature Engineering(adv), ETL(beg), Accounting(beg), Rust(beg), GraphQL(int), Marketing(beg), Redux(int), Agile(beg), Content Writing(int), Pinecone(adv), LangChain(adv), Vector Search(adv), LLMs(int), Semantic Search(adv), Prompt Engineering(int), FAISS(adv), Hugging Face Transformers(adv)
+  Role        : Project Manager @ Initech (30mo) — Mechanical engineering design role at a hardware-product company. Led the design of two product subsystems through full lifecycle: concept, DFM/DFMA review, prototype, production tooling. Comfortable with CAD (SolidWorks
+  Signals     : open_to_work=False resp_rate=0.39 last_active=2026-02-08 notice=150d github=-1 saved=12
+
+[CAND_0000821]  (stratum=keyword_stuffer)
+  Title       : Mechanical Engineer @ Wayne Enterprises (10001+)
+  Experience  : 6.9 yrs | Pune, Maharashtra, India | industry: Conglomerate
+  Headline    : Mechanical Engineer | AI enthusiast | Building with LLMs
+  Summary     : Mechanical Engineer with 6.9+ years of experience driving outcomes in my domain. I have built strong functional expertise in the typical responsibilities of the role, including team management, stakeholder communication, and project delivery. Recently I've been excited about how AI and GenAI tools can augment my work. I've been taking online courses on RAG and vector databases, experimenting with 
+  Skills      : Azure(int), Redis(int), PowerPoint(beg), Rust(int), Weights & Biases(int), React(beg), MongoDB(beg), CSS(int), Recommendation Systems(adv), Pinecone(adv), Sentence Transformers(adv), Embeddings(int), Semantic Search(int), Prompt Engineering(adv), Information Retrieval(adv), FAISS(adv), Fine-tuning LLMs(adv), LangChain(int)
+  Role        : Mechanical Engineer @ Wayne Enterprises (51mo) — Mechanical engineering design role at a hardware-product company. Led the design of two product subsystems through full lifecycle: concept, DFM/DFMA review, prototype, production tooling. Comfortable with CAD (SolidWorks
+  Role        : Project Manager @ Acme Corp (31mo) — Brand design and creative direction at a consumer-products company. Owned brand identity (logo, visual system, typography), packaging design, and digital creative across web and social. Led the recent rebrand and managed
+  Signals     : open_to_work=False resp_rate=0.73 last_active=2025-11-17 notice=150d github=14.6 saved=12
+
+[CAND_0001088]  (stratum=keyword_stuffer)
+  Title       : Project Manager @ TCS (10001+)
+  Experience  : 8.1 yrs | Sydney, Australia | industry: IT Services
+  Headline    : Project Manager | Exploring AI & GenAI applications
+  Summary     : Project Manager with 8.1+ years of experience driving outcomes in my domain. I have built strong functional expertise in the typical responsibilities of the role, including team management, stakeholder communication, and project delivery. Recently I've been excited about how AI and GenAI tools can augment my work. I've been taking online courses on RAG and vector databases, experimenting with Lang
+  Skills      : Spark(int), Redis(beg), Terraform(int), Salesforce CRM(beg), Docker(int), LLMs(adv), Information Retrieval(int), RAG(int), Sentence Transformers(adv), LangChain(adv), Hugging Face Transformers(adv), FAISS(int), Prompt Engineering(int), Vector Search(int), Recommendation Systems(adv), Embeddings(int)
+  Role        : Project Manager @ TCS (43mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Role        : Business Analyst @ Infosys (42mo) — Enterprise sales of cloud software solutions into the mid-market segment. Carried a $1.8M ARR quota and consistently delivered against it across the last three years. Owned the full sales cycle: prospecting, discovery, t
+  Role        : Business Analyst @ Hooli (12mo) — Mechanical engineering design role at a hardware-product company. Led the design of two product subsystems through full lifecycle: concept, DFM/DFMA review, prototype, production tooling. Comfortable with CAD (SolidWorks
+  Signals     : open_to_work=True resp_rate=0.29 last_active=2025-12-24 notice=60d github=-1 saved=11
+
+[CAND_0001508]  (stratum=keyword_stuffer)
+  Title       : Marketing Manager @ Initech (51-200)
+  Experience  : 9.2 yrs | Kolkata, West Bengal, India | industry: Software
+  Headline    : Marketing Manager | AI enthusiast | Building with LLMs
+  Summary     : Marketing Manager with 9.2+ years of experience driving outcomes in my domain. I have built strong functional expertise in the typical responsibilities of the role, including team management, stakeholder communication, and project delivery. Recently I've been excited about how AI and GenAI tools can augment my work. I've been taking online courses on RAG and vector databases, experimenting with La
+  Skills      : Redux(beg), React(int), OpenCV(adv), CI/CD(beg), Kubernetes(int), Databricks(int), Illustrator(beg), gRPC(beg), Spring Boot(int), LLMs(int), Hugging Face Transformers(adv), Fine-tuning LLMs(int), LangChain(int), Vector Search(int), Semantic Search(adv), RAG(int), FAISS(adv)
+  Role        : Marketing Manager @ Initech (30mo) — Marketing leadership role at a B2B SaaS company. Owned the demand-generation function — content marketing, paid acquisition, SEO, email nurture. Built and managed a team of 5 across content, performance marketing, and ma
+  Role        : Accountant @ Initech (34mo) — Senior accounting role at a mid-sized company — month-end close, financial reporting, statutory compliance (GAAP / Ind-AS), and tax filings. Owned the GL, fixed-asset register, and the audit-readiness function. Managed a
+  Role        : Content Writer @ Stark Industries (18mo) — Enterprise sales of cloud software solutions into the mid-market segment. Carried a $1.8M ARR quota and consistently delivered against it across the last three years. Owned the full sales cycle: prospecting, discovery, t
+  Signals     : open_to_work=True resp_rate=0.69 last_active=2026-02-18 notice=60d github=-1 saved=12
+
+[CAND_0001535]  (stratum=keyword_stuffer)
+  Title       : Operations Manager @ Wipro (10001+)
+  Experience  : 2.8 yrs | Indore, Madhya Pradesh, India | industry: IT Services
+  Headline    : Operations Manager | Generative AI explorer
+  Summary     : Operations Manager with 2.8+ years of experience driving outcomes in my domain. I have built strong functional expertise in the typical responsibilities of the role, including team management, stakeholder communication, and project delivery. Recently I've been excited about how AI and GenAI tools can augment my work. I've been taking online courses on RAG and vector databases, experimenting with L
+  Skills      : Go(int), Data Pipelines(beg), dbt(beg), Django(beg), Databricks(beg), GCP(beg), MongoDB(int), Flask(int), Vector Search(adv), Fine-tuning LLMs(int), LangChain(adv), Hugging Face Transformers(adv), RAG(adv), Recommendation Systems(adv), Embeddings(adv)
+  Role        : Operations Manager @ Wipro (33mo) — Senior accounting role at a mid-sized company — month-end close, financial reporting, statutory compliance (GAAP / Ind-AS), and tax filings. Owned the GL, fixed-asset register, and the audit-readiness function. Managed a
+  Signals     : open_to_work=True resp_rate=0.07 last_active=2026-01-19 notice=90d github=-1 saved=8
+
+[CAND_0001632]  (stratum=keyword_stuffer)
+  Title       : Graphic Designer @ Wayne Enterprises (10001+)
+  Experience  : 1.4 yrs | Delhi, Delhi, India | industry: Conglomerate
+  Headline    : Graphic Designer | Exploring AI & GenAI applications
+  Summary     : Graphic Designer with 1.4+ years of experience driving outcomes in my domain. I have built strong functional expertise in the typical responsibilities of the role, including team management, stakeholder communication, and project delivery. Recently I've been excited about how AI and GenAI tools can augment my work. I've been taking online courses on RAG and vector databases, experimenting with Lan
+  Skills      : CSS(int), Go(int), ETL(beg), Salesforce CRM(beg), Apache Beam(int), JavaScript(int), Fine-tuning LLMs(int), LLMs(int), Recommendation Systems(adv), Embeddings(adv), Semantic Search(int), Hugging Face Transformers(int), RAG(adv)
+  Role        : Graphic Designer @ Wayne Enterprises (16mo) — Mechanical engineering design role at a hardware-product company. Led the design of two product subsystems through full lifecycle: concept, DFM/DFMA review, prototype, production tooling. Comfortable with CAD (SolidWorks
+  Signals     : open_to_work=False resp_rate=0.67 last_active=2026-03-16 notice=60d github=-1 saved=5
+
+[CAND_0002220]  (stratum=keyword_stuffer)
+  Title       : Content Writer @ Pied Piper (11-50)
+  Experience  : 5.8 yrs | Hyderabad, Telangana, India | industry: Software
+  Headline    : Content Writer | Generative AI explorer
+  Summary     : Content Writer with 5.8+ years of experience driving outcomes in my domain. I have built strong functional expertise in the typical responsibilities of the role, including team management, stakeholder communication, and project delivery. Recently I've been excited about how AI and GenAI tools can augment my work. I've been taking online courses on RAG and vector databases, experimenting with LangC
+  Skills      : CSS(int), Databricks(beg), JavaScript(beg), SQL(beg), Content Writing(beg), Marketing(int), Embeddings(int), Pinecone(adv), Prompt Engineering(adv), Sentence Transformers(int), Hugging Face Transformers(adv), Fine-tuning LLMs(int), RAG(adv), Information Retrieval(adv), Semantic Search(int)
+  Role        : Content Writer @ Pied Piper (22mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Role        : Content Writer @ Hooli (46mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Signals     : open_to_work=True resp_rate=0.1 last_active=2025-12-17 notice=120d github=-1 saved=10
+
+[CAND_0002243]  (stratum=keyword_stuffer)
+  Title       : Graphic Designer @ Stark Industries (1001-5000)
+  Experience  : 7.6 yrs | Kochi, Kerala, India | industry: Manufacturing
+  Headline    : Graphic Designer | Exploring AI & GenAI applications
+  Summary     : Graphic Designer with 7.6+ years of experience driving outcomes in my domain. I have built strong functional expertise in the typical responsibilities of the role, including team management, stakeholder communication, and project delivery. Recently I've been excited about how AI and GenAI tools can augment my work. I've been taking online courses on RAG and vector databases, experimenting with Lan
+  Skills      : Apache Flink(int), MongoDB(beg), Django(beg), Next.js(int), GCP(beg), Angular(beg), Fine-tuning LLMs(int), Recommendation Systems(adv), Sentence Transformers(adv), LLMs(adv), RAG(adv), Semantic Search(adv), Information Retrieval(adv), Hugging Face Transformers(adv), Vector Search(adv), Prompt Engineering(int), LangChain(adv)
+  Role        : Graphic Designer @ Stark Industries (30mo) — Brand design and creative direction at a consumer-products company. Owned brand identity (logo, visual system, typography), packaging design, and digital creative across web and social. Led the recent rebrand and managed
+  Role        : Sales Executive @ Globex Inc (24mo) — Business analyst at a consulting firm, working primarily with retail and CPG clients. Conducted business diagnostics, process re-engineering work, and digital transformation strategy projects. Strong on stakeholder manag
+  Role        : Civil Engineer @ Wipro (37mo) — Senior accounting role at a mid-sized company — month-end close, financial reporting, statutory compliance (GAAP / Ind-AS), and tax filings. Owned the GL, fixed-asset register, and the audit-readiness function. Managed a
+  Signals     : open_to_work=False resp_rate=0.28 last_active=2025-12-10 notice=150d github=3.9 saved=9
+
+[CAND_0002356]  (stratum=keyword_stuffer)
+  Title       : Project Manager @ Wipro (10001+)
+  Experience  : 11.8 yrs | Mumbai, Maharashtra, India | industry: IT Services
+  Headline    : Project Manager | AI enthusiast | Building with LLMs
+  Summary     : Project Manager with 11.8+ years of experience driving outcomes in my domain. I have built strong functional expertise in the typical responsibilities of the role, including team management, stakeholder communication, and project delivery. Recently I've been excited about how AI and GenAI tools can augment my work. I've been taking online courses on RAG and vector databases, experimenting with Lan
+  Skills      : Docker(beg), TypeScript(int), Go(beg), Accounting(int), PostgreSQL(beg), Rust(int), Information Retrieval(int), Recommendation Systems(adv), Vector Search(int), Semantic Search(adv), FAISS(int), Embeddings(int), Sentence Transformers(adv), RAG(adv), Hugging Face Transformers(adv), LangChain(adv)
+  Role        : Project Manager @ Wipro (27mo) — Enterprise sales of cloud software solutions into the mid-market segment. Carried a $1.8M ARR quota and consistently delivered against it across the last three years. Owned the full sales cycle: prospecting, discovery, t
+  Role        : Mechanical Engineer @ Globex Inc (37mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Role        : Sales Executive @ Pied Piper (40mo) — Business analyst at a consulting firm, working primarily with retail and CPG clients. Conducted business diagnostics, process re-engineering work, and digital transformation strategy projects. Strong on stakeholder manag
+  Signals     : open_to_work=False resp_rate=0.45 last_active=2026-04-06 notice=90d github=-1 saved=6
+
+==============================================================================
+STRATUM: consulting_only  (14 candidates)
+==============================================================================
+
+[CAND_0000008]  (stratum=consulting_only)
+  Title       : Operations Manager @ Wipro (10001+)
+  Experience  : 3.6 yrs | Noida, Uttar Pradesh, India | industry: IT Services
+  Headline    : Operations Manager | 3.6+ yrs experience
+  Summary     : Professional with 3.6+ years of experience. I've spent my career in marketing manager roles, mostly focused on driving outcomes through process, people, and customer relationships. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I ca
+  Skills      : Java(int), BigQuery(beg), Spark(beg), Accounting(beg), Kubernetes(int), TypeScript(int), Rust(int), HTML(beg)
+  Role        : Operations Manager @ Wipro (43mo) — Marketing leadership role at a B2B SaaS company. Owned the demand-generation function — content marketing, paid acquisition, SEO, email nurture. Built and managed a team of 5 across content, performance marketing, and ma
+  Signals     : open_to_work=False resp_rate=0.42 last_active=2025-12-13 notice=90d github=-1 saved=0
+
+[CAND_0000027]  (stratum=consulting_only)
+  Title       : DevOps Engineer @ Infosys (10001+)
+  Experience  : 3.9 yrs | Kolkata, West Bengal, India | industry: IT Services
+  Headline    : DevOps Engineer | Cloud & DevOps
+  Summary     : Software engineer with 3.9 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've worked across web frontends, REST APIs, and cloud deployments; comfortable in most parts of a typical SaaS stack. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, bui
+  Skills      : Docker(int), YOLO(adv), PEFT(adv), Webpack(int), Data Science(adv), AWS(beg), Java(int), Angular(int), Databricks(int), ETL(int), Marketing(beg), Information Retrieval(int), Weights & Biases(adv), Terraform(int), SAP(int), Illustrator(beg)
+  Role        : DevOps Engineer @ Infosys (36mo) — Java backend development at a large enterprise — Spring Boot microservices, Kafka for inter-service messaging, Postgres + Redis for storage. Worked on the customer onboarding flow which involved orchestrating multiple do
+  Role        : DevOps Engineer @ Wipro (10mo) — Full-stack web application development at a SaaS company. Built React-based admin interfaces and the Node.js REST API backing them. Worked across the stack: frontend components, REST endpoint design, PostgreSQL schema, d
+  Signals     : open_to_work=True resp_rate=0.58 last_active=2026-05-07 notice=90d github=38.6 saved=6
+
+[CAND_0000047]  (stratum=consulting_only)
+  Title       : Project Manager @ TCS (10001+)
+  Experience  : 2.4 yrs | Kochi, Kerala, India | industry: IT Services
+  Headline    : Project Manager | Helping teams scale
+  Summary     : Professional with 2.4+ years of experience. My professional background is in marketing manager — I've built and led teams, owned KPIs, and driven business outcomes in this domain. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can
+  Skills      : FastAPI(beg), Java(int), Excel(int), Tally(int), SQL(int), Scrum(int), Hadoop(beg)
+  Role        : Project Manager @ TCS (28mo) — Operations management role at a logistics company. Owned daily fulfillment operations across 3 warehouses, managing a team of 80 across receiving, picking, packing, and outbound. Built and tracked the operational KPIs (o
+  Signals     : open_to_work=False resp_rate=0.39 last_active=2026-03-22 notice=90d github=-1 saved=4
+
+[CAND_0000056]  (stratum=consulting_only)
+  Title       : Frontend Engineer @ TCS (10001+)
+  Experience  : 1.3 yrs | Singapore, Singapore | industry: IT Services
+  Headline    : Frontend Engineer | Cloud & DevOps
+  Summary     : Software engineer with 1.3 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. My background is full-stack, but my comfort zone is the backend and the database. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project — but I h
+  Skills      : BentoML(adv), GCP(beg), CSS(int), Kubernetes(beg), Accounting(int), React(beg), Image Classification(adv), FastAPI(int), REST APIs(int), MongoDB(int), PyTorch(adv), Embeddings(int), SEO(beg), Data Pipelines(beg)
+  Role        : Frontend Engineer @ TCS (15mo) — Full-stack web application development at a SaaS company. Built React-based admin interfaces and the Node.js REST API backing them. Worked across the stack: frontend components, REST endpoint design, PostgreSQL schema, d
+  Signals     : open_to_work=False resp_rate=0.59 last_active=2025-11-30 notice=60d github=-1 saved=8
+
+[CAND_0000059]  (stratum=consulting_only)
+  Title       : Frontend Engineer @ TCS (10001+)
+  Experience  : 1.5 yrs | Noida, Uttar Pradesh, India | industry: IT Services
+  Headline    : Frontend Engineer | Full-stack development
+  Summary     : Software engineer with 1.5 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've spent most of my career on web and API development — Python/Django and Node.js mostly. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project
+  Skills      : Six Sigma(beg), TypeScript(int), GANs(adv), Azure(beg), Statistical Modeling(adv), HTML(int), Rust(int), gRPC(beg), Agile(beg), CNN(adv), Sales(beg), Terraform(int), CSS(beg)
+  Role        : Frontend Engineer @ TCS (18mo) — Cloud infrastructure and DevOps work at an enterprise SaaS company. Owned the AWS account architecture (VPC, IAM, networking), the Terraform modules for our service deployments, and the Kubernetes cluster operations. Des
+  Signals     : open_to_work=False resp_rate=0.16 last_active=2026-04-05 notice=90d github=-1 saved=7
+
+[CAND_0000062]  (stratum=consulting_only)
+  Title       : DevOps Engineer @ Tech Mahindra (10001+)
+  Experience  : 4.3 yrs | Seattle, USA | industry: IT Services
+  Headline    : DevOps Engineer | Cloud & DevOps
+  Summary     : Software engineer with 4.3 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've worked across web frontends, REST APIs, and cloud deployments; comfortable in most parts of a typical SaaS stack. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, bui
+  Skills      : Angular(beg), Hadoop(int), GANs(adv), Kubernetes(int), MLOps(adv), TypeScript(int), BentoML(int), Flask(beg), NLP(int), Spring Boot(beg)
+  Role        : DevOps Engineer @ Tech Mahindra (51mo) — Test automation and QA engineering for a fintech product. Built and maintained the end-to-end test suite using Selenium and pytest, plus the load-testing setup using Locust. Worked closely with developers on testability 
+  Signals     : open_to_work=True resp_rate=0.69 last_active=2026-04-28 notice=90d github=45.9 saved=7
+
+[CAND_0000068]  (stratum=consulting_only)
+  Title       : Java Developer @ HCL (10001+)
+  Experience  : 1.5 yrs | Noida, Uttar Pradesh, India | industry: IT Services
+  Headline    : Java Developer | Full-stack development
+  Summary     : Software engineer with 1.5 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've spent most of my career on web and API development — Python/Django and Node.js mostly. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project
+  Skills      : Databricks(int), Flask(beg), GCP(beg), TypeScript(beg), FAISS(int), SQL(int), Agile(beg), Kubeflow(int), Weights & Biases(adv), Excel(int), Java(int), REST APIs(beg), GraphQL(beg)
+  Role        : Java Developer @ HCL (18mo) — Java backend development at a large enterprise — Spring Boot microservices, Kafka for inter-service messaging, Postgres + Redis for storage. Worked on the customer onboarding flow which involved orchestrating multiple do
+  Signals     : open_to_work=True resp_rate=0.55 last_active=2026-03-21 notice=30d github=20.2 saved=5
+
+[CAND_0000087]  (stratum=consulting_only)
+  Title       : Full Stack Developer @ Mindtree (10001+)
+  Experience  : 2.5 yrs | Mumbai, Maharashtra, India | industry: IT Services
+  Headline    : Full Stack Developer | Cloud & DevOps
+  Summary     : Software engineer with 2.5 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've worked across web frontends, REST APIs, and cloud deployments; comfortable in most parts of a typical SaaS stack. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, bui
+  Skills      : Marketing(beg), React(beg), Content Writing(int), MLflow(adv), dbt(beg), Go(int), Photoshop(beg), Terraform(int), Excel(int), Tally(int), Spring Boot(int)
+  Role        : Full Stack Developer @ Mindtree (30mo) — Frontend engineering at a media company. React, TypeScript, and the typical surrounding tooling (Webpack, Jest, Cypress). Built the company's design system from scratch and led the migration from a legacy AngularJS app. 
+  Signals     : open_to_work=True resp_rate=0.7 last_active=2026-05-16 notice=120d github=34.0 saved=10
+
+[CAND_0000098]  (stratum=consulting_only)
+  Title       : Business Analyst @ Infosys (10001+)
+  Experience  : 1.7 yrs | Hyderabad, Telangana, India | industry: IT Services
+  Headline    : Business Analyst | Helping teams scale
+  Summary     : Professional with 1.7+ years of experience. I've spent my career in marketing manager roles, mostly focused on driving outcomes through process, people, and customer relationships. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I ca
+  Skills      : Agile(beg), ETL(int), SEO(beg), Databricks(beg), MongoDB(int), BigQuery(int), JavaScript(beg), Feature Engineering(int), Flask(int)
+  Role        : Business Analyst @ Infosys (20mo) — Customer support team lead at a SaaS product. Managed a team of 8 support agents handling tier-1 and tier-2 tickets; owned the escalation process to engineering and the customer-feedback loop to product. Built out the su
+  Signals     : open_to_work=True resp_rate=0.65 last_active=2026-04-11 notice=30d github=-1 saved=8
+
+[CAND_0000113]  (stratum=consulting_only)
+  Title       : .NET Developer @ HCL (10001+)
+  Experience  : 1.8 yrs | Trivandrum, Kerala, India | industry: IT Services
+  Headline    : .NET Developer | Full-stack development
+  Summary     : Software engineer with 1.8 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've worked across web frontends, REST APIs, and cloud deployments; comfortable in most parts of a typical SaaS stack. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, bui
+  Skills      : AWS(beg), Scrum(int), Illustrator(beg), Java(beg), Apache Beam(int), Angular(beg), MongoDB(int), Databricks(int)
+  Role        : .NET Developer @ HCL (21mo) — Frontend engineering at a media company. React, TypeScript, and the typical surrounding tooling (Webpack, Jest, Cypress). Built the company's design system from scratch and led the migration from a legacy AngularJS app. 
+  Signals     : open_to_work=True resp_rate=0.15 last_active=2026-01-08 notice=60d github=-1 saved=16
+
+[CAND_0000142]  (stratum=consulting_only)
+  Title       : Mobile Developer @ Mphasis (10001+)
+  Experience  : 5.1 yrs | Delhi, Delhi, India | industry: IT Services
+  Headline    : Mobile Developer | Full-stack development
+  Summary     : Software engineer with 5.1 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've worked across web frontends, REST APIs, and cloud deployments; comfortable in most parts of a typical SaaS stack. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, bui
+  Skills      : Data Pipelines(int), PowerPoint(int), Kafka(int), Tally(beg), Statistical Modeling(int), Scrum(int), Reinforcement Learning(adv), Agile(int), Next.js(int), Content Writing(int), Speech Recognition(int), Figma(int), OpenSearch(adv), Redux(beg), Hadoop(int), Snowflake(int)
+  Role        : Mobile Developer @ Mphasis (38mo) — Android mobile development using Java and (more recently) Kotlin at a consumer-app company. Built and maintained multiple production features including the main shopping flow, push notification system, and the offline-fi
+  Role        : .NET Developer @ Wipro (22mo) — Cloud infrastructure and DevOps work at an enterprise SaaS company. Owned the AWS account architecture (VPC, IAM, networking), the Terraform modules for our service deployments, and the Kubernetes cluster operations. Des
+  Signals     : open_to_work=True resp_rate=0.39 last_active=2026-02-15 notice=60d github=-1 saved=16
+
+[CAND_0000179]  (stratum=consulting_only)
+  Title       : .NET Developer @ Tech Mahindra (10001+)
+  Experience  : 3.2 yrs | Coimbatore, Tamil Nadu, India | industry: IT Services
+  Headline    : .NET Developer | Cloud & DevOps
+  Summary     : Software engineer with 3.2 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've worked across web frontends, REST APIs, and cloud deployments; comfortable in most parts of a typical SaaS stack. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, bui
+  Skills      : Spring Boot(beg), GraphQL(beg), Apache Flink(beg), Snowflake(beg), YOLO(adv), BentoML(adv), MLflow(int), Databricks(int), HTML(beg), Node.js(int), Next.js(int), React(int), Agile(beg)
+  Role        : .NET Developer @ Tech Mahindra (14mo) — Java backend development at a large enterprise — Spring Boot microservices, Kafka for inter-service messaging, Postgres + Redis for storage. Worked on the customer onboarding flow which involved orchestrating multiple do
+  Role        : DevOps Engineer @ Mindtree (24mo) — Test automation and QA engineering for a fintech product. Built and maintained the end-to-end test suite using Selenium and pytest, plus the load-testing setup using Locust. Worked closely with developers on testability 
+  Signals     : open_to_work=True resp_rate=0.46 last_active=2026-05-01 notice=90d github=-1 saved=4
+
+[CAND_0000196]  (stratum=consulting_only)
+  Title       : QA Engineer @ Mphasis (10001+)
+  Experience  : 4.2 yrs | Jaipur, Rajasthan, India | industry: IT Services
+  Headline    : QA Engineer | Full-stack development
+  Summary     : Software engineer with 4.2 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. My background is full-stack, but my comfort zone is the backend and the database. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project — but I h
+  Skills      : CSS(int), Apache Flink(beg), Hadoop(beg), Time Series(adv), Spark(int), Machine Learning(int), Statistical Modeling(adv), Java(int), Terraform(int), Illustrator(beg), TypeScript(beg), ETL(beg), GANs(int), Airflow(beg)
+  Role        : QA Engineer @ Mphasis (50mo) — Test automation and QA engineering for a fintech product. Built and maintained the end-to-end test suite using Selenium and pytest, plus the load-testing setup using Locust. Worked closely with developers on testability 
+  Signals     : open_to_work=False resp_rate=0.2 last_active=2026-03-10 notice=90d github=-1 saved=18
+
+[CAND_0000213]  (stratum=consulting_only)
+  Title       : Cloud Engineer @ Accenture (10001+)
+  Experience  : 3.0 yrs | Trivandrum, Kerala, India | industry: Consulting
+  Headline    : Cloud Engineer | Backend systems & APIs
+  Summary     : Software engineer with 3.0 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. Most of my work is conventional backend engineering — APIs, databases, queues, deployments. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project
+  Skills      : Airflow(int), MLOps(int), Kafka(int), Apache Beam(beg), JavaScript(int), Agile(int), ETL(beg), OpenCV(adv), Redux(int)
+  Role        : Cloud Engineer @ Accenture (20mo) — Cloud infrastructure and DevOps work at an enterprise SaaS company. Owned the AWS account architecture (VPC, IAM, networking), the Terraform modules for our service deployments, and the Kubernetes cluster operations. Des
+  Role        : Software Engineer @ Mindtree (15mo) — Full-stack web application development at a SaaS company. Built React-based admin interfaces and the Node.js REST API backing them. Worked across the stack: frontend components, REST endpoint design, PostgreSQL schema, d
+  Signals     : open_to_work=False resp_rate=0.22 last_active=2026-03-11 notice=60d github=-1 saved=1
+
+==============================================================================
+STRATUM: inactive  (14 candidates)
+==============================================================================
+
+[CAND_0000010]  (stratum=inactive)
+  Title       : Data Engineer @ Ola (5001-10000)
+  Experience  : 4.6 yrs | London, UK | industry: Transportation
+  Headline    : Data Engineer | Data pipelines & analytics
+  Summary     : Software / data professional with 4.6 years of experience building data pipelines, backend systems, and analytics infrastructure. Most of my work has been data pipelines and analytics infrastructure; I've shipped a couple of small ML features but it's not the core of my day. My toolkit is solid on the data engineering side — Python, SQL, Spark, Airflow, warehouse design — and I've completed a coup
+  Skills      : GCP(beg), Spring Boot(beg), Kubeflow(int), Java(int), GANs(adv), Figma(beg), Elasticsearch(int), OpenCV(adv), CNN(int), Azure(beg), Prompt Engineering(adv), Object Detection(adv), MLOps(int), Python(int), BM25(adv), Weights & Biases(adv), Sales(beg)
+  Role        : Data Engineer @ Ola (55mo) — Mixed data science and analytics-engineering role at a marketing-analytics startup. Spent maybe 30% of my time on lightweight ML (clustering, classification, churn prediction in sklearn/XGBoost) and 70% on data infrastru
+  Signals     : open_to_work=False resp_rate=0.4 last_active=2026-04-29 notice=120d github=33.7 saved=2
+
+[CAND_0000011]  (stratum=inactive)
+  Title       : QA Engineer @ Pied Piper (11-50)
+  Experience  : 2.0 yrs | Hyderabad, Telangana, India | industry: Software
+  Headline    : QA Engineer | Cloud & DevOps
+  Summary     : Software engineer with 2.0 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. Most of my work is conventional backend engineering — APIs, databases, queues, deployments. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project
+  Skills      : Recommendation Systems(adv), Scrum(beg), FastAPI(beg), Hugging Face Transformers(int), AWS(beg), Snowflake(beg), Spring Boot(int), PostgreSQL(int), Kubeflow(adv), Azure(beg)
+  Role        : QA Engineer @ Pied Piper (13mo) — Android mobile development using Java and (more recently) Kotlin at a consumer-app company. Built and maintained multiple production features including the main shopping flow, push notification system, and the offline-fi
+  Role        : QA Engineer @ Hooli (10mo) — Test automation and QA engineering for a fintech product. Built and maintained the end-to-end test suite using Selenium and pytest, plus the load-testing setup using Locust. Worked closely with developers on testability 
+  Signals     : open_to_work=False resp_rate=0.56 last_active=2026-01-19 notice=90d github=32.3 saved=13
+
+[CAND_0000012]  (stratum=inactive)
+  Title       : Operations Manager @ Stark Industries (1001-5000)
+  Experience  : 1.1 yrs | Chandigarh, Chandigarh, India | industry: Manufacturing
+  Headline    : Operations Manager | Driving business outcomes
+  Summary     : Professional with 1.1+ years of experience. My professional background is in marketing manager — I've built and led teams, owned KPIs, and driven business outcomes in this domain. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can
+  Skills      : Azure(beg), Airflow(int), AWS(int), gRPC(beg), Vue.js(int), dbt(int), Agile(int), PowerPoint(int), Content Writing(int), Project Management(beg)
+  Role        : Operations Manager @ Stark Industries (13mo) — Senior accounting role at a mid-sized company — month-end close, financial reporting, statutory compliance (GAAP / Ind-AS), and tax filings. Owned the GL, fixed-asset register, and the audit-readiness function. Managed a
+  Signals     : open_to_work=False resp_rate=0.16 last_active=2025-10-28 notice=60d github=-1 saved=3
+
+[CAND_0000014]  (stratum=inactive)
+  Title       : Frontend Engineer @ Zomato (5001-10000)
+  Experience  : 8.4 yrs | Hyderabad, Telangana, India | industry: Food Delivery
+  Headline    : Frontend Engineer | Full-stack development
+  Summary     : Software engineer with 8.4 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. My background is full-stack, but my comfort zone is the backend and the database. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project — but I h
+  Skills      : FAISS(adv), BigQuery(int), React(beg), OpenSearch(adv), OpenCV(adv), YOLO(adv), SAP(int), SEO(beg), REST APIs(beg), GANs(adv), dbt(beg), Photoshop(int), Tailwind(int)
+  Role        : Frontend Engineer @ Zomato (33mo) — Frontend engineering at a media company. React, TypeScript, and the typical surrounding tooling (Webpack, Jest, Cypress). Built the company's design system from scratch and led the migration from a legacy AngularJS app. 
+  Role        : Software Engineer @ Dunder Mifflin (48mo) — Test automation and QA engineering for a fintech product. Built and maintained the end-to-end test suite using Selenium and pytest, plus the load-testing setup using Locust. Worked closely with developers on testability 
+  Role        : Java Developer @ Acme Corp (19mo) — Android mobile development using Java and (more recently) Kotlin at a consumer-app company. Built and maintained multiple production features including the main shopping flow, push notification system, and the offline-fi
+  Signals     : open_to_work=False resp_rate=0.8 last_active=2026-04-12 notice=90d github=-1 saved=0
+
+[CAND_0000018]  (stratum=inactive)
+  Title       : Frontend Engineer @ Acme Corp (201-500)
+  Experience  : 6.6 yrs | Bhubaneswar, Odisha, India | industry: Manufacturing
+  Headline    : Frontend Engineer | Full-stack development
+  Summary     : Software engineer with 6.6 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. My background is full-stack, but my comfort zone is the backend and the database. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project — but I h
+  Skills      : CNN(adv), Java(int), Accounting(int), Data Pipelines(beg), Node.js(int), Tailwind(beg)
+  Role        : Frontend Engineer @ Acme Corp (33mo) — Test automation and QA engineering for a fintech product. Built and maintained the end-to-end test suite using Selenium and pytest, plus the load-testing setup using Locust. Worked closely with developers on testability 
+  Role        : Frontend Engineer @ Pied Piper (32mo) — Test automation and QA engineering for a fintech product. Built and maintained the end-to-end test suite using Selenium and pytest, plus the load-testing setup using Locust. Worked closely with developers on testability 
+  Role        : Full Stack Developer @ Initech (13mo) — Android mobile development using Java and (more recently) Kotlin at a consumer-app company. Built and maintained multiple production features including the main shopping flow, push notification system, and the offline-fi
+  Signals     : open_to_work=False resp_rate=0.16 last_active=2026-02-18 notice=120d github=-1 saved=16
+
+[CAND_0000023]  (stratum=inactive)
+  Title       : Software Engineer @ Acme Corp (201-500)
+  Experience  : 3.7 yrs | New York, USA | industry: Manufacturing
+  Headline    : Software Engineer | Cloud & DevOps
+  Summary     : Software engineer with 3.7 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. Most of my work is conventional backend engineering — APIs, databases, queues, deployments. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project
+  Skills      : BigQuery(beg), Marketing(int), Node.js(int), Django(beg), Salesforce CRM(beg), MongoDB(beg), ETL(beg), Redis(beg), Illustrator(beg), Rust(int)
+  Role        : Software Engineer @ Acme Corp (14mo) — Test automation and QA engineering for a fintech product. Built and maintained the end-to-end test suite using Selenium and pytest, plus the load-testing setup using Locust. Worked closely with developers on testability 
+  Role        : Frontend Engineer @ Flipkart (30mo) — Android mobile development using Java and (more recently) Kotlin at a consumer-app company. Built and maintained multiple production features including the main shopping flow, push notification system, and the offline-fi
+  Signals     : open_to_work=False resp_rate=0.57 last_active=2026-04-06 notice=30d github=48.5 saved=14
+
+[CAND_0000032]  (stratum=inactive)
+  Title       : .NET Developer @ Cognizant (10001+)
+  Experience  : 8.1 yrs | Gurgaon, Haryana, India | industry: IT Services
+  Headline    : .NET Developer | Full-stack development
+  Summary     : Software engineer with 8.1 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. Most of my work is conventional backend engineering — APIs, databases, queues, deployments. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project
+  Skills      : Speech Recognition(adv), Project Management(beg), REST APIs(beg), CSS(int), Embeddings(adv), Hadoop(beg), Spark(int), Python(int), Data Pipelines(beg), OpenCV(adv)
+  Role        : .NET Developer @ Cognizant (28mo) — Java backend development at a large enterprise — Spring Boot microservices, Kafka for inter-service messaging, Postgres + Redis for storage. Worked on the customer onboarding flow which involved orchestrating multiple do
+  Role        : Cloud Engineer @ HCL (27mo) — Test automation and QA engineering for a fintech product. Built and maintained the end-to-end test suite using Selenium and pytest, plus the load-testing setup using Locust. Worked closely with developers on testability 
+  Role        : Mobile Developer @ Globex Inc (40mo) — Full-stack web application development at a SaaS company. Built React-based admin interfaces and the Node.js REST API backing them. Worked across the stack: frontend components, REST endpoint design, PostgreSQL schema, d
+  Signals     : open_to_work=False resp_rate=0.69 last_active=2025-12-29 notice=150d github=-1 saved=4
+
+[CAND_0000035]  (stratum=inactive)
+  Title       : Full Stack Developer @ Globex Inc (501-1000)
+  Experience  : 4.3 yrs | Hyderabad, Telangana, India | industry: Manufacturing
+  Headline    : Full Stack Developer | Backend systems & APIs
+  Summary     : Software engineer with 4.3 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. My background is full-stack, but my comfort zone is the backend and the database. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project — but I h
+  Skills      : Snowflake(int), BigQuery(beg), Recommendation Systems(int), Data Pipelines(beg), Docker(beg), MongoDB(int), PostgreSQL(int), Sales(int), Kafka(int), Speech Recognition(int), BentoML(adv), Go(beg), Next.js(int), dbt(beg)
+  Role        : Full Stack Developer @ Globex Inc (33mo) — Full-stack web application development at a SaaS company. Built React-based admin interfaces and the Node.js REST API backing them. Worked across the stack: frontend components, REST endpoint design, PostgreSQL schema, d
+  Role        : Software Engineer @ Wipro (18mo) — Frontend engineering at a media company. React, TypeScript, and the typical surrounding tooling (Webpack, Jest, Cypress). Built the company's design system from scratch and led the migration from a legacy AngularJS app. 
+  Signals     : open_to_work=False resp_rate=0.34 last_active=2026-02-06 notice=60d github=-1 saved=1
+
+[CAND_0000040]  (stratum=inactive)
+  Title       : Customer Support @ Globex Inc (501-1000)
+  Experience  : 1.6 yrs | Kochi, Kerala, India | industry: Manufacturing
+  Headline    : Customer Support | Helping teams scale
+  Summary     : Professional with 1.6+ years of experience. I've spent my career in marketing manager roles, mostly focused on driving outcomes through process, people, and customer relationships. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I ca
+  Skills      : SQL(beg), Spring Boot(int), Accounting(int), Rust(beg), Redux(int), SAP(int), Weights & Biases(int), REST APIs(int), Spark(beg)
+  Role        : Customer Support @ Globex Inc (19mo) — Enterprise sales of cloud software solutions into the mid-market segment. Carried a $1.8M ARR quota and consistently delivered against it across the last three years. Owned the full sales cycle: prospecting, discovery, t
+  Signals     : open_to_work=False resp_rate=0.46 last_active=2026-01-31 notice=90d github=-1 saved=1
+
+[CAND_0000043]  (stratum=inactive)
+  Title       : Cloud Engineer @ Swiggy (5001-10000)
+  Experience  : 8.3 yrs | Chandigarh, Chandigarh, India | industry: Food Delivery
+  Headline    : Cloud Engineer | Full-stack development
+  Summary     : Software engineer with 8.3 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've worked across web frontends, REST APIs, and cloud deployments; comfortable in most parts of a typical SaaS stack. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, bui
+  Skills      : Elasticsearch(adv), OpenSearch(int), Airflow(beg), Kubeflow(adv), Fine-tuning LLMs(int), Haystack(adv), OpenCV(adv), TensorFlow(int), PEFT(int), LangChain(int), Weights & Biases(int), Reinforcement Learning(adv), Deep Learning(int), Image Classification(adv), Node.js(int), Project Management(int), Feature Engineering(int)
+  Role        : Cloud Engineer @ Swiggy (30mo) — Test automation and QA engineering for a fintech product. Built and maintained the end-to-end test suite using Selenium and pytest, plus the load-testing setup using Locust. Worked closely with developers on testability 
+  Role        : .NET Developer @ HCL (24mo) — Cloud infrastructure and DevOps work at an enterprise SaaS company. Owned the AWS account architecture (VPC, IAM, networking), the Terraform modules for our service deployments, and the Kubernetes cluster operations. Des
+  Role        : Frontend Engineer @ Mindtree (25mo) — Android mobile development using Java and (more recently) Kotlin at a consumer-app company. Built and maintained multiple production features including the main shopping flow, push notification system, and the offline-fi
+  Signals     : open_to_work=False resp_rate=0.04 last_active=2026-01-01 notice=120d github=-1 saved=2
+
+[CAND_0000044]  (stratum=inactive)
+  Title       : Frontend Engineer @ Tech Mahindra (10001+)
+  Experience  : 5.7 yrs | Indore, Madhya Pradesh, India | industry: IT Services
+  Headline    : Frontend Engineer | Backend systems & APIs
+  Summary     : Software engineer with 5.7 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've spent most of my career on web and API development — Python/Django and Node.js mostly. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project
+  Skills      : Hadoop(beg), JavaScript(beg), Databricks(beg), Python(int), dbt(int), CI/CD(beg)
+  Role        : Frontend Engineer @ Tech Mahindra (50mo) — Java backend development at a large enterprise — Spring Boot microservices, Kafka for inter-service messaging, Postgres + Redis for storage. Worked on the customer onboarding flow which involved orchestrating multiple do
+  Role        : DevOps Engineer @ Hooli (18mo) — Frontend engineering at a media company. React, TypeScript, and the typical surrounding tooling (Webpack, Jest, Cypress). Built the company's design system from scratch and led the migration from a legacy AngularJS app. 
+  Signals     : open_to_work=False resp_rate=0.66 last_active=2025-12-11 notice=90d github=6.5 saved=18
+
+[CAND_0000055]  (stratum=inactive)
+  Title       : Full Stack Developer @ Razorpay (1001-5000)
+  Experience  : 7.3 yrs | Indore, Madhya Pradesh, India | industry: Fintech
+  Headline    : Full Stack Developer | Backend systems & APIs
+  Summary     : Software engineer with 7.3 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've spent most of my career on web and API development — Python/Django and Node.js mostly. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project
+  Skills      : Reinforcement Learning(int), Spark(beg), Weights & Biases(int), Accounting(int), Six Sigma(beg), Webpack(beg), CSS(beg), Next.js(beg), Data Pipelines(int)
+  Role        : Full Stack Developer @ Razorpay (22mo) — Test automation and QA engineering for a fintech product. Built and maintained the end-to-end test suite using Selenium and pytest, plus the load-testing setup using Locust. Worked closely with developers on testability 
+  Role        : .NET Developer @ Flipkart (15mo) — Test automation and QA engineering for a fintech product. Built and maintained the end-to-end test suite using Selenium and pytest, plus the load-testing setup using Locust. Worked closely with developers on testability 
+  Role        : Mobile Developer @ Cognizant (13mo) — Java backend development at a large enterprise — Spring Boot microservices, Kafka for inter-service messaging, Postgres + Redis for storage. Worked on the customer onboarding flow which involved orchestrating multiple do
+  Signals     : open_to_work=False resp_rate=0.45 last_active=2026-05-27 notice=150d github=17.3 saved=19
+
+[CAND_0000061]  (stratum=inactive)
+  Title       : DevOps Engineer @ Pied Piper (11-50)
+  Experience  : 7.7 yrs | Vizag, Andhra Pradesh, India | industry: Software
+  Headline    : DevOps Engineer | Backend systems & APIs
+  Summary     : Software engineer with 7.7 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've worked across web frontends, REST APIs, and cloud deployments; comfortable in most parts of a typical SaaS stack. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, bui
+  Skills      : Illustrator(int), Speech Recognition(int), JavaScript(int), Airflow(int), TypeScript(beg), Sales(beg), TTS(int), Object Detection(int), Spark(int)
+  Role        : DevOps Engineer @ Pied Piper (54mo) — Java backend development at a large enterprise — Spring Boot microservices, Kafka for inter-service messaging, Postgres + Redis for storage. Worked on the customer onboarding flow which involved orchestrating multiple do
+  Role        : Mobile Developer @ Zomato (32mo) — Frontend engineering at a media company. React, TypeScript, and the typical surrounding tooling (Webpack, Jest, Cypress). Built the company's design system from scratch and led the migration from a legacy AngularJS app. 
+  Role        : Java Developer @ Dunder Mifflin (6mo) — Android mobile development using Java and (more recently) Kotlin at a consumer-app company. Built and maintained multiple production features including the main shopping flow, push notification system, and the offline-fi
+  Signals     : open_to_work=False resp_rate=0.17 last_active=2025-12-22 notice=60d github=-1 saved=14
+
+[CAND_0000067]  (stratum=inactive)
+  Title       : Frontend Engineer @ Accenture (10001+)
+  Experience  : 3.9 yrs | San Francisco, USA | industry: Consulting
+  Headline    : Frontend Engineer | Cloud & DevOps
+  Summary     : Software engineer with 3.9 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've spent most of my career on web and API development — Python/Django and Node.js mostly. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project
+  Skills      : Tailwind(beg), Java(int), ASR(int), Django(beg), gRPC(int), Spark(int), Weights & Biases(adv), JavaScript(int), Kafka(int), Rust(beg)
+  Role        : Frontend Engineer @ Accenture (26mo) — Full-stack web application development at a SaaS company. Built React-based admin interfaces and the Node.js REST API backing them. Worked across the stack: frontend components, REST endpoint design, PostgreSQL schema, d
+  Role        : Mobile Developer @ Swiggy (20mo) — Android mobile development using Java and (more recently) Kotlin at a consumer-app company. Built and maintained multiple production features including the main shopping flow, push notification system, and the offline-fi
+  Signals     : open_to_work=False resp_rate=0.45 last_active=2026-05-07 notice=150d github=2.2 saved=3
+
+==============================================================================
+STRATUM: honeypot_like  (14 candidates)
+==============================================================================
+
+[CAND_0000003]  (stratum=honeypot_like)
+  Title       : Customer Support @ TCS (10001+)
+  Experience  : 1.1 yrs | Austin, USA | industry: IT Services
+  Headline    : Customer Support | 1.1+ yrs experience
+  Summary     : Professional with 1.1+ years of experience. I've spent my career in marketing manager roles, mostly focused on driving outcomes through process, people, and customer relationships. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I ca
+  Skills      : Angular(int), SEO(beg), Excel(int), Accounting(beg), Kubernetes(int), Databricks(beg)
+  Role        : Customer Support @ TCS (13mo) — Business analyst at a consulting firm, working primarily with retail and CPG clients. Conducted business diagnostics, process re-engineering work, and digital transformation strategy projects. Strong on stakeholder manag
+  Signals     : open_to_work=False resp_rate=0.46 last_active=2026-03-21 notice=150d github=-1 saved=4
+
+[CAND_0000004]  (stratum=honeypot_like)
+  Title       : Marketing Manager @ Dunder Mifflin (201-500)
+  Experience  : 3.8 yrs | Sydney, Australia | industry: Paper Products
+  Headline    : Marketing Manager | Driving business outcomes
+  Summary     : Professional with 3.8+ years of experience. My professional background is in marketing manager — I've built and led teams, owned KPIs, and driven business outcomes in this domain. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can
+  Skills      : Node.js(int), Content Writing(beg), Redux(beg), Airflow(int), GraphQL(beg), Object Detection(int), Webpack(beg), Six Sigma(beg), SAP(int), JavaScript(int)
+  Role        : Marketing Manager @ Dunder Mifflin (14mo) — Mechanical engineering design role at a hardware-product company. Led the design of two product subsystems through full lifecycle: concept, DFM/DFMA review, prototype, production tooling. Comfortable with CAD (SolidWorks
+  Role        : Operations Manager @ Infosys (20mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Role        : Business Analyst @ Globex Inc (10mo) — Operations management role at a logistics company. Owned daily fulfillment operations across 3 warehouses, managing a team of 80 across receiving, picking, packing, and outbound. Built and tracked the operational KPIs (o
+  Signals     : open_to_work=False resp_rate=0.26 last_active=2026-03-25 notice=120d github=-1 saved=8
+
+[CAND_0000005]  (stratum=honeypot_like)
+  Title       : Accountant @ Stark Industries (1001-5000)
+  Experience  : 11.0 yrs | Gurgaon, Haryana, India | industry: Manufacturing
+  Headline    : Accountant | Helping teams scale
+  Summary     : Professional with 11.0+ years of experience. I've spent my career in marketing manager roles, mostly focused on driving outcomes through process, people, and customer relationships. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I c
+  Skills      : SQL(beg), PowerPoint(beg), Photoshop(beg), Tailwind(int), Apache Flink(int), Image Classification(adv)
+  Role        : Accountant @ Stark Industries (52mo) — Business analyst at a consulting firm, working primarily with retail and CPG clients. Conducted business diagnostics, process re-engineering work, and digital transformation strategy projects. Strong on stakeholder manag
+  Role        : HR Manager @ Wipro (45mo) — Senior accounting role at a mid-sized company — month-end close, financial reporting, statutory compliance (GAAP / Ind-AS), and tax filings. Owned the GL, fixed-asset register, and the audit-readiness function. Managed a
+  Role        : HR Manager @ Initech (24mo) — Business analyst at a consulting firm, working primarily with retail and CPG clients. Conducted business diagnostics, process re-engineering work, and digital transformation strategy projects. Strong on stakeholder manag
+  Signals     : open_to_work=True resp_rate=0.37 last_active=2025-10-01 notice=30d github=-1 saved=1
+
+[CAND_0000006]  (stratum=honeypot_like)
+  Title       : Business Analyst @ Wayne Enterprises (10001+)
+  Experience  : 6.0 yrs | Austin, USA | industry: Conglomerate
+  Headline    : Business Analyst | 6.0+ yrs experience
+  Summary     : Professional with 6.0+ years of experience. I've spent my career in marketing manager roles, mostly focused on driving outcomes through process, people, and customer relationships. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I ca
+  Skills      : Content Writing(int), SEO(int), Redux(beg), SQL(beg), Sales(int), gRPC(beg), Django(int), Terraform(beg)
+  Role        : Business Analyst @ Wayne Enterprises (33mo) — Senior accounting role at a mid-sized company — month-end close, financial reporting, statutory compliance (GAAP / Ind-AS), and tax filings. Owned the GL, fixed-asset register, and the audit-readiness function. Managed a
+  Role        : Mechanical Engineer @ Pied Piper (38mo) — Business analyst at a consulting firm, working primarily with retail and CPG clients. Conducted business diagnostics, process re-engineering work, and digital transformation strategy projects. Strong on stakeholder manag
+  Signals     : open_to_work=False resp_rate=0.12 last_active=2026-02-28 notice=150d github=-1 saved=9
+
+[CAND_0000007]  (stratum=honeypot_like)
+  Title       : Civil Engineer @ Wipro (10001+)
+  Experience  : 5.5 yrs | Gurgaon, Haryana, India | industry: IT Services
+  Headline    : Civil Engineer | 5.5+ yrs experience
+  Summary     : Professional with 5.5+ years of experience. My professional background is in marketing manager — I've built and led teams, owned KPIs, and driven business outcomes in this domain. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can
+  Skills      : Content Writing(beg), MongoDB(int), Sales(int), Spark(beg), Scrum(beg), Apache Beam(beg), Illustrator(beg)
+  Role        : Civil Engineer @ Wipro (38mo) — Brand design and creative direction at a consumer-products company. Owned brand identity (logo, visual system, typography), packaging design, and digital creative across web and social. Led the recent rebrand and managed
+  Role        : Mechanical Engineer @ Initech (27mo) — Customer support team lead at a SaaS product. Managed a team of 8 support agents handling tier-1 and tier-2 tickets; owned the escalation process to engineering and the customer-feedback loop to product. Built out the su
+  Signals     : open_to_work=False resp_rate=0.62 last_active=2026-05-25 notice=30d github=-1 saved=8
+
+[CAND_0000009]  (stratum=honeypot_like)
+  Title       : Mechanical Engineer @ Dunder Mifflin (201-500)
+  Experience  : 11.0 yrs | New York, USA | industry: Paper Products
+  Headline    : Mechanical Engineer | Driving business outcomes
+  Summary     : Professional with 11.0+ years of experience. My professional background is in marketing manager — I've built and led teams, owned KPIs, and driven business outcomes in this domain. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I ca
+  Skills      : Snowflake(int), gRPC(beg), JavaScript(int), OpenCV(int), Go(int), PowerPoint(int)
+  Role        : Mechanical Engineer @ Dunder Mifflin (44mo) — Business analyst at a consulting firm, working primarily with retail and CPG clients. Conducted business diagnostics, process re-engineering work, and digital transformation strategy projects. Strong on stakeholder manag
+  Role        : Content Writer @ Wipro (20mo) — Marketing leadership role at a B2B SaaS company. Owned the demand-generation function — content marketing, paid acquisition, SEO, email nurture. Built and managed a team of 5 across content, performance marketing, and ma
+  Role        : Customer Support @ Stark Industries (49mo) — Mechanical engineering design role at a hardware-product company. Led the design of two product subsystems through full lifecycle: concept, DFM/DFMA review, prototype, production tooling. Comfortable with CAD (SolidWorks
+  Signals     : open_to_work=False resp_rate=0.53 last_active=2026-01-27 notice=150d github=-1 saved=1
+
+[CAND_0000013]  (stratum=honeypot_like)
+  Title       : Civil Engineer @ Globex Inc (501-1000)
+  Experience  : 1.1 yrs | Dubai, UAE | industry: Manufacturing
+  Headline    : Civil Engineer | Driving business outcomes
+  Summary     : Professional with 1.1+ years of experience. I'm a marketing manager with substantial experience in cross-functional collaboration, stakeholder management, and execution. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can apply my 
+  Skills      : React(int), Redux(int), Vue.js(beg), Six Sigma(beg), Spring Boot(beg), Spark(int), Data Pipelines(int), GCP(int), Flask(int), Snowflake(int)
+  Role        : Civil Engineer @ Globex Inc (13mo) — Customer support team lead at a SaaS product. Managed a team of 8 support agents handling tier-1 and tier-2 tickets; owned the escalation process to engineering and the customer-feedback loop to product. Built out the su
+  Signals     : open_to_work=True resp_rate=0.28 last_active=2026-03-26 notice=30d github=35.6 saved=12
+
+[CAND_0000016]  (stratum=honeypot_like)
+  Title       : Accountant @ Infosys (10001+)
+  Experience  : 5.3 yrs | Gurgaon, Haryana, India | industry: IT Services
+  Headline    : Accountant | Helping teams scale
+  Summary     : Professional with 5.3+ years of experience. I'm a marketing manager with substantial experience in cross-functional collaboration, stakeholder management, and execution. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can apply my 
+  Skills      : Node.js(beg), Figma(beg), Data Pipelines(beg), Go(beg), Photoshop(int), Kubeflow(adv), Accounting(int), SQL(int)
+  Role        : Accountant @ Infosys (18mo) — Enterprise sales of cloud software solutions into the mid-market segment. Carried a $1.8M ARR quota and consistently delivered against it across the last three years. Owned the full sales cycle: prospecting, discovery, t
+  Role        : Mechanical Engineer @ TCS (39mo) — Customer support team lead at a SaaS product. Managed a team of 8 support agents handling tier-1 and tier-2 tickets; owned the escalation process to engineering and the customer-feedback loop to product. Built out the su
+  Role        : Operations Manager @ Globex Inc (6mo) — Mechanical engineering design role at a hardware-product company. Led the design of two product subsystems through full lifecycle: concept, DFM/DFMA review, prototype, production tooling. Comfortable with CAD (SolidWorks
+  Signals     : open_to_work=True resp_rate=0.64 last_active=2025-12-21 notice=60d github=42.9 saved=5
+
+[CAND_0000017]  (stratum=honeypot_like)
+  Title       : Accountant @ Wipro (10001+)
+  Experience  : 12.3 yrs | Bangalore, Karnataka, India | industry: IT Services
+  Headline    : Accountant | 12.3+ yrs experience
+  Summary     : Professional with 12.3+ years of experience. My professional background is in marketing manager — I've built and led teams, owned KPIs, and driven business outcomes in this domain. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I ca
+  Skills      : Next.js(beg), Java(int), Apache Flink(int), Sales(int), Tally(int), PostgreSQL(int), REST APIs(beg), Hadoop(int)
+  Role        : Accountant @ Wipro (27mo) — Customer support team lead at a SaaS product. Managed a team of 8 support agents handling tier-1 and tier-2 tickets; owned the escalation process to engineering and the customer-feedback loop to product. Built out the su
+  Role        : Customer Support @ Infosys (37mo) — Mechanical engineering design role at a hardware-product company. Led the design of two product subsystems through full lifecycle: concept, DFM/DFMA review, prototype, production tooling. Comfortable with CAD (SolidWorks
+  Role        : Mechanical Engineer @ Initech (43mo) — Enterprise sales of cloud software solutions into the mid-market segment. Carried a $1.8M ARR quota and consistently delivered against it across the last three years. Owned the full sales cycle: prospecting, discovery, t
+  Signals     : open_to_work=False resp_rate=0.27 last_active=2025-11-04 notice=90d github=-1 saved=2
+
+[CAND_0000019]  (stratum=honeypot_like)
+  Title       : Project Manager @ Wayne Enterprises (10001+)
+  Experience  : 6.5 yrs | Trivandrum, Kerala, India | industry: Conglomerate
+  Headline    : Project Manager | 6.5+ yrs experience
+  Summary     : Professional with 6.5+ years of experience. I've spent my career in marketing manager roles, mostly focused on driving outcomes through process, people, and customer relationships. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I ca
+  Skills      : Figma(int), GraphQL(beg), Six Sigma(beg), Scrum(beg), YOLO(int), gRPC(beg), AWS(int), Azure(int)
+  Role        : Project Manager @ Wayne Enterprises (44mo) — Business analyst at a consulting firm, working primarily with retail and CPG clients. Conducted business diagnostics, process re-engineering work, and digital transformation strategy projects. Strong on stakeholder manag
+  Role        : Marketing Manager @ Wayne Enterprises (26mo) — Mechanical engineering design role at a hardware-product company. Led the design of two product subsystems through full lifecycle: concept, DFM/DFMA review, prototype, production tooling. Comfortable with CAD (SolidWorks
+  Role        : Business Analyst @ Pied Piper (7mo) — Brand design and creative direction at a consumer-products company. Owned brand identity (logo, visual system, typography), packaging design, and digital creative across web and social. Led the recent rebrand and managed
+  Signals     : open_to_work=False resp_rate=0.34 last_active=2026-05-21 notice=60d github=-1 saved=0
+
+[CAND_0000020]  (stratum=honeypot_like)
+  Title       : Mechanical Engineer @ Wipro (10001+)
+  Experience  : 6.3 yrs | Ahmedabad, Gujarat, India | industry: IT Services
+  Headline    : Mechanical Engineer | 6.3+ yrs experience
+  Summary     : Professional with 6.3+ years of experience. I'm a marketing manager with substantial experience in cross-functional collaboration, stakeholder management, and execution. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can apply my 
+  Skills      : GraphQL(beg), TypeScript(beg), Flask(beg), Weights & Biases(adv), GCP(int), Salesforce CRM(beg), HTML(int)
+  Role        : Mechanical Engineer @ Wipro (36mo) — Marketing leadership role at a B2B SaaS company. Owned the demand-generation function — content marketing, paid acquisition, SEO, email nurture. Built and managed a team of 5 across content, performance marketing, and ma
+  Role        : Graphic Designer @ Stark Industries (33mo) — Marketing leadership role at a B2B SaaS company. Owned the demand-generation function — content marketing, paid acquisition, SEO, email nurture. Built and managed a team of 5 across content, performance marketing, and ma
+  Role        : Civil Engineer @ Dunder Mifflin (6mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Signals     : open_to_work=False resp_rate=0.55 last_active=2025-10-05 notice=30d github=-1 saved=11
+
+[CAND_0000021]  (stratum=honeypot_like)
+  Title       : Project Manager @ Wipro (10001+)
+  Experience  : 14.5 yrs | Bhubaneswar, Odisha, India | industry: IT Services
+  Headline    : Project Manager | AI enthusiast | Building with LLMs
+  Summary     : Project Manager with 14.5+ years of experience driving outcomes in my domain. I have built strong functional expertise in the typical responsibilities of the role, including team management, stakeholder communication, and project delivery. Recently I've been excited about how AI and GenAI tools can augment my work. I've been taking online courses on RAG and vector databases, experimenting with Lan
+  Skills      : Hadoop(beg), PostgreSQL(beg), Kafka(beg), Microservices(int), AWS(int), TypeScript(beg), ETL(beg), Spring Boot(beg), Recommendation Systems(adv), Fine-tuning LLMs(adv), Prompt Engineering(adv), LangChain(int), Pinecone(int), Vector Search(int), Embeddings(adv), FAISS(int)
+  Role        : Project Manager @ Wipro (30mo) — Brand design and creative direction at a consumer-products company. Owned brand identity (logo, visual system, typography), packaging design, and digital creative across web and social. Led the recent rebrand and managed
+  Role        : Marketing Manager @ Infosys (32mo) — Mechanical engineering design role at a hardware-product company. Led the design of two product subsystems through full lifecycle: concept, DFM/DFMA review, prototype, production tooling. Comfortable with CAD (SolidWorks
+  Role        : Sales Executive @ Stark Industries (18mo) — Customer support team lead at a SaaS product. Managed a team of 8 support agents handling tier-1 and tier-2 tickets; owned the escalation process to engineering and the customer-feedback loop to product. Built out the su
+  Signals     : open_to_work=False resp_rate=0.49 last_active=2025-11-21 notice=60d github=6.4 saved=3
+
+[CAND_0000022]  (stratum=honeypot_like)
+  Title       : Mechanical Engineer @ Hooli (1001-5000)
+  Experience  : 1.1 yrs | Sydney, Australia | industry: Software
+  Headline    : Mechanical Engineer | Driving business outcomes
+  Summary     : Professional with 1.1+ years of experience. I'm a marketing manager with substantial experience in cross-functional collaboration, stakeholder management, and execution. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can apply my 
+  Skills      : OpenCV(int), Django(int), Terraform(int), Scrum(int), SQL(int), Java(beg), AWS(int), Six Sigma(beg)
+  Role        : Mechanical Engineer @ Hooli (13mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Signals     : open_to_work=True resp_rate=0.27 last_active=2026-05-03 notice=150d github=-1 saved=5
+
+[CAND_0000024]  (stratum=honeypot_like)
+  Title       : HR Manager @ TCS (10001+)
+  Experience  : 7.5 yrs | Trivandrum, Kerala, India | industry: IT Services
+  Headline    : HR Manager | 7.5+ yrs experience
+  Summary     : Professional with 7.5+ years of experience. I've spent my career in marketing manager roles, mostly focused on driving outcomes through process, people, and customer relationships. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I ca
+  Skills      : Figma(beg), Kubernetes(beg), Forecasting(adv), ETL(int), Node.js(int), Docker(beg)
+  Role        : HR Manager @ TCS (38mo) — Marketing leadership role at a B2B SaaS company. Owned the demand-generation function — content marketing, paid acquisition, SEO, email nurture. Built and managed a team of 5 across content, performance marketing, and ma
+  Role        : Accountant @ Infosys (51mo) — Content writing and SEO strategy for a tech-focused publication. Wrote longform articles on developer tools, cloud platforms, and AI/ML topics — including some that ranked on the first page of search for high-competition
+  Signals     : open_to_work=False resp_rate=0.78 last_active=2026-01-20 notice=60d github=46.3 saved=7
+
+==============================================================================
+STRATUM: random  (14 candidates)
+==============================================================================
+
+[CAND_0000001]  (stratum=random)
+  Title       : Backend Engineer @ Mindtree (10001+)
+  Experience  : 6.9 yrs | Toronto, Canada | industry: IT Services
+  Headline    : Backend Engineer | SQL, Spark, Cloud
+  Summary     : Software / data professional with 6.9 years of experience building data pipelines, backend systems, and analytics infrastructure. I'm a backend/data hybrid — Spark, Airflow, SQL warehouses are home territory; I'm building competence on the ML side. My toolkit is solid on the data engineering side — Python, SQL, Spark, Airflow, warehouse design — and I've completed a couple of self-directed ML proj
+  Skills      : Tailwind(int), NLP(adv), Image Classification(adv), Fine-tuning LLMs(adv), Weights & Biases(int), Speech Recognition(adv), Photoshop(int), TTS(adv), LoRA(int), Apache Beam(int), AWS(beg), Flask(beg), BentoML(int), Milvus(adv), GANs(adv), Statistical Modeling(int), GCP(beg)
+  Role        : Backend Engineer @ Mindtree (27mo) — Implemented streaming data pipelines on Kafka and Spark Streaming for a real-time user-activity processing platform. Designed the schema-registry integration, the watermark/state management approach, and the deduplicatio
+  Role        : Analytics Engineer @ Dunder Mifflin (55mo) — Built and maintained data pipelines on Apache Airflow processing ~500GB of daily transactional data across 12 source systems. Worked extensively with Spark (PySpark) for batch processing and dbt for the transformation/mo
+  Signals     : open_to_work=True resp_rate=0.34 last_active=2026-05-20 notice=60d github=9.2 saved=4
+
+[CAND_0000015]  (stratum=random)
+  Title       : Software Engineer @ Razorpay (1001-5000)
+  Experience  : 5.4 yrs | Trivandrum, Kerala, India | industry: Fintech
+  Headline    : Software Engineer | Cloud & DevOps
+  Summary     : Software engineer with 5.4 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've worked across web frontends, REST APIs, and cloud deployments; comfortable in most parts of a typical SaaS stack. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, bui
+  Skills      : PyTorch(int), Content Writing(int), Weights & Biases(int), Qdrant(int), Sales(int), Figma(int), BigQuery(beg), Computer Vision(int), Next.js(int), SEO(int)
+  Role        : Software Engineer @ Razorpay (31mo) — Cloud infrastructure and DevOps work at an enterprise SaaS company. Owned the AWS account architecture (VPC, IAM, networking), the Terraform modules for our service deployments, and the Kubernetes cluster operations. Des
+  Role        : Mobile Developer @ Hooli (24mo) — Android mobile development using Java and (more recently) Kotlin at a consumer-app company. Built and maintained multiple production features including the main shopping flow, push notification system, and the offline-fi
+  Role        : DevOps Engineer @ Globex Inc (9mo) — Java backend development at a large enterprise — Spring Boot microservices, Kafka for inter-service messaging, Postgres + Redis for storage. Worked on the customer onboarding flow which involved orchestrating multiple do
+  Signals     : open_to_work=True resp_rate=0.32 last_active=2026-02-12 notice=90d github=-1 saved=8
+
+[CAND_0000025]  (stratum=random)
+  Title       : Frontend Engineer @ Tech Mahindra (10001+)
+  Experience  : 7.3 yrs | Vizag, Andhra Pradesh, India | industry: IT Services
+  Headline    : Frontend Engineer | Cloud & DevOps
+  Summary     : Software engineer with 7.3 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've worked across web frontends, REST APIs, and cloud deployments; comfortable in most parts of a typical SaaS stack. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, bui
+  Skills      : JavaScript(int), Spark(int), GCP(beg), TypeScript(beg), LangChain(adv), Apache Flink(int), ETL(beg), Redis(beg), Data Pipelines(int)
+  Role        : Frontend Engineer @ Tech Mahindra (33mo) — Android mobile development using Java and (more recently) Kotlin at a consumer-app company. Built and maintained multiple production features including the main shopping flow, push notification system, and the offline-fi
+  Role        : Frontend Engineer @ Mindtree (48mo) — Android mobile development using Java and (more recently) Kotlin at a consumer-app company. Built and maintained multiple production features including the main shopping flow, push notification system, and the offline-fi
+  Role        : Frontend Engineer @ Zomato (6mo) — Frontend engineering at a media company. React, TypeScript, and the typical surrounding tooling (Webpack, Jest, Cypress). Built the company's design system from scratch and led the migration from a legacy AngularJS app. 
+  Signals     : open_to_work=True resp_rate=0.74 last_active=2026-03-30 notice=120d github=-1 saved=9
+
+[CAND_0000038]  (stratum=random)
+  Title       : Java Developer @ Swiggy (5001-10000)
+  Experience  : 6.7 yrs | Coimbatore, Tamil Nadu, India | industry: Food Delivery
+  Headline    : Java Developer | Cloud & DevOps
+  Summary     : Software engineer with 6.7 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. My background is full-stack, but my comfort zone is the backend and the database. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project — but I h
+  Skills      : Kubeflow(int), Django(beg), Redux(int), Weaviate(adv), PowerPoint(beg), Figma(beg), Docker(beg), GraphQL(int), Agile(int), MLOps(int), Azure(int)
+  Role        : Java Developer @ Swiggy (31mo) — Frontend engineering at a media company. React, TypeScript, and the typical surrounding tooling (Webpack, Jest, Cypress). Built the company's design system from scratch and led the migration from a legacy AngularJS app. 
+  Role        : .NET Developer @ Globex Inc (14mo) — Java backend development at a large enterprise — Spring Boot microservices, Kafka for inter-service messaging, Postgres + Redis for storage. Worked on the customer onboarding flow which involved orchestrating multiple do
+  Role        : DevOps Engineer @ Hooli (34mo) — Frontend engineering at a media company. React, TypeScript, and the typical surrounding tooling (Webpack, Jest, Cypress). Built the company's design system from scratch and led the migration from a legacy AngularJS app. 
+  Signals     : open_to_work=True resp_rate=0.2 last_active=2026-03-31 notice=90d github=37.8 saved=18
+
+[CAND_0000048]  (stratum=random)
+  Title       : Mobile Developer @ CRED (1001-5000)
+  Experience  : 9.7 yrs | Hyderabad, Telangana, India | industry: Fintech
+  Headline    : Mobile Developer | Full-stack development
+  Summary     : Software engineer with 9.7 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've worked across web frontends, REST APIs, and cloud deployments; comfortable in most parts of a typical SaaS stack. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, bui
+  Skills      : Hadoop(beg), Terraform(int), Vue.js(int), Content Writing(int), AWS(int)
+  Role        : Mobile Developer @ CRED (28mo) — Frontend engineering at a media company. React, TypeScript, and the typical surrounding tooling (Webpack, Jest, Cypress). Built the company's design system from scratch and led the migration from a legacy AngularJS app. 
+  Role        : Full Stack Developer @ Cognizant (20mo) — Android mobile development using Java and (more recently) Kotlin at a consumer-app company. Built and maintained multiple production features including the main shopping flow, push notification system, and the offline-fi
+  Role        : Mobile Developer @ Stark Industries (51mo) — Java backend development at a large enterprise — Spring Boot microservices, Kafka for inter-service messaging, Postgres + Redis for storage. Worked on the customer onboarding flow which involved orchestrating multiple do
+  Signals     : open_to_work=True resp_rate=0.65 last_active=2026-04-06 notice=120d github=-1 saved=5
+
+[CAND_0000051]  (stratum=random)
+  Title       : Cloud Engineer @ HCL (10001+)
+  Experience  : 6.2 yrs | Dubai, UAE | industry: IT Services
+  Headline    : Cloud Engineer | Cloud & DevOps
+  Summary     : Software engineer with 6.2 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. Most of my work is conventional backend engineering — APIs, databases, queues, deployments. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project
+  Skills      : Databricks(beg), MongoDB(beg), YOLO(int), Diffusion Models(int), Forecasting(int), PostgreSQL(int), REST APIs(int), Accounting(int), SAP(beg), React(int)
+  Role        : Cloud Engineer @ HCL (42mo) — Test automation and QA engineering for a fintech product. Built and maintained the end-to-end test suite using Selenium and pytest, plus the load-testing setup using Locust. Worked closely with developers on testability 
+  Role        : Java Developer @ Zomato (32mo) — Frontend engineering at a media company. React, TypeScript, and the typical surrounding tooling (Webpack, Jest, Cypress). Built the company's design system from scratch and led the migration from a legacy AngularJS app. 
+  Signals     : open_to_work=True resp_rate=0.73 last_active=2026-01-25 notice=90d github=-1 saved=14
+
+[CAND_0000054]  (stratum=random)
+  Title       : QA Engineer @ Stark Industries (1001-5000)
+  Experience  : 4.9 yrs | Indore, Madhya Pradesh, India | industry: Manufacturing
+  Headline    : QA Engineer | Cloud & DevOps
+  Summary     : Software engineer with 4.9 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. Most of my work is conventional backend engineering — APIs, databases, queues, deployments. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project
+  Skills      : YOLO(int), Illustrator(int), Salesforce CRM(int), PowerPoint(beg), Redis(beg), BigQuery(int), Kubernetes(beg), AWS(int), dbt(beg), Rust(int), Marketing(int), Spark(int), REST APIs(beg), BentoML(int)
+  Role        : QA Engineer @ Stark Industries (45mo) — Test automation and QA engineering for a fintech product. Built and maintained the end-to-end test suite using Selenium and pytest, plus the load-testing setup using Locust. Worked closely with developers on testability 
+  Role        : .NET Developer @ Zomato (13mo) — Frontend engineering at a media company. React, TypeScript, and the typical surrounding tooling (Webpack, Jest, Cypress). Built the company's design system from scratch and led the migration from a legacy AngularJS app. 
+  Signals     : open_to_work=True resp_rate=0.25 last_active=2026-02-19 notice=90d github=-1 saved=15
+
+[CAND_0000060]  (stratum=random)
+  Title       : Cloud Engineer @ Razorpay (1001-5000)
+  Experience  : 8.0 yrs | Coimbatore, Tamil Nadu, India | industry: Fintech
+  Headline    : Cloud Engineer | Cloud & DevOps
+  Summary     : Software engineer with 8.0 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've worked across web frontends, REST APIs, and cloud deployments; comfortable in most parts of a typical SaaS stack. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, bui
+  Skills      : Accounting(int), Kafka(int), LoRA(int), gRPC(int), JavaScript(int), Databricks(int), FastAPI(int), YOLO(adv), Marketing(beg), Java(int), GraphQL(int), ETL(beg)
+  Role        : Cloud Engineer @ Razorpay (30mo) — Frontend engineering at a media company. React, TypeScript, and the typical surrounding tooling (Webpack, Jest, Cypress). Built the company's design system from scratch and led the migration from a legacy AngularJS app. 
+  Role        : DevOps Engineer @ Accenture (26mo) — Java backend development at a large enterprise — Spring Boot microservices, Kafka for inter-service messaging, Postgres + Redis for storage. Worked on the customer onboarding flow which involved orchestrating multiple do
+  Role        : DevOps Engineer @ Wayne Enterprises (26mo) — Cloud infrastructure and DevOps work at an enterprise SaaS company. Owned the AWS account architecture (VPC, IAM, networking), the Terraform modules for our service deployments, and the Kubernetes cluster operations. Des
+  Signals     : open_to_work=True resp_rate=0.22 last_active=2026-04-23 notice=120d github=-1 saved=4
+
+[CAND_0000063]  (stratum=random)
+  Title       : Java Developer @ Mphasis (10001+)
+  Experience  : 5.4 yrs | Delhi, Delhi, India | industry: IT Services
+  Headline    : Java Developer | Cloud & DevOps
+  Summary     : Software engineer with 5.4 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've worked across web frontends, REST APIs, and cloud deployments; comfortable in most parts of a typical SaaS stack. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, bui
+  Skills      : Apache Beam(beg), Kubeflow(adv), REST APIs(beg), Apache Flink(beg), Figma(int), Content Writing(beg), React(beg), Scrum(beg), CSS(beg), Webpack(beg), Redux(beg), PostgreSQL(beg), PEFT(int), Project Management(int)
+  Role        : Java Developer @ Mphasis (52mo) — Test automation and QA engineering for a fintech product. Built and maintained the end-to-end test suite using Selenium and pytest, plus the load-testing setup using Locust. Worked closely with developers on testability 
+  Role        : .NET Developer @ Swiggy (12mo) — Java backend development at a large enterprise — Spring Boot microservices, Kafka for inter-service messaging, Postgres + Redis for storage. Worked on the customer onboarding flow which involved orchestrating multiple do
+  Signals     : open_to_work=True resp_rate=0.77 last_active=2026-04-06 notice=90d github=61.4 saved=15
+
+[CAND_0000080]  (stratum=random)
+  Title       : Graphic Designer @ Infosys (10001+)
+  Experience  : 8.3 yrs | Chennai, Tamil Nadu, India | industry: IT Services
+  Headline    : Graphic Designer | Helping teams scale
+  Summary     : Professional with 8.3+ years of experience. My professional background is in marketing manager — I've built and led teams, owned KPIs, and driven business outcomes in this domain. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can
+  Skills      : PostgreSQL(beg), Sales(int), Snowflake(int), Vue.js(int), Microservices(int), Salesforce CRM(int), Hadoop(beg)
+  Role        : Graphic Designer @ Infosys (15mo) — Mechanical engineering design role at a hardware-product company. Led the design of two product subsystems through full lifecycle: concept, DFM/DFMA review, prototype, production tooling. Comfortable with CAD (SolidWorks
+  Role        : Project Manager @ Stark Industries (46mo) — Operations management role at a logistics company. Owned daily fulfillment operations across 3 warehouses, managing a team of 80 across receiving, picking, packing, and outbound. Built and tracked the operational KPIs (o
+  Role        : Marketing Manager @ Infosys (37mo) — Brand design and creative direction at a consumer-products company. Owned brand identity (logo, visual system, typography), packaging design, and digital creative across web and social. Led the recent rebrand and managed
+  Signals     : open_to_work=True resp_rate=0.17 last_active=2026-03-16 notice=90d github=-1 saved=10
+
+[CAND_0000082]  (stratum=random)
+  Title       : Data Analyst @ Wipro (10001+)
+  Experience  : 7.4 yrs | Seattle, USA | industry: IT Services
+  Headline    : Data Analyst | 7.4+ yrs in data engineering
+  Summary     : Software / data professional with 7.4 years of experience building data pipelines, backend systems, and analytics infrastructure. Started my career in backend engineering and gradually moved closer to data — first dashboards, then ETL, now some basic ML. My toolkit is solid on the data engineering side — Python, SQL, Spark, Airflow, warehouse design — and I've completed a couple of self-directed M
+  Skills      : GANs(adv), REST APIs(int), TTS(adv), HTML(int), YOLO(adv), SAP(int), Pinecone(adv), Reinforcement Learning(adv), Embeddings(adv), LLMs(int), FAISS(int)
+  Role        : Data Analyst @ Wipro (30mo) — Implemented streaming data pipelines on Kafka and Spark Streaming for a real-time user-activity processing platform. Designed the schema-registry integration, the watermark/state management approach, and the deduplicatio
+  Role        : Senior Data Engineer @ Zomato (36mo) — Implemented streaming data pipelines on Kafka and Spark Streaming for a real-time user-activity processing platform. Designed the schema-registry integration, the watermark/state management approach, and the deduplicatio
+  Role        : Backend Engineer @ Mindtree (22mo) — Mixed data science and analytics-engineering role at a marketing-analytics startup. Spent maybe 30% of my time on lightweight ML (clustering, classification, churn prediction in sklearn/XGBoost) and 70% on data infrastru
+  Signals     : open_to_work=True resp_rate=0.82 last_active=2026-01-23 notice=120d github=-1 saved=7
+
+[CAND_0000099]  (stratum=random)
+  Title       : Full Stack Developer @ Razorpay (1001-5000)
+  Experience  : 2.6 yrs | Ahmedabad, Gujarat, India | industry: Fintech
+  Headline    : Full Stack Developer | Backend systems & APIs
+  Summary     : Software engineer with 2.6 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. I've worked across web frontends, REST APIs, and cloud deployments; comfortable in most parts of a typical SaaS stack. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, bui
+  Skills      : Figma(int), Salesforce CRM(beg), Haystack(adv), Weights & Biases(adv), Airflow(int), Hugging Face Transformers(adv), Hadoop(beg), Six Sigma(beg), MongoDB(int), Content Writing(int), Spring Boot(int), Marketing(beg), YOLO(adv), Docker(beg), Go(beg), Azure(beg)
+  Role        : Full Stack Developer @ Razorpay (18mo) — Cloud infrastructure and DevOps work at an enterprise SaaS company. Owned the AWS account architecture (VPC, IAM, networking), the Terraform modules for our service deployments, and the Kubernetes cluster operations. Des
+  Role        : Full Stack Developer @ Flipkart (13mo) — Cloud infrastructure and DevOps work at an enterprise SaaS company. Owned the AWS account architecture (VPC, IAM, networking), the Terraform modules for our service deployments, and the Kubernetes cluster operations. Des
+  Signals     : open_to_work=True resp_rate=0.81 last_active=2026-05-09 notice=90d github=-1 saved=2
+
+[CAND_0000110]  (stratum=random)
+  Title       : Software Engineer @ Swiggy (5001-10000)
+  Experience  : 9.8 yrs | Kochi, Kerala, India | industry: Food Delivery
+  Headline    : Software Engineer | Backend systems & APIs
+  Summary     : Software engineer with 9.8 years of experience across web, backend, and cloud systems. Strong fundamentals in software development and system design. My background is full-stack, but my comfort zone is the backend and the database. I've been keeping up with AI/ML at a self-learner level — taken some online courses, played with the OpenAI and Anthropic APIs, built a small RAG side project — but I h
+  Skills      : SAP(int), AWS(int), Marketing(int), Flask(beg), Semantic Search(adv), TypeScript(int), Angular(beg), Accounting(int), OpenCV(int), Snowflake(beg), GCP(int), GANs(int), Microservices(beg), Project Management(beg), Feature Engineering(int)
+  Role        : Software Engineer @ Swiggy (22mo) — Full-stack web application development at a SaaS company. Built React-based admin interfaces and the Node.js REST API backing them. Worked across the stack: frontend components, REST endpoint design, PostgreSQL schema, d
+  Role        : Frontend Engineer @ Razorpay (24mo) — Frontend engineering at a media company. React, TypeScript, and the typical surrounding tooling (Webpack, Jest, Cypress). Built the company's design system from scratch and led the migration from a legacy AngularJS app. 
+  Role        : Software Engineer @ Wayne Enterprises (48mo) — Full-stack web application development at a SaaS company. Built React-based admin interfaces and the Node.js REST API backing them. Worked across the stack: frontend components, REST endpoint design, PostgreSQL schema, d
+  Signals     : open_to_work=True resp_rate=0.67 last_active=2026-05-03 notice=150d github=64.0 saved=12
+
+[CAND_0000114]  (stratum=random)
+  Title       : Sales Executive @ Pied Piper (11-50)
+  Experience  : 14.3 yrs | Ahmedabad, Gujarat, India | industry: Software
+  Headline    : Sales Executive | 14.3+ yrs experience
+  Summary     : Professional with 14.3+ years of experience. I'm a marketing manager with substantial experience in cross-functional collaboration, stakeholder management, and execution. Lately I've been curious about how AI tools could augment my work — I've experimented with ChatGPT and a few other tools for productivity and content creation, and I think the space is exciting. Open to roles where I can apply my
+  Skills      : Content Writing(beg), YOLO(adv), Agile(int), Data Pipelines(int), Kafka(int), GCP(beg), SEO(beg)
+  Role        : Sales Executive @ Pied Piper (26mo) — Business analyst at a consulting firm, working primarily with retail and CPG clients. Conducted business diagnostics, process re-engineering work, and digital transformation strategy projects. Strong on stakeholder manag
+  Role        : Accountant @ Acme Corp (14mo) — Senior accounting role at a mid-sized company — month-end close, financial reporting, statutory compliance (GAAP / Ind-AS), and tax filings. Owned the GL, fixed-asset register, and the audit-readiness function. Managed a
+  Role        : Graphic Designer @ Stark Industries (22mo) — Mechanical engineering design role at a hardware-product company. Led the design of two product subsystems through full lifecycle: concept, DFM/DFMA review, prototype, production tooling. Comfortable with CAD (SolidWorks
+  Signals     : open_to_work=True resp_rate=0.62 last_active=2026-04-29 notice=60d github=-1 saved=6
