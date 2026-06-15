@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+precompute/embeddings/
+output/
+presentation/
+.env

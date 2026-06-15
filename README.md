@@ -7,14 +7,14 @@ An intelligent candidate ranking system that goes beyond keyword matching to und
 ## Architecture
 
 ```
-100K Candidates → Hard Filters → Honeypot Detection → Feature Scoring → Behavioral Multiplier → Top 100 CSV
-                  (~5-15K pass)   (~80 traps removed)   (7 dimensions)    (availability/engagement)
+100K Candidates → Hard Filters → Honeypot Detection → Feature Scoring → Behavioral Multiplier → Cross-Encoder Re-Rank → Top 100 CSV
+                  (~28K pass)    (Traps removed)      (6 dimensions)    (engagement bounds)     (MS-MARCO MiniLM)
 ```
 
 ### Scoring Dimensions
 | Dimension | Weight | What It Measures |
 |-----------|--------|------------------|
-| Semantic Similarity | 0.25 | Per-role-description embedding match against JD using `bge-small-en-v1.5` |
+| Semantic Similarity | 0.25 | Bi-Encoder embedding match against JD using `BAAI/bge-base-en-v1.5` (768d) |
 | Career Fit | 0.25 | Title relevance, product vs consulting, career progression, description relevance |
 | Skills Match | 0.20 | Must-have/nice-to-have skill matching with credibility cross-check + assessment scores |
 | Experience Fit | 0.10 | Optimal band: 5-9 years (per JD) with graceful decay |

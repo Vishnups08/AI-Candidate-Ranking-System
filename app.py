@@ -440,7 +440,7 @@ with right_col:
             st.progress(sc[k])
             
         # Multiplier
-        mult = ranker.scorer_behavioral.compute_behavioral_multiplier(cand_detail)
+        mult = cand_result.get("details", {}).get("behavioral_multiplier", 1.0)
         st.markdown(
             f"""
             <div style='margin-top: 15px; padding: 10px; background: rgba(99, 102, 241, 0.1); border-radius: 8px;'>
