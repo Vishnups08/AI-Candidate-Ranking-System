@@ -86,10 +86,39 @@ def load_embeddings():
     return jd_emb, cand_emb
 
 
+def embed_gold_on_the_fly(records, jd_emb):
+    """Embed just the gold candidates with the live bi-encoder so tuning is
+    decoupled from the slow full-pool precompute. Uses the SAME profile-text
+    builder as the real precompute step, so scores match the full pipeline."""
+    from sentence_transformers import SentenceTransformer
+    sys.path.insert(0, str(Path(__file__).parent.parent / "precompute"))
+    from build_embeddings import build_profile_text, build_role_texts
+
+    model_path = config._local_model_path(config.EMBEDDING_MODEL)
+    model = SentenceTransformer(model_path, device="cpu",
+                                local_files_only=model_path != config.EMBEDDING_MODEL)
+    cand_emb = {}
+    ids = list(records)
+    prof_texts = [config.EMBEDDING_PASSAGE_PREFIX + build_profile_text(records[c]) for c in ids]
+    prof_vecs = model.encode(prof_texts, batch_size=64, normalize_embeddings=True)
+    for cid, v in zip(ids, prof_vecs):
+        cand_emb[cid] = {"profile_embedding": v}
+    # Role embeddings (variable length per candidate)
+    for cid in ids:
+        rtexts = build_role_texts(records[cid])
+        if rtexts:
+            rvecs = model.encode(rtexts, batch_size=64, normalize_embeddings=True)
+            cand_emb[cid]["role_embeddings"] = rvecs
+    return cand_emb
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--candidates", required=True)
     ap.add_argument("--no-cross-encoder", action="store_true")
+    ap.add_argument("--use-precomputed", action="store_true",
+                    help="Use precompute/embeddings/*.npz instead of embedding "
+                         "the gold candidates on the fly (slower full build).")
     args = ap.parse_args()
 
     gold = json.loads(GOLD_PATH.read_text())["labels"]
@@ -107,8 +136,13 @@ def main():
 
     jd = load_jd_requirements()
     jd_emb, cand_emb = load_embeddings()
-    print(f"Embeddings: jd={'yes' if jd_emb is not None else 'NO'} "
-          f"candidates={len(cand_emb)}")
+    if args.use_precomputed:
+        print(f"Embeddings (precomputed): jd={'yes' if jd_emb is not None else 'NO'} "
+              f"candidates={len(cand_emb)}")
+    else:
+        print("Embedding gold candidates on the fly (decoupled from full build)...")
+        cand_emb = embed_gold_on_the_fly(records, jd_emb)
+        print(f"Embedded {len(cand_emb)} gold candidates")
     scorer = FeatureScorer(jd, jd_emb, cand_emb)
 
     # Score exactly as rank.py does (minus the top-100 cut).

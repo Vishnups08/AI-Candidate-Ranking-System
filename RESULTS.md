@@ -44,3 +44,34 @@ Trap exemplar scores (`tests/test_traps.py`):
 
 **Next:** add a skill–title/career coherence gate so AI skills only count when
 the candidate's actual work supports them; re-measure on full embeddings.
+
+---
+
+## R1 — Real gold composite with BGE embeddings (on-the-fly gold embedding)
+
+First measurement against the independent gold set (98 labels: 80×t0, 3×t1,
+4×t2, 9×t3, 2×t4) using BGE-base embeddings on the signal-focused profile text,
++ cross-encoder blend. Gold candidates embedded on the fly so tuning is
+decoupled from the slow ~2 h full-pool precompute.
+
+| metric | value |
+|---|---|
+| NDCG@10 | 0.9192 |
+| NDCG@50 | 0.9867 |
+| MAP | 0.8929 |
+| P@10 | 0.7000 |
+| **COMPOSITE** | **0.9245** |
+| honeypots in top-10 | 0 |
+
+Top-2 (both genuine tier-4) ranked #1, #2 correctly. NDCG@50 near-perfect.
+
+**Issue R1.1 (drives NDCG@10 down):** three tier-2 candidates outrank three
+genuine tier-3 product-ML candidates:
+- tier-2 CAND_0002706 (#8), 0002037 (#9), 0002120 (#10) sit above
+- tier-3 CAND_0000666 (#11), 0001651 (#13), 0001494 (#14), 0000981 (#16).
+The tier-2s are over-credited; need to separate genuine product-ML fit (real
+retrieval/recsys in summary) from generic "applied ML" profiles.
+
+**Issue R1.2:** tier-0 keyword-stuffer CAND_0002220 reaches #15 — skills-match
+still rewards padded AI skills on a non-tech (Content Writer) profile. Needs
+the skill–title coherence gate.
