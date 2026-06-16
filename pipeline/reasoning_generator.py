@@ -270,12 +270,12 @@ def _build_strength_clause(facts: dict, rank: int) -> str:
         skill_str = ", ".join(nice_have[:2])
         parts.append(f"with some relevant skills ({skill_str})")
 
-    # Career highlight — reference specific achievement if available
-    highlights = facts["career_highlights"]
-    if highlights and rank <= 20:
-        h = highlights[0]
-        if h["highlight"]:
-            parts.append(f"— {h['highlight']}")
+    # NOTE: we deliberately do NOT quote raw career-role descriptions here.
+    # In this dataset the descriptions are scrambled (an AI Specialist's role
+    # may read "built computer vision models" or "gradient-boosted trees"),
+    # so quoting them produces reasoning that contradicts the candidate's real
+    # skills and reads as incoherent to a Stage-4 reviewer. We compose only from
+    # grounded, coherent fields (title, company, skills, production signals).
 
     return "; ".join(parts[:3]) + "."
 
@@ -327,13 +327,19 @@ def _build_jd_connection(facts: dict, rank: int) -> str:
         else:
             connections.append("limited direct overlap with JD's core retrieval and ranking requirements")
 
-    # Pick the strongest 1-2 connections based on rank
+    # Pick the strongest 1-2 connections based on rank. Use _upper_first (not
+    # str.capitalize, which would lowercase the rest and turn 'Zomato'->'zomato').
     if rank <= 10:
-        return " ".join(c.capitalize() if i == 0 else c for i, c in enumerate(connections[:2])) + "."
+        return " ".join(_upper_first(c) if i == 0 else c for i, c in enumerate(connections[:2])) + "."
     elif rank <= 30:
-        return connections[0].capitalize() + "."
+        return _upper_first(connections[0]) + "."
     else:
-        return connections[0].capitalize() + "."
+        return _upper_first(connections[0]) + "."
+
+
+def _upper_first(s: str) -> str:
+    """Uppercase only the first character, preserving the rest (proper nouns)."""
+    return s[0].upper() + s[1:] if s else s
 
 
 def _build_concern_clause(facts: dict, rank: int) -> str:
@@ -407,6 +413,15 @@ def _build_concern_clause(facts: dict, rank: int) -> str:
 
 def _clean_reasoning(text: str) -> str:
     """Clean up reasoning text: remove artifacts, normalize whitespace."""
+    # Normalize unicode dashes and strip any non-printable / replacement chars
+    # that can leak in from source text (e.g. U+FFFD mojibake) and look broken
+    # to a Stage-4 human reviewer.
+    text = (text.replace("—", "-").replace("–", "-")
+                .replace("�", "").replace("’", "'")
+                .replace("“", "'").replace("”", "'"))
+    text = "".join(ch for ch in text if ch.isprintable())
+    # Remove stray leading dash fragments left by removed clauses
+    text = text.replace("; - ", "; ").replace(" - ;", ";")
     # Remove double spaces
     while "  " in text:
         text = text.replace("  ", " ")
