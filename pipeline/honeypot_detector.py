@@ -111,11 +111,14 @@ def detect_honeypot(candidate: dict) -> tuple[bool, str]:
             if _title_description_mismatch(title, desc):
                 mismatch_count += 1
 
-    if checked_count > 0 and mismatch_count >= checked_count * 0.5:
-        flags.append(
-            f"title_desc_mismatch: {mismatch_count}/{checked_count} non-tech roles "
-            f"have descriptions that don't match their titles"
-        )
+    # NOTE: title_desc_mismatch is intentionally NOT used as a honeypot signal.
+    # Career-role descriptions are scrambled across the ENTIRE synthetic dataset
+    # (an Operations Manager's role reads "mechanical engineering design"), so
+    # this fires on ~58% of all candidates — it detects a property of the data,
+    # not honeypots. Honeypots are defined by INTERNAL IMPOSSIBILITY (timeline,
+    # skill-duration, overlap), which the checks below capture. We keep computing
+    # the mismatch ratio only for diagnostics, never for the decision.
+    title_desc_mismatch_ratio = (mismatch_count / checked_count) if checked_count else 0.0
 
     # Check 6: Career overlap impossibility
     # Two concurrent non-current roles with significant date overlap
@@ -123,24 +126,19 @@ def detect_honeypot(candidate: dict) -> tuple[bool, str]:
     if overlap_found:
         flags.append("career_overlap: overlapping full-time roles detected")
 
-    # Classification logic:
-    # High confidence honeypots:
-    # 1. title_skill_absurdity
-    # 2. impossible_skills (expert/advanced with 0 duration)
-    # 3. title_desc_mismatch (if current title is non-tech)
-    # 4. career_overlap
-    
-    current_title = profile.get("current_title", "").lower().strip()
-    is_current_non_tech = current_title in config.NON_TECH_TITLES
-    
-    has_high_conf = False
-    for f in flags:
-        if "title_skill_absurdity" in f or "impossible_skills" in f or "career_overlap" in f:
-            has_high_conf = True
-        if "title_desc_mismatch" in f and is_current_non_tech:
-            has_high_conf = True
+    # Classification: a honeypot is an INTERNALLY IMPOSSIBLE profile. Each of
+    # these is a strong, self-sufficient impossibility signal (the patterns the
+    # spec describes: "8 yrs at a 3-yr-old company", "expert in 10 skills with 0
+    # years used", concurrent full-time roles, non-tech title claiming expert AI).
+    HIGH_CONF = ("impossible_skills", "title_skill_absurdity",
+                 "career_overlap", "career_months")
+    has_high_conf = any(any(h in f for h in HIGH_CONF) for f in flags)
 
-    is_honeypot = has_high_conf or (len(flags) >= 2)
+    # date_mismatch alone can be rounding noise; require corroboration.
+    date_flags = sum(1 for f in flags if "date_mismatch" in f)
+    corroborated_dates = date_flags >= 2
+
+    is_honeypot = has_high_conf or corroborated_dates
     reason = "; ".join(flags) if flags else ""
 
     return is_honeypot, reason

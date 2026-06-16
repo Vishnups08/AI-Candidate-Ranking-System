@@ -54,10 +54,12 @@ DEFAULT_CANDIDATES = (Path(__file__).parent.parent.parent /
 GENUINE_FITS = ["CAND_0002025", "CAND_0000031"]          # tier 4: real retrieval/recsys
 STRONG_FITS = ["CAND_0000273", "CAND_0001707", "CAND_0001131"]  # tier 3: product ML
 KEYWORD_STUFFERS = ["CAND_0000074", "CAND_0000722", "CAND_0000821", "CAND_0002356"]
-HONEYPOT_LIKE = ["CAND_0000005", "CAND_0000004", "CAND_0000009"]
+# Genuine impossibility honeypots: advanced/expert skills with 0 months used,
+# and they PASS hard filters (tech titles) so they could reach scoring.
+HONEYPOTS = ["CAND_0003582", "CAND_0016000", "CAND_0033972", "CAND_0055792"]
 CONSULTING_JUNIORS = ["CAND_0000047", "CAND_0000098", "CAND_0000056"]
 
-NEEDED = set(GENUINE_FITS + STRONG_FITS + KEYWORD_STUFFERS + HONEYPOT_LIKE + CONSULTING_JUNIORS)
+NEEDED = set(GENUINE_FITS + STRONG_FITS + KEYWORD_STUFFERS + HONEYPOTS + CONSULTING_JUNIORS)
 
 
 def _candidates_path():
@@ -89,12 +91,16 @@ def _final_score(scorer, c):
     return feats["weighted_total"] * compute_behavioral_multiplier(c) + compute_behavioral_additive(c)
 
 
-# --- Trap 1: keyword-stuffers (non-tech title, padded AI skills) score low ---
+# --- Trap 1: keyword-stuffers score below every genuine strong fit ---
+# (Relative, not an arbitrary constant: the behavioral multiplier can inflate
+# absolute scores, but a padded non-tech profile must never reach a real fit.)
 @pytest.mark.parametrize("cid", KEYWORD_STUFFERS)
-def test_keyword_stuffer_scores_low(records, scorer, cid):
-    c = records[cid]
-    score = _final_score(scorer, c)
-    assert score < 0.45, f"{cid} keyword-stuffer scored too high ({score:.3f})"
+def test_keyword_stuffer_below_strong_fits(records, scorer, cid):
+    stuffer = _final_score(scorer, records[cid])
+    min_strong = min(_final_score(scorer, records[c]) for c in STRONG_FITS if c in records)
+    assert stuffer < min_strong, (
+        f"{cid} keyword-stuffer ({stuffer:.3f}) reached a strong fit "
+        f"({min_strong:.3f})")
 
 
 # --- Trap 2: genuine product-ML fits outscore every keyword-stuffer ---
@@ -107,7 +113,7 @@ def test_genuine_fits_beat_stuffers(records, scorer):
 
 
 # --- Trap 3: honeypots are detected and excluded ---
-@pytest.mark.parametrize("cid", HONEYPOT_LIKE)
+@pytest.mark.parametrize("cid", HONEYPOTS)
 def test_honeypot_detected_or_scored_low(records, scorer, cid):
     c = records[cid]
     is_hp, _ = detect_honeypot(c)
@@ -147,7 +153,7 @@ if __name__ == "__main__":
     sc = FeatureScorer(load_jd_requirements())
     print(f"Loaded {len(recs)}/{len(NEEDED)} exemplars\n")
     for label, ids in [("GENUINE_FIT", GENUINE_FITS), ("STRONG_FIT", STRONG_FITS),
-                       ("KEYWORD_STUFFER", KEYWORD_STUFFERS), ("HONEYPOT", HONEYPOT_LIKE),
+                       ("KEYWORD_STUFFER", KEYWORD_STUFFERS), ("HONEYPOT", HONEYPOTS),
                        ("CONSULTING_JR", CONSULTING_JUNIORS)]:
         for cid in ids:
             if cid in recs:

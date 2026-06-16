@@ -108,3 +108,42 @@ likely hurt on the hidden ground truth. Reverted; kept only the coherence gate.
 **Decision:** stop micro-tuning the t2/t3 boundary. The top-2 (genuine tier-4)
 are correctly #1/#2, NDCG@50 is 0.988, and the remaining top-10 churn is within
 label-noise of my own gold set. Further gold-set gains here are not trustworthy.
+
+---
+
+## R4 — Honeypot detector de-noised (DQ-risk + credibility fix)
+
+The detector was flagging **57,823 / 100,000** candidates (57,721 via
+`title_desc_mismatch`). Root cause: role descriptions are scrambled across the
+ENTIRE dataset, so title↔description mismatch is a property of the data, not a
+honeypot signal — an interviewer would immediately question a detector that
+flags 58% of the pool. Removed title_desc_mismatch from the decision; rely only
+on internal-impossibility signals (impossible_skills = advanced/expert with 0
+months; career_months = total tenure ≫ years-of-experience; career_overlap;
+title_skill_absurdity; corroborated date_mismatch).
+
+| | before | after |
+|---|---|---|
+| flagged (all 100K) | 57,823 | **113** |
+| flagged among hard-filter survivors | 10 | 19 |
+
+113 is in line with the spec's "~80 honeypots". Genuine fits are untouched;
+gold composite unchanged at **0.9256** (the old over-firing never hit the gold
+fits because hard filters caught them first). Updated trap tests to use real
+impossibility honeypots (CAND_0003582/0016000/0033972/0055792) — all detected
+and scored low; 11/11 trap tests pass.
+
+---
+
+## Summary so far
+
+| stage | composite | note |
+|---|---|---|
+| R1 baseline | 0.9245 | BGE + signal-focused embeddings, offline-safe |
+| R2 coherence gate | 0.9256 | defeats keyword-stuffer trap |
+| R4 honeypot de-noise | 0.9256 | 57.8K→113 flags; DQ-risk + credibility fix |
+
+Top-2 genuine tier-4 fits ranked #1/#2; 0 honeypots in top-10; NDCG@50 0.988.
+Remaining top-10 churn is gold-set label noise (not safely tunable). The
+higher-value remaining work is process/deliverable, not score-chasing:
+full-pool precompute + end-to-end submission run, reasoning audit, deck, sandbox.
