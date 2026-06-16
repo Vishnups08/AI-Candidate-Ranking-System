@@ -75,3 +75,36 @@ retrieval/recsys in summary) from generic "applied ML" profiles.
 **Issue R1.2:** tier-0 keyword-stuffer CAND_0002220 reaches #15 — skills-match
 still rewards padded AI skills on a non-tech (Content Writer) profile. Needs
 the skill–title coherence gate.
+
+---
+
+## R2 — Skill–career coherence gate (the JD's central trap)
+
+Added `FeatureScorer._skill_career_coherence`: skills-match is multiplied by a
+[0.25, 1.0] factor based on whether the candidate's titles + summary/career
+actually support having those skills. Non-tech title + no ML work evidence →
+0.25 (skills are padding). Excludes mechanical/civil/etc. from "engineer".
+
+| metric | R1 | R2 | Δ |
+|---|---|---|---|
+| NDCG@10 | 0.9192 | 0.9192 | — |
+| NDCG@50 | 0.9867 | 0.9882 | +0.0015 |
+| MAP | 0.8929 | 0.8970 | +0.0041 |
+| P@10 | 0.7000 | 0.7000 | — |
+| **COMPOSITE** | **0.9245** | **0.9256** | **+0.0011** |
+
+Keyword-stuffer trap scores fell: CAND_0000074 0.353→0.289, CAND_0000821
+0.596→0.525, CAND_0002220 dropped out of the top-15. Genuine fits unchanged.
+
+## R3 — Attempted: reward recognized product companies (REVERTED)
+
+Tried adding a PRODUCT_COMPANIES bonus to company_quality to lift tier-3
+product-ML fits above tier-2s. Composite *fell* 0.9256→0.9245: the tier-2
+candidates also work at product companies (Zoho etc.), so the bonus lifted them
+too. This confirmed the tier-2/tier-3 boundary is label noise on near-identical
+templated profiles — over-tuning it would overfit the 98-sample gold set and
+likely hurt on the hidden ground truth. Reverted; kept only the coherence gate.
+
+**Decision:** stop micro-tuning the t2/t3 boundary. The top-2 (genuine tier-4)
+are correctly #1/#2, NDCG@50 is 0.988, and the remaining top-10 churn is within
+label-noise of my own gold set. Further gold-set gains here are not trustworthy.

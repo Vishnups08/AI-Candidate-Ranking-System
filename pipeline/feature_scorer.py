@@ -332,7 +332,69 @@ class FeatureScorer:
         else:
             final_score = match_score * 0.7 + credibility * 0.3
 
+        # Skill–career coherence gate (the JD's central trap). "A candidate with
+        # all the AI keywords as skills but whose title is Marketing Manager is
+        # not a fit." Listed skills only count if the candidate's titles/work
+        # support them; incoherent profiles get their skill score discounted.
+        final_score *= self._skill_career_coherence(candidate)
+
         return min(max(final_score, 0.0), 1.0)
+
+    def _skill_career_coherence(self, candidate: dict) -> float:
+        """Multiplier in [0.25, 1.0]: how well the candidate's titles/career
+        support their claimed skills. Padded skill lists on a non-tech career
+        are heavily discounted."""
+        profile = candidate.get("profile", {})
+        career = candidate.get("career_history", [])
+
+        current_title = profile.get("current_title", "").lower().strip()
+        titles = [current_title] + [r.get("title", "").lower().strip() for r in career]
+
+        tech_title_kw = ("engineer", "scientist", "developer", "ml", "ai",
+                         "data", "research", "architect", "analyst", "programmer",
+                         "nlp", "machine learning", "software")
+        # "engineer" alone is too broad — mechanical/civil/etc. are not tech.
+        non_sw_eng = ("mechanical", "civil", "electrical", "chemical",
+                      "industrial", "structural", "hardware", "manufacturing")
+
+        def _is_tech_title(t):
+            if not t or any(d in t for d in non_sw_eng):
+                return False
+            return any(kw in t for kw in tech_title_kw)
+
+        has_tech_title = any(_is_tech_title(t) for t in titles)
+
+        strong_tech_kw = ("ml engineer", "ai engineer", "machine learning",
+                          "data scientist", "research engineer", "applied scientist",
+                          "software engineer", "backend engineer", "nlp engineer",
+                          "deep learning", "research scientist")
+        has_strong_tech_title = any(
+            any(kw in t for kw in strong_tech_kw) and not any(d in t for d in non_sw_eng)
+            for t in titles if t)
+
+        # The summary is the most reliable coherent field: does the candidate
+        # *describe* ML/AI/retrieval work, not just list it as a skill?
+        text = profile.get("summary", "").lower() + " " + profile.get("headline", "").lower()
+        for r in career[:3]:
+            text += " " + r.get("description", "").lower()
+        work_kw = ("machine learning", "ml model", "deep learning", "nlp",
+                   "retrieval", "ranking", "recommendation", "embedding",
+                   "model", "data pipeline", "neural", "classifier", "forecasting",
+                   "predictive", "data science", "applied ml")
+        describes_ml_work = any(kw in text for kw in work_kw)
+
+        if has_strong_tech_title and describes_ml_work:
+            return 1.0
+        if has_strong_tech_title:
+            return 0.9
+        if has_tech_title and describes_ml_work:
+            return 0.8
+        if has_tech_title:
+            return 0.6
+        if describes_ml_work:
+            return 0.5
+        # Non-tech title, no ML work evidence: skills are almost certainly padding.
+        return 0.25
 
     # Synonym mapping for common skill aliases
     SKILL_SYNONYMS = {
