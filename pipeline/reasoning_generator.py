@@ -330,7 +330,7 @@ def _build_jd_connection(facts: dict, rank: int) -> str:
     # Pick the strongest 1-2 connections based on rank. Use _upper_first (not
     # str.capitalize, which would lowercase the rest and turn 'Zomato'->'zomato').
     if rank <= 10:
-        return " ".join(_upper_first(c) if i == 0 else c for i, c in enumerate(connections[:2])) + "."
+        return "; ".join(_upper_first(c) if i == 0 else c for i, c in enumerate(connections[:2])) + "."
     elif rank <= 30:
         return _upper_first(connections[0]) + "."
     else:
