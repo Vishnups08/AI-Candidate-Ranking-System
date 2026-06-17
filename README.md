@@ -104,7 +104,7 @@ not the final score. Per-change deltas are logged in [RESULTS.md](RESULTS.md).
 Trap behavior is locked in with regression tests:
 
 ```bash
-python -m pytest tests/ -q     # 16 tests: trap archetypes + reasoning grounding
+python -m pytest tests/ -q     # trap archetypes + reasoning grounding
 ```
 
 ---
