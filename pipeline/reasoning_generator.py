@@ -354,6 +354,15 @@ def generate_demotion_contrast_card(
         )
     )
 
+    # Extract raw scores safely whether passed as flat float dicts or nested score_cards
+    skills_val = scores.get("skills_match", 0)
+    if isinstance(skills_val, dict):
+        skills_val = skills_val.get("score", 0)
+
+    career_val = scores.get("career_fit", 0)
+    if isinstance(career_val, dict):
+        career_val = career_val.get("score", 0)
+
     return {
         "type": "keyword_stuffer",
         "candidate_id": candidate.get("candidate_id", ""),
@@ -365,8 +374,8 @@ def generate_demotion_contrast_card(
         "jd_skill_hits": jd_skill_hits,
         "total_skills": skill_count,
         "coherence_multiplier": round(coherence_multiplier, 3),
-        "skills_score_raw": round(scores.get("skills_match", 0), 4),
-        "career_fit_score": round(scores.get("career_fit", 0), 4),
+        "skills_score_raw": round(skills_val or 0, 4),
+        "career_fit_score": round(career_val or 0, 4),
         "outcome": f"Demoted from naive rank #{naive_rank} to pipeline rank #{pipeline_rank}",
         "demotion_reason": (
             f"Skill-career coherence gate applied a {coherence_multiplier:.2f}× multiplier "
