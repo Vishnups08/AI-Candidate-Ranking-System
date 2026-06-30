@@ -135,6 +135,11 @@ npm run dev --prefix frontend
 
 Then open `http://localhost:3000` to inspect candidate shortlist tables, details tabs, and run dynamic neural re-ranking tests.
 
+**Live deployment:**
+- Dashboard: https://ai-candidate-ranking-system.vercel.app/
+- Evaluation & Metrics: https://ai-candidate-ranking-system.vercel.app/evaluation
+- Custom Scan: https://ai-candidate-ranking-system.vercel.app/custom-scan
+
 ---
 
 
@@ -160,10 +165,11 @@ The two genuine tier-4 fits rank #1 and #2. **Honest caveat:** this is a
 98-candidate proxy, not the hidden 100K ground truth — it measures *direction*,
 not the final score. Per-change deltas are logged in [RESULTS.md](RESULTS.md).
 
-Trap behavior is locked in with regression tests:
+Trap behavior is locked in with regression tests, and a **baseline comparison suite**
+proves the pipeline outperforms naive keyword-count ranking:
 
 ```bash
-python -m pytest tests/ -q     # trap archetypes + reasoning grounding
+python -m pytest tests/ -q     # 43 tests: traps, reasoning, pipeline, baseline comparison
 ```
 
 ### Ablation study
