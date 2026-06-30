@@ -593,7 +593,8 @@ def upload_candidates():
     if "file" not in request.files:
         return jsonify({"error": "No file uploaded"}), 400
     f = request.files["file"]
-    tmp_path = Path("_tmp_upload_candidates.json")
+    orig_suffix = Path(f.filename).suffix or ".json"
+    tmp_path = Path(f"_tmp_upload_candidates{orig_suffix}")
     f.save(str(tmp_path))
     try:
         candidates = list(load_candidates(str(tmp_path)))
