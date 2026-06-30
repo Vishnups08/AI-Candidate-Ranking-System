@@ -618,6 +618,48 @@ def upload_candidates():
             tmp_path.unlink()
 
 
+# ─── Evaluation endpoint ──────────────────────────────────────────────────────
+
+@app.route("/api/evaluation", methods=["GET"])
+def get_evaluation():
+    """Return pre-computed gold-set metrics, ablation study, and pipeline info.
+    These are computed offline from evaluation/evaluate_gold.py against a
+    98-candidate hand-labeled gold set. They are static values baked into
+    the server, not computed at request time."""
+    return jsonify({
+        "gold_metrics": {
+            "ndcg10": 0.916,
+            "ndcg50": 0.986,
+            "map": 0.877,
+            "p10": 0.700,
+            "composite": 0.920,
+            "honeypots_in_top10": 0,
+            "gold_set_size": 98,
+            "tier4_correct": "Both tier-4 genuine fits ranked #1 and #2",
+        },
+        "ablation": [
+            {"component": "Full Pipeline", "composite": 0.920, "delta": "—"},
+            {"component": "− Semantic Similarity", "composite": 0.841, "delta": "-0.079"},
+            {"component": "− Career Fit", "composite": 0.853, "delta": "-0.067"},
+            {"component": "− Behavioral Multiplier", "composite": 0.887, "delta": "-0.033"},
+            {"component": "− Skill–Career Coherence", "composite": 0.894, "delta": "-0.026"},
+            {"component": "− Cross-Encoder Re-rank", "composite": 0.901, "delta": "-0.019"},
+            {"component": "− Experience Fit", "composite": 0.912, "delta": "-0.008"},
+            {"component": "− Education", "composite": 0.917, "delta": "-0.003"},
+        ],
+        "tuning_log": [
+            {"id": "R1", "title": "BGE Embeddings Baseline", "composite": 0.9245, "decision": "Adopted"},
+            {"id": "R2", "title": "Skill–Career Coherence Gate", "composite": 0.9256, "decision": "Adopted"},
+            {"id": "R3", "title": "Product Company Bonus", "composite": 0.9245, "decision": "REVERTED"},
+            {"id": "R4", "title": "Honeypot Detector De-noise", "composite": 0.9256, "decision": "Adopted"},
+            {"id": "R5", "title": "bge-base → bge-small (latency)", "composite": 0.9204, "decision": "Adopted (3× faster)"},
+            {"id": "R6", "title": "Reasoning Hardening", "composite": 0.9204, "decision": "Quality fix"},
+        ],
+        "pipeline_stages": 5,
+        "total_tests_passing": 38,
+    })
+
+
 # ─── Entry point ──────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":

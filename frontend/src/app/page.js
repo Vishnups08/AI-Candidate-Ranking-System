@@ -155,6 +155,13 @@ export default function Home() {
           </div>
           
           <div className="flex items-center gap-4">
+            {/* Link to evaluation page */}
+            <a 
+              href="/evaluation"
+              className="text-xs bg-emerald-600 text-white font-bold rounded-lg px-4 py-2 hover:bg-emerald-700 transition shadow-md shadow-emerald-100"
+            >
+              Evaluation &amp; Metrics
+            </a>
             {/* Link to custom scan */}
             <a 
               href="/custom-scan"
