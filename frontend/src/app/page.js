@@ -20,7 +20,11 @@ import {
 } from "lucide-react";
 
 export default function Home() {
-  const [apiHost, setApiHost] = useState("http://localhost:5050");
+  const [apiHost, setApiHost] = useState(
+    typeof window !== "undefined"
+      ? (process.env.NEXT_PUBLIC_API_HOST || "https://ai-candidate-ranking-system-kpap.onrender.com")
+      : "https://ai-candidate-ranking-system-kpap.onrender.com"
+  );
   const [status, setStatus] = useState(null);
   const [results, setResults] = useState([]);
   const [contrastData, setContrastData] = useState({ honeypot_cards: [], demotion_cards: [] });
