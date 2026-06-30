@@ -1,0 +1,1207 @@
+{
+  "generated_at": "2026-06-24T07:10:02Z",
+  "stats": {
+    "total_candidates": 50,
+    "after_hard_filters": 16,
+    "after_honeypot_removal": 16,
+    "honeypots_detected": 0,
+    "top_score": 0.7531999945640564
+  },
+  "results": [
+    {
+      "candidate_id": "CAND_0000031",
+      "rank": 1,
+      "score": 0.7531999945640564,
+      "reasoning": "Recommendation Systems Engineer at Swiggy with 6 years experience; with directly JD-relevant skills: FAISS, Pinecone, Embeddings. Career history shows shipped experience matching JD's emphasis on real-world deployment; product-company background at Swiggy aligns with JD preference over consulting.",
+      "tier_label": "Moderate Fit",
+      "confidence": "low",
+      "short_formula": "Semantic 0.78 \u00b7 Career 0.55 \u00b7 Skills 0.54 \u00b7 Behavioral \u00d71.07 \u2192 rank #1",
+      "formula": "Career 0.55\u00d70.25 + Skills 0.54\u00d70.20 + Experience 1.00\u00d70.10 + Location 0.68\u00d70.10 + Education 0.55\u00d70.05 + Semantic 0.78\u00d70.25 \u00d7 1.07 + 0.030 = 0.7119",
+      "score_card": {
+        "career_fit": {
+          "label": "Career Fit",
+          "score": 0.5542,
+          "weight": 0.25,
+          "contribution": 0.1385,
+          "evidence": "Title: Recommendation Systems Engineer at Swiggy (6 yrs) | Product-company background | Highlight: Trained and shipped multiple ranking models for our product's discovery feed usi..."
+        },
+        "skills_match": {
+          "label": "Skills Match",
+          "score": 0.537,
+          "weight": 0.2,
+          "contribution": 0.1074,
+          "evidence": "JD must-haves matched: FAISS, Pinecone, Embeddings, Information Retrieval | Domain skills: MLflow, Machine Learning, BentoML"
+        },
+        "experience_fit": {
+          "label": "Experience Fit",
+          "score": 1.0,
+          "weight": 0.1,
+          "contribution": 0.1,
+          "evidence": "6 yrs \u2014 within JD optimal band (5-9 yrs)"
+        },
+        "location_logistics": {
+          "label": "Location & Logistics",
+          "score": 0.68,
+          "weight": 0.1,
+          "contribution": 0.068,
+          "evidence": "Hyderabad, Telangana \u2014 Tier-1 city, JD-acceptable"
+        },
+        "education": {
+          "label": "Education",
+          "score": 0.55,
+          "weight": 0.05,
+          "contribution": 0.0275,
+          "evidence": "M.Tech in Computer Engineering (TIER 2)"
+        },
+        "semantic_similarity": {
+          "label": "Semantic Similarity",
+          "score": 0.7847,
+          "weight": 0.25,
+          "contribution": 0.1962,
+          "evidence": "BGE embedding cosine similarity between candidate profile and JD"
+        }
+      },
+      "behavioral": {
+        "label": "Behavioral Multiplier",
+        "value": 1.0695,
+        "additive": 0.03,
+        "evidence": "Open to work: Yes | Recruiter response rate: 91% | GitHub activity: 32.6/100 | Notice: 60 days"
+      },
+      "weighted_total": 0.6376,
+      "why_not_notes": [],
+      "naive_rank": 1,
+      "naive_rank_change": 0
+    },
+    {
+      "candidate_id": "CAND_0000015",
+      "rank": 2,
+      "score": 0.4009999930858612,
+      "reasoning": "Software Engineer at Razorpay with 5 years experience; with directly JD-relevant skills: Qdrant. Career history shows production experience matching JD's emphasis on real-world deployment; product-company background at Razorpay aligns with JD preference over consulting.",
+      "tier_label": "Marginal Fit",
+      "confidence": "low",
+      "short_formula": "Semantic 0.66 \u00b7 Career 0.63 \u00b7 Experience 1.00 \u00b7 Behavioral \u00d71.05 \u2192 rank #2",
+      "formula": "Career 0.63\u00d70.25 + Skills 0.18\u00d70.20 + Experience 1.00\u00d70.10 + Location 0.40\u00d70.10 + Education 0.65\u00d70.05 + Semantic 0.66\u00d70.25 \u00d7 1.05 = 0.5573",
+      "score_card": {
+        "career_fit": {
+          "label": "Career Fit",
+          "score": 0.6303,
+          "weight": 0.25,
+          "contribution": 0.1576,
+          "evidence": "Title: Software Engineer at Razorpay (5 yrs) | Product-company background | Highlight: Designed the CI/CD pipelines (GitLab CI + ArgoCD) and the monitoring stack (Prom..."
+        },
+        "skills_match": {
+          "label": "Skills Match",
+          "score": 0.1755,
+          "weight": 0.2,
+          "contribution": 0.0351,
+          "evidence": "JD must-haves matched: Qdrant | Domain skills: PyTorch"
+        },
+        "experience_fit": {
+          "label": "Experience Fit",
+          "score": 1.0,
+          "weight": 0.1,
+          "contribution": 0.1,
+          "evidence": "5 yrs \u2014 within JD optimal band (5-9 yrs)"
+        },
+        "location_logistics": {
+          "label": "Location & Logistics",
+          "score": 0.4,
+          "weight": 0.1,
+          "contribution": 0.04,
+          "evidence": "Trivandrum, Kerala \u2014 India-based but outside JD-preferred cities"
+        },
+        "education": {
+          "label": "Education",
+          "score": 0.65,
+          "weight": 0.05,
+          "contribution": 0.0325,
+          "evidence": "Ph.D in Mathematics (TIER 4)"
+        },
+        "semantic_similarity": {
+          "label": "Semantic Similarity",
+          "score": 0.6644,
+          "weight": 0.25,
+          "contribution": 0.1661,
+          "evidence": "BGE embedding cosine similarity between candidate profile and JD"
+        }
+      },
+      "behavioral": {
+        "label": "Behavioral Multiplier",
+        "value": 1.0489,
+        "additive": 0.0,
+        "evidence": "Open to work: Yes | Recruiter response rate: 32% | Notice: 90 days"
+      },
+      "weighted_total": 0.5313,
+      "why_not_notes": [],
+      "naive_rank": 6,
+      "naive_rank_change": 4
+    },
+    {
+      "candidate_id": "CAND_0000014",
+      "rank": 3,
+      "score": 0.39989998936653137,
+      "reasoning": "Frontend Engineer at Zomato with 8 years experience; with directly JD-relevant skills: FAISS, OpenSearch. Career history shows production experience matching JD's emphasis on real-world deployment; product-company background at Zomato aligns with JD preference over consulting.",
+      "tier_label": "Moderate Fit",
+      "confidence": "low",
+      "short_formula": "Semantic 0.64 \u00b7 Career 0.56 \u00b7 Experience 1.00 \u00b7 Behavioral \u00d71.01 \u2192 rank #3",
+      "formula": "Career 0.56\u00d70.25 + Skills 0.34\u00d70.20 + Experience 1.00\u00d70.10 + Location 0.55\u00d70.10 + Education 0.60\u00d70.05 + Semantic 0.64\u00d70.25 \u00d7 1.01 = 0.5612",
+      "score_card": {
+        "career_fit": {
+          "label": "Career Fit",
+          "score": 0.5571,
+          "weight": 0.25,
+          "contribution": 0.1393,
+          "evidence": "Title: Frontend Engineer at Zomato (8 yrs) | Product-company background | Highlight: Built the company's design system from scratch and led the migration from a lega..."
+        },
+        "skills_match": {
+          "label": "Skills Match",
+          "score": 0.3445,
+          "weight": 0.2,
+          "contribution": 0.0689,
+          "evidence": "JD must-haves matched: FAISS, OpenSearch"
+        },
+        "experience_fit": {
+          "label": "Experience Fit",
+          "score": 1.0,
+          "weight": 0.1,
+          "contribution": 0.1,
+          "evidence": "8 yrs \u2014 within JD optimal band (5-9 yrs)"
+        },
+        "location_logistics": {
+          "label": "Location & Logistics",
+          "score": 0.55,
+          "weight": 0.1,
+          "contribution": 0.055,
+          "evidence": "Hyderabad, Telangana \u2014 Tier-1 city, JD-acceptable"
+        },
+        "education": {
+          "label": "Education",
+          "score": 0.6,
+          "weight": 0.05,
+          "contribution": 0.03,
+          "evidence": "B.E. in Statistics (TIER 3)"
+        },
+        "semantic_similarity": {
+          "label": "Semantic Similarity",
+          "score": 0.6422,
+          "weight": 0.25,
+          "contribution": 0.1605,
+          "evidence": "BGE embedding cosine similarity between candidate profile and JD"
+        }
+      },
+      "behavioral": {
+        "label": "Behavioral Multiplier",
+        "value": 1.0134,
+        "additive": 0.0,
+        "evidence": "Open to work: No | Recruiter response rate: 80% | Notice: 90 days"
+      },
+      "weighted_total": 0.5537,
+      "why_not_notes": [],
+      "naive_rank": 5,
+      "naive_rank_change": 2
+    },
+    {
+      "candidate_id": "CAND_0000001",
+      "rank": 4,
+      "score": 0.39750000834465027,
+      "reasoning": "Backend Engineer at Mindtree with 7 years experience; with directly JD-relevant skills: Milvus. 7 years falls in JD's optimal 5-9 year band.",
+      "tier_label": "Marginal Fit",
+      "confidence": "low",
+      "short_formula": "Semantic 0.69 \u00b7 Career 0.58 \u00b7 Experience 1.00 \u00b7 Behavioral \u00d71.05 \u2192 rank #4",
+      "formula": "Career 0.58\u00d70.25 + Skills 0.32\u00d70.20 + Experience 1.00\u00d70.10 + Location 0.33\u00d70.10 + Education 0.60\u00d70.05 + Semantic 0.69\u00d70.25 \u00d7 1.05 = 0.5673",
+      "score_card": {
+        "career_fit": {
+          "label": "Career Fit",
+          "score": 0.5768,
+          "weight": 0.25,
+          "contribution": 0.1442,
+          "evidence": "Title: Backend Engineer at Mindtree (7 yrs) | Highlight: Implemented streaming data pipelines on Kafka and Spark Streaming for a real-tim..."
+        },
+        "skills_match": {
+          "label": "Skills Match",
+          "score": 0.319,
+          "weight": 0.2,
+          "contribution": 0.0638,
+          "evidence": "JD must-haves matched: Milvus | Nice-to-haves: Fine-tuning LLMs, LoRA | Domain skills: NLP, BentoML"
+        },
+        "experience_fit": {
+          "label": "Experience Fit",
+          "score": 1.0,
+          "weight": 0.1,
+          "contribution": 0.1,
+          "evidence": "7 yrs \u2014 within JD optimal band (5-9 yrs)"
+        },
+        "location_logistics": {
+          "label": "Location & Logistics",
+          "score": 0.33,
+          "weight": 0.1,
+          "contribution": 0.033,
+          "evidence": "Toronto \u2014 outside India, JD does not sponsor visas"
+        },
+        "education": {
+          "label": "Education",
+          "score": 0.6,
+          "weight": 0.05,
+          "contribution": 0.03,
+          "evidence": "B.E. in Computer Science (TIER 3)"
+        },
+        "semantic_similarity": {
+          "label": "Semantic Similarity",
+          "score": 0.6873,
+          "weight": 0.25,
+          "contribution": 0.1718,
+          "evidence": "BGE embedding cosine similarity between candidate profile and JD"
+        }
+      },
+      "behavioral": {
+        "label": "Behavioral Multiplier",
+        "value": 1.045,
+        "additive": 0.0,
+        "evidence": "Open to work: Yes | Recruiter response rate: 34% | GitHub activity: 9.2/100 | Notice: 60 days"
+      },
+      "weighted_total": 0.5428,
+      "why_not_notes": [
+        "Based in Toronto, Canada \u2014 no visa sponsorship"
+      ],
+      "naive_rank": 2,
+      "naive_rank_change": -2
+    },
+    {
+      "candidate_id": "CAND_0000025",
+      "rank": 5,
+      "score": 0.3856000006198883,
+      "reasoning": "Frontend Engineer at Tech Mahindra with 7 years experience; with domain-adjacent skills in LangChain. Career history shows production experience matching JD's emphasis on real-world deployment; 7 years falls in JD's optimal 5-9 year band.",
+      "tier_label": "Marginal Fit",
+      "confidence": "low",
+      "short_formula": "Semantic 0.65 \u00b7 Career 0.40 \u00b7 Experience 1.00 \u00b7 Behavioral \u00d71.15 \u2192 rank #5",
+      "formula": "Career 0.40\u00d70.25 + Skills 0.13\u00d70.20 + Experience 1.00\u00d70.10 + Location 0.40\u00d70.10 + Education 0.35\u00d70.05 + Semantic 0.65\u00d70.25 \u00d7 1.15 + 0.030 = 0.5425",
+      "score_card": {
+        "career_fit": {
+          "label": "Career Fit",
+          "score": 0.4024,
+          "weight": 0.25,
+          "contribution": 0.1006,
+          "evidence": "Title: Frontend Engineer at Tech Mahindra (7 yrs) | Highlight: Built and maintained multiple production features including the main shopping fl..."
+        },
+        "skills_match": {
+          "label": "Skills Match",
+          "score": 0.1326,
+          "weight": 0.2,
+          "contribution": 0.0265,
+          "evidence": "Domain skills: LangChain"
+        },
+        "experience_fit": {
+          "label": "Experience Fit",
+          "score": 1.0,
+          "weight": 0.1,
+          "contribution": 0.1,
+          "evidence": "7 yrs \u2014 within JD optimal band (5-9 yrs)"
+        },
+        "location_logistics": {
+          "label": "Location & Logistics",
+          "score": 0.4,
+          "weight": 0.1,
+          "contribution": 0.04,
+          "evidence": "Vizag, Andhra Pradesh \u2014 India-based but outside JD-preferred cities"
+        },
+        "education": {
+          "label": "Education",
+          "score": 0.35,
+          "weight": 0.05,
+          "contribution": 0.0175,
+          "evidence": "Ph.D in Mechanical Engineering (TIER 4) | Certs: Six Sigma Green Belt, AWS Certified Cloud Practitioner"
+        },
+        "semantic_similarity": {
+          "label": "Semantic Similarity",
+          "score": 0.6498,
+          "weight": 0.25,
+          "contribution": 0.1625,
+          "evidence": "BGE embedding cosine similarity between candidate profile and JD"
+        }
+      },
+      "behavioral": {
+        "label": "Behavioral Multiplier",
+        "value": 1.1463,
+        "additive": 0.03,
+        "evidence": "Open to work: Yes | Recruiter response rate: 74% | Notice: 120 days"
+      },
+      "weighted_total": 0.4471,
+      "why_not_notes": [
+        "No direct JD must-have skills matched (embeddings, vector DB, retrieval)",
+        "120-day notice period may delay onboarding"
+      ],
+      "naive_rank": 15,
+      "naive_rank_change": 10
+    },
+    {
+      "candidate_id": "CAND_0000038",
+      "rank": 6,
+      "score": 0.37439998984336853,
+      "reasoning": "Java Developer at Swiggy with 7 years experience; with directly JD-relevant skills: Weaviate. Product-company background at Swiggy aligns with JD preference over consulting; 7 years falls in JD's optimal 5-9 year band. Minor note: notice period of 90 days above JD's preferred 30-day window.",
+      "tier_label": "Marginal Fit",
+      "confidence": "low",
+      "short_formula": "Semantic 0.62 \u00b7 Career 0.51 \u00b7 Experience 1.00 \u00b7 Behavioral \u00d71.07 \u2192 rank #6",
+      "formula": "Career 0.51\u00d70.25 + Skills 0.11\u00d70.20 + Experience 1.00\u00d70.10 + Location 0.59\u00d70.10 + Education 0.30\u00d70.05 + Semantic 0.62\u00d70.25 \u00d7 1.07 + 0.010 = 0.5239",
+      "score_card": {
+        "career_fit": {
+          "label": "Career Fit",
+          "score": 0.51,
+          "weight": 0.25,
+          "contribution": 0.1275,
+          "evidence": "Title: Java Developer at Swiggy (7 yrs) | Product-company background | Highlight: Built the company's design system from scratch and led the migration from a lega..."
+        },
+        "skills_match": {
+          "label": "Skills Match",
+          "score": 0.1076,
+          "weight": 0.2,
+          "contribution": 0.0215,
+          "evidence": "JD must-haves matched: Weaviate | Domain skills: MLOps"
+        },
+        "experience_fit": {
+          "label": "Experience Fit",
+          "score": 1.0,
+          "weight": 0.1,
+          "contribution": 0.1,
+          "evidence": "7 yrs \u2014 within JD optimal band (5-9 yrs)"
+        },
+        "location_logistics": {
+          "label": "Location & Logistics",
+          "score": 0.59,
+          "weight": 0.1,
+          "contribution": 0.059,
+          "evidence": "Coimbatore, Tamil Nadu \u2014 India-based but outside JD-preferred cities"
+        },
+        "education": {
+          "label": "Education",
+          "score": 0.3,
+          "weight": 0.05,
+          "contribution": 0.015,
+          "evidence": "B.Sc in Computer Engineering (TIER 3)"
+        },
+        "semantic_similarity": {
+          "label": "Semantic Similarity",
+          "score": 0.6236,
+          "weight": 0.25,
+          "contribution": 0.1559,
+          "evidence": "BGE embedding cosine similarity between candidate profile and JD"
+        }
+      },
+      "behavioral": {
+        "label": "Behavioral Multiplier",
+        "value": 1.073,
+        "additive": 0.01,
+        "evidence": "Open to work: Yes | Recruiter response rate: 20% | GitHub activity: 37.8/100 | Notice: 90 days"
+      },
+      "weighted_total": 0.4789,
+      "why_not_notes": [],
+      "naive_rank": 9,
+      "naive_rank_change": 3
+    },
+    {
+      "candidate_id": "CAND_0000023",
+      "rank": 7,
+      "score": 0.3644999861717224,
+      "reasoning": "Software Engineer at Acme Corp with 4 years experience. Career history shows production experience matching JD's emphasis on real-world deployment; product-company background at Acme Corp aligns with JD preference over consulting. Minor note: at 4 years, below JD's preferred 5-9 year range.",
+      "tier_label": "Marginal Fit",
+      "confidence": "low",
+      "short_formula": "Semantic 0.66 \u00b7 Career 0.65 \u00b7 Experience 0.45 \u00b7 Behavioral \u00d71.05 \u2192 rank #7",
+      "formula": "Career 0.65\u00d70.25 + Skills 0.10\u00d70.20 + Experience 0.45\u00d70.10 + Location 0.44\u00d70.10 + Education 0.70\u00d70.05 + Semantic 0.66\u00d70.25 \u00d7 1.05 + 0.010 = 0.5054",
+      "score_card": {
+        "career_fit": {
+          "label": "Career Fit",
+          "score": 0.6453,
+          "weight": 0.25,
+          "contribution": 0.1613,
+          "evidence": "Title: Software Engineer at Acme Corp (4 yrs) | Product-company background | Highlight: Built and maintained the end-to-end test suite using Selenium and pytest, plus t..."
+        },
+        "skills_match": {
+          "label": "Skills Match",
+          "score": 0.1012,
+          "weight": 0.2,
+          "contribution": 0.0202,
+          "evidence": "No direct JD-skill overlap detected"
+        },
+        "experience_fit": {
+          "label": "Experience Fit",
+          "score": 0.45,
+          "weight": 0.1,
+          "contribution": 0.045,
+          "evidence": "4 yrs \u2014 under-experienced for JD requirements"
+        },
+        "location_logistics": {
+          "label": "Location & Logistics",
+          "score": 0.44,
+          "weight": 0.1,
+          "contribution": 0.044,
+          "evidence": "New York \u2014 outside India, JD does not sponsor visas"
+        },
+        "education": {
+          "label": "Education",
+          "score": 0.7,
+          "weight": 0.05,
+          "contribution": 0.035,
+          "evidence": "B.E. in Data Science (TIER 2)"
+        },
+        "semantic_similarity": {
+          "label": "Semantic Similarity",
+          "score": 0.6594,
+          "weight": 0.25,
+          "contribution": 0.1649,
+          "evidence": "BGE embedding cosine similarity between candidate profile and JD"
+        }
+      },
+      "behavioral": {
+        "label": "Behavioral Multiplier",
+        "value": 1.0532,
+        "additive": 0.01,
+        "evidence": "Open to work: No | Recruiter response rate: 57% | GitHub activity: 48.5/100 | Notice: 30 days"
+      },
+      "weighted_total": 0.4704,
+      "why_not_notes": [
+        "No direct JD must-have skills matched (embeddings, vector DB, retrieval)",
+        "Under-experienced: 4 yrs vs JD optimal 5-9 yrs",
+        "Based in New York, USA \u2014 no visa sponsorship"
+      ],
+      "naive_rank": 14,
+      "naive_rank_change": 7
+    },
+    {
+      "candidate_id": "CAND_0000010",
+      "rank": 8,
+      "score": 0.3628000020980835,
+      "reasoning": "Data Engineer at Ola with 5 years experience; with directly JD-relevant skills: Elasticsearch. Product-company background at Ola aligns with JD preference over consulting; Elasticsearch directly maps to JD's retrieval and ranking mandate. Minor note: at 5 years, below JD's preferred 5-9 year range.",
+      "tier_label": "Marginal Fit",
+      "confidence": "low",
+      "short_formula": "Semantic 0.74 \u00b7 Career 0.60 \u00b7 Experience 0.75 \u00b7 Behavioral \u00d71.05 \u2192 rank #8",
+      "formula": "Career 0.60\u00d70.25 + Skills 0.18\u00d70.20 + Experience 0.75\u00d70.10 + Location 0.25\u00d70.10 + Education 0.50\u00d70.05 + Semantic 0.74\u00d70.25 \u00d7 1.05 = 0.5176",
+      "score_card": {
+        "career_fit": {
+          "label": "Career Fit",
+          "score": 0.5954,
+          "weight": 0.25,
+          "contribution": 0.1488,
+          "evidence": "Title: Data Engineer at Ola (5 yrs) | Product-company background | Highlight: Spent maybe 30% of my time on lightweight ML (clustering, classification, churn ..."
+        },
+        "skills_match": {
+          "label": "Skills Match",
+          "score": 0.1761,
+          "weight": 0.2,
+          "contribution": 0.0352,
+          "evidence": "JD must-haves matched: Elasticsearch | Domain skills: MLOps, BM25"
+        },
+        "experience_fit": {
+          "label": "Experience Fit",
+          "score": 0.75,
+          "weight": 0.1,
+          "contribution": 0.075,
+          "evidence": "5 yrs \u2014 slightly below optimal (JD: 5-9 yrs)"
+        },
+        "location_logistics": {
+          "label": "Location & Logistics",
+          "score": 0.25,
+          "weight": 0.1,
+          "contribution": 0.025,
+          "evidence": "London \u2014 outside India, JD does not sponsor visas"
+        },
+        "education": {
+          "label": "Education",
+          "score": 0.5,
+          "weight": 0.05,
+          "contribution": 0.025,
+          "evidence": "B.E. in Mathematics (TIER 4) | M.S. in Computer Engineering (TIER 4)"
+        },
+        "semantic_similarity": {
+          "label": "Semantic Similarity",
+          "score": 0.7424,
+          "weight": 0.25,
+          "contribution": 0.1856,
+          "evidence": "BGE embedding cosine similarity between candidate profile and JD"
+        }
+      },
+      "behavioral": {
+        "label": "Behavioral Multiplier",
+        "value": 1.0464,
+        "additive": 0.0,
+        "evidence": "Open to work: No | Recruiter response rate: 40% | GitHub activity: 33.7/100 | Notice: 120 days"
+      },
+      "weighted_total": 0.4947,
+      "why_not_notes": [
+        "Under-experienced: 5 yrs vs JD optimal 5-9 yrs",
+        "120-day notice period may delay onboarding",
+        "Based in London, UK \u2014 no visa sponsorship"
+      ],
+      "naive_rank": 4,
+      "naive_rank_change": -4
+    },
+    {
+      "candidate_id": "CAND_0000043",
+      "rank": 9,
+      "score": 0.3555000126361847,
+      "reasoning": "Cloud Engineer at Swiggy with 8 years experience; with directly JD-relevant skills: Elasticsearch, OpenSearch. Career history shows production experience matching JD's emphasis on real-world deployment; product-company background at Swiggy aligns with JD preference over consulting. Minor note: 120-day notice period may delay onboarding.",
+      "tier_label": "Marginal Fit",
+      "confidence": "low",
+      "short_formula": "Semantic 0.64 \u00b7 Career 0.45 \u00b7 Experience 1.00 \u00b7 Behavioral \u00d70.96 \u2192 rank #9",
+      "formula": "Career 0.45\u00d70.25 + Skills 0.20\u00d70.20 + Experience 1.00\u00d70.10 + Location 0.50\u00d70.10 + Education 0.55\u00d70.05 + Semantic 0.64\u00d70.25 \u00d7 0.96 = 0.4714",
+      "score_card": {
+        "career_fit": {
+          "label": "Career Fit",
+          "score": 0.4465,
+          "weight": 0.25,
+          "contribution": 0.1116,
+          "evidence": "Title: Cloud Engineer at Swiggy (8 yrs) | Product-company background | Highlight: Built and maintained the end-to-end test suite using Selenium and pytest, plus t..."
+        },
+        "skills_match": {
+          "label": "Skills Match",
+          "score": 0.198,
+          "weight": 0.2,
+          "contribution": 0.0396,
+          "evidence": "JD must-haves matched: Elasticsearch, OpenSearch | Nice-to-haves: Fine-tuning LLMs, PEFT | Domain skills: TensorFlow, LangChain, Deep Learning"
+        },
+        "experience_fit": {
+          "label": "Experience Fit",
+          "score": 1.0,
+          "weight": 0.1,
+          "contribution": 0.1,
+          "evidence": "8 yrs \u2014 within JD optimal band (5-9 yrs)"
+        },
+        "location_logistics": {
+          "label": "Location & Logistics",
+          "score": 0.5,
+          "weight": 0.1,
+          "contribution": 0.05,
+          "evidence": "Chandigarh, Chandigarh \u2014 India-based but outside JD-preferred cities"
+        },
+        "education": {
+          "label": "Education",
+          "score": 0.55,
+          "weight": 0.05,
+          "contribution": 0.0275,
+          "evidence": "M.E. in Electronics (TIER 4) | B.Sc in Physics (TIER 4)"
+        },
+        "semantic_similarity": {
+          "label": "Semantic Similarity",
+          "score": 0.6437,
+          "weight": 0.25,
+          "contribution": 0.1609,
+          "evidence": "BGE embedding cosine similarity between candidate profile and JD"
+        }
+      },
+      "behavioral": {
+        "label": "Behavioral Multiplier",
+        "value": 0.9627,
+        "additive": 0.0,
+        "evidence": "Open to work: No | Recruiter response rate: 4% | Notice: 120 days"
+      },
+      "weighted_total": 0.4896,
+      "why_not_notes": [
+        "120-day notice period may delay onboarding"
+      ],
+      "naive_rank": 3,
+      "naive_rank_change": -6
+    },
+    {
+      "candidate_id": "CAND_0000032",
+      "rank": 10,
+      "score": 0.336899995803833,
+      "reasoning": ".NET Developer at Cognizant with 8 years experience; with directly JD-relevant skills: Embeddings. Embeddings directly maps to JD's retrieval and ranking mandate; based in Gurgaon, Haryana (JD-preferred location). Minor note: 150-day notice period may delay onboarding.",
+      "tier_label": "Marginal Fit",
+      "confidence": "low",
+      "short_formula": "Semantic 0.63 \u00b7 Experience 1.00 \u00b7 Career 0.37 \u00b7 Behavioral \u00d70.96 \u2192 rank #10",
+      "formula": "Career 0.37\u00d70.25 + Skills 0.16\u00d70.20 + Experience 1.00\u00d70.10 + Location 0.64\u00d70.10 + Education 0.75\u00d70.05 + Semantic 0.63\u00d70.25 \u00d7 0.96 = 0.4649",
+      "score_card": {
+        "career_fit": {
+          "label": "Career Fit",
+          "score": 0.374,
+          "weight": 0.25,
+          "contribution": 0.0935,
+          "evidence": "Title: .NET Developer at Cognizant (8 yrs) | Highlight: Built and maintained the end-to-end test suite using Selenium and pytest, plus t..."
+        },
+        "skills_match": {
+          "label": "Skills Match",
+          "score": 0.1602,
+          "weight": 0.2,
+          "contribution": 0.032,
+          "evidence": "JD must-haves matched: Embeddings"
+        },
+        "experience_fit": {
+          "label": "Experience Fit",
+          "score": 1.0,
+          "weight": 0.1,
+          "contribution": 0.1,
+          "evidence": "8 yrs \u2014 within JD optimal band (5-9 yrs)"
+        },
+        "location_logistics": {
+          "label": "Location & Logistics",
+          "score": 0.64,
+          "weight": 0.1,
+          "contribution": 0.064,
+          "evidence": "Gurgaon, Haryana \u2014 JD-preferred location (Pune/Noida/NCR)"
+        },
+        "education": {
+          "label": "Education",
+          "score": 0.75,
+          "weight": 0.05,
+          "contribution": 0.0375,
+          "evidence": "M.Sc in Machine Learning (TIER 3) | Ph.D in Physics (TIER 3)"
+        },
+        "semantic_similarity": {
+          "label": "Semantic Similarity",
+          "score": 0.6329,
+          "weight": 0.25,
+          "contribution": 0.1582,
+          "evidence": "BGE embedding cosine similarity between candidate profile and JD"
+        }
+      },
+      "behavioral": {
+        "label": "Behavioral Multiplier",
+        "value": 0.958,
+        "additive": 0.0,
+        "evidence": "Open to work: No | Recruiter response rate: 69% | Notice: 150 days"
+      },
+      "weighted_total": 0.4853,
+      "why_not_notes": [
+        "150-day notice period may delay onboarding"
+      ],
+      "naive_rank": 7,
+      "naive_rank_change": -3
+    },
+    {
+      "candidate_id": "CAND_0000027",
+      "rank": 11,
+      "score": 0.33000001311302185,
+      "reasoning": "4-year DevOps Engineer at Infosys; with directly JD-relevant skills: Information Retrieval. Career-long consulting background (Infosys, Wipro) is a concern per JD. Concern: at 4 years, below JD's preferred 5-9 year range.",
+      "tier_label": "Marginal Fit",
+      "confidence": "low",
+      "short_formula": "Semantic 0.66 \u00b7 Career 0.30 \u00b7 Location 0.60 \u00b7 Behavioral \u00d71.08 \u2192 rank #11",
+      "formula": "Career 0.30\u00d70.25 + Skills 0.17\u00d70.20 + Experience 0.45\u00d70.10 + Location 0.60\u00d70.10 + Education 0.95\u00d70.05 + Semantic 0.66\u00d70.25 \u00d7 1.08 = 0.4604",
+      "score_card": {
+        "career_fit": {
+          "label": "Career Fit",
+          "score": 0.2987,
+          "weight": 0.25,
+          "contribution": 0.0747,
+          "evidence": "Title: DevOps Engineer at Infosys (4 yrs) | Career-long consulting (Infosys, Wipro) | Highlight: Built React-based admin interfaces and the Node"
+        },
+        "skills_match": {
+          "label": "Skills Match",
+          "score": 0.1656,
+          "weight": 0.2,
+          "contribution": 0.0331,
+          "evidence": "JD must-haves matched: Information Retrieval | Nice-to-haves: PEFT"
+        },
+        "experience_fit": {
+          "label": "Experience Fit",
+          "score": 0.45,
+          "weight": 0.1,
+          "contribution": 0.045,
+          "evidence": "4 yrs \u2014 under-experienced for JD requirements"
+        },
+        "location_logistics": {
+          "label": "Location & Logistics",
+          "score": 0.6,
+          "weight": 0.1,
+          "contribution": 0.06,
+          "evidence": "Kolkata, West Bengal \u2014 Tier-1 city, JD-acceptable"
+        },
+        "education": {
+          "label": "Education",
+          "score": 0.95,
+          "weight": 0.05,
+          "contribution": 0.0475,
+          "evidence": "Ph.D in Information Technology (TIER 1) | B.E. in Artificial Intelligence (TIER 2)"
+        },
+        "semantic_similarity": {
+          "label": "Semantic Similarity",
+          "score": 0.6628,
+          "weight": 0.25,
+          "contribution": 0.1657,
+          "evidence": "BGE embedding cosine similarity between candidate profile and JD"
+        }
+      },
+      "behavioral": {
+        "label": "Behavioral Multiplier",
+        "value": 1.0807,
+        "additive": 0.0,
+        "evidence": "Open to work: Yes | Recruiter response rate: 58% | GitHub activity: 38.6/100 | Notice: 90 days"
+      },
+      "weighted_total": 0.426,
+      "why_not_notes": [
+        "Career-long consulting \u2014 JD explicit disqualifier",
+        "Under-experienced: 4 yrs vs JD optimal 5-9 yrs"
+      ],
+      "naive_rank": 11,
+      "naive_rank_change": 0
+    },
+    {
+      "candidate_id": "CAND_0000035",
+      "rank": 12,
+      "score": 0.3278999924659729,
+      "reasoning": "4-year Full Stack Developer at Globex Inc; with domain-adjacent skills in Recommendation Systems, BentoML. Product-company background at Globex Inc aligns with JD preference over consulting. Concern: at 4 years, below JD's preferred 5-9 year range.",
+      "tier_label": "Marginal Fit",
+      "confidence": "low",
+      "short_formula": "Semantic 0.63 \u00b7 Career 0.45 \u00b7 Experience 0.75 \u00b7 Behavioral \u00d70.95 \u2192 rank #12",
+      "formula": "Career 0.45\u00d70.25 + Skills 0.16\u00d70.20 + Experience 0.75\u00d70.10 + Location 0.63\u00d70.10 + Education 0.75\u00d70.05 + Semantic 0.63\u00d70.25 \u00d7 0.95 = 0.4540",
+      "score_card": {
+        "career_fit": {
+          "label": "Career Fit",
+          "score": 0.4526,
+          "weight": 0.25,
+          "contribution": 0.1132,
+          "evidence": "Title: Full Stack Developer at Globex Inc (4 yrs) | Product-company background | Highlight: Built React-based admin interfaces and the Node"
+        },
+        "skills_match": {
+          "label": "Skills Match",
+          "score": 0.1583,
+          "weight": 0.2,
+          "contribution": 0.0317,
+          "evidence": "Domain skills: Recommendation Systems, BentoML"
+        },
+        "experience_fit": {
+          "label": "Experience Fit",
+          "score": 0.75,
+          "weight": 0.1,
+          "contribution": 0.075,
+          "evidence": "4 yrs \u2014 slightly below optimal (JD: 5-9 yrs)"
+        },
+        "location_logistics": {
+          "label": "Location & Logistics",
+          "score": 0.63,
+          "weight": 0.1,
+          "contribution": 0.063,
+          "evidence": "Hyderabad, Telangana \u2014 Tier-1 city, JD-acceptable"
+        },
+        "education": {
+          "label": "Education",
+          "score": 0.75,
+          "weight": 0.05,
+          "contribution": 0.0375,
+          "evidence": "B.E. in Civil Engineering (TIER 4) | M.S. in Data Science (TIER 3) | Certs: AWS Certified Cloud Practitioner, Six Sigma Green Belt"
+        },
+        "semantic_similarity": {
+          "label": "Semantic Similarity",
+          "score": 0.6292,
+          "weight": 0.25,
+          "contribution": 0.1573,
+          "evidence": "BGE embedding cosine similarity between candidate profile and JD"
+        }
+      },
+      "behavioral": {
+        "label": "Behavioral Multiplier",
+        "value": 0.9505,
+        "additive": 0.0,
+        "evidence": "Open to work: No | Recruiter response rate: 34% | Notice: 60 days"
+      },
+      "weighted_total": 0.4776,
+      "why_not_notes": [
+        "No direct JD must-have skills matched (embeddings, vector DB, retrieval)",
+        "Under-experienced: 4 yrs vs JD optimal 5-9 yrs"
+      ],
+      "naive_rank": 8,
+      "naive_rank_change": -4
+    },
+    {
+      "candidate_id": "CAND_0000011",
+      "rank": 13,
+      "score": 0.32580000162124634,
+      "reasoning": "2-year QA Engineer at Pied Piper; with domain-adjacent skills in Recommendation Systems, Hugging Face Transformers. Career history shows production experience matching JD's emphasis on real-world deployment. Concern: at 2 years, below JD's preferred 5-9 year range.",
+      "tier_label": "Marginal Fit",
+      "confidence": "low",
+      "short_formula": "Semantic 0.66 \u00b7 Career 0.43 \u00b7 Location 0.59 \u00b7 Behavioral \u00d71.04 \u2192 rank #13",
+      "formula": "Career 0.43\u00d70.25 + Skills 0.09\u00d70.20 + Experience 0.20\u00d70.10 + Location 0.59\u00d70.10 + Education 0.75\u00d70.05 + Semantic 0.66\u00d70.25 \u00d7 1.04 + 0.020 = 0.4444",
+      "score_card": {
+        "career_fit": {
+          "label": "Career Fit",
+          "score": 0.4336,
+          "weight": 0.25,
+          "contribution": 0.1084,
+          "evidence": "Title: QA Engineer at Pied Piper (2 yrs) | Product-company background | Highlight: Built and maintained multiple production features including the main shopping fl..."
+        },
+        "skills_match": {
+          "label": "Skills Match",
+          "score": 0.091,
+          "weight": 0.2,
+          "contribution": 0.0182,
+          "evidence": "Domain skills: Recommendation Systems, Hugging Face Transformers"
+        },
+        "experience_fit": {
+          "label": "Experience Fit",
+          "score": 0.2,
+          "weight": 0.1,
+          "contribution": 0.02,
+          "evidence": "2 yrs \u2014 under-experienced for JD requirements"
+        },
+        "location_logistics": {
+          "label": "Location & Logistics",
+          "score": 0.59,
+          "weight": 0.1,
+          "contribution": 0.059,
+          "evidence": "Hyderabad, Telangana \u2014 Tier-1 city, JD-acceptable"
+        },
+        "education": {
+          "label": "Education",
+          "score": 0.75,
+          "weight": 0.05,
+          "contribution": 0.0375,
+          "evidence": "B.Tech in Data Science (TIER 3) | B.Sc in Information Technology (TIER 2) | Certs: AWS Certified Cloud Practitioner, Six Sigma Green Belt"
+        },
+        "semantic_similarity": {
+          "label": "Semantic Similarity",
+          "score": 0.6563,
+          "weight": 0.25,
+          "contribution": 0.1641,
+          "evidence": "BGE embedding cosine similarity between candidate profile and JD"
+        }
+      },
+      "behavioral": {
+        "label": "Behavioral Multiplier",
+        "value": 1.0423,
+        "additive": 0.02,
+        "evidence": "Open to work: No | Recruiter response rate: 56% | GitHub activity: 32.3/100 | Notice: 90 days"
+      },
+      "weighted_total": 0.4072,
+      "why_not_notes": [
+        "No direct JD must-have skills matched (embeddings, vector DB, retrieval)",
+        "Under-experienced: 2 yrs vs JD optimal 5-9 yrs"
+      ],
+      "naive_rank": 10,
+      "naive_rank_change": -3
+    },
+    {
+      "candidate_id": "CAND_0000048",
+      "rank": 14,
+      "score": 0.3249000012874603,
+      "reasoning": "10-year Mobile Developer at CRED. Career history shows production experience matching JD's emphasis on real-world deployment. Concern: 120-day notice period may delay onboarding.",
+      "tier_label": "Marginal Fit",
+      "confidence": "low",
+      "short_formula": "Semantic 0.63 \u00b7 Career 0.45 \u00b7 Experience 0.75 \u00b7 Behavioral \u00d71.01 \u2192 rank #14",
+      "formula": "Career 0.45\u00d70.25 + Skills 0.09\u00d70.20 + Experience 0.75\u00d70.10 + Location 0.54\u00d70.10 + Education 0.75\u00d70.05 + Semantic 0.63\u00d70.25 \u00d7 1.01 = 0.4599",
+      "score_card": {
+        "career_fit": {
+          "label": "Career Fit",
+          "score": 0.4518,
+          "weight": 0.25,
+          "contribution": 0.113,
+          "evidence": "Title: Mobile Developer at CRED (10 yrs) | Product-company background | Highlight: Built the company's design system from scratch and led the migration from a lega..."
+        },
+        "skills_match": {
+          "label": "Skills Match",
+          "score": 0.0924,
+          "weight": 0.2,
+          "contribution": 0.0185,
+          "evidence": "No direct JD-skill overlap detected"
+        },
+        "experience_fit": {
+          "label": "Experience Fit",
+          "score": 0.75,
+          "weight": 0.1,
+          "contribution": 0.075,
+          "evidence": "10 yrs \u2014 slightly above optimal (JD: 5-9 yrs)"
+        },
+        "location_logistics": {
+          "label": "Location & Logistics",
+          "score": 0.54,
+          "weight": 0.1,
+          "contribution": 0.054,
+          "evidence": "Hyderabad, Telangana \u2014 Tier-1 city, JD-acceptable"
+        },
+        "education": {
+          "label": "Education",
+          "score": 0.75,
+          "weight": 0.05,
+          "contribution": 0.0375,
+          "evidence": "B.E. in Data Science (TIER 3) | B.Tech in Statistics (TIER 2) | Certs: Scrum Master Certified, Six Sigma Green Belt"
+        },
+        "semantic_similarity": {
+          "label": "Semantic Similarity",
+          "score": 0.6287,
+          "weight": 0.25,
+          "contribution": 0.1572,
+          "evidence": "BGE embedding cosine similarity between candidate profile and JD"
+        }
+      },
+      "behavioral": {
+        "label": "Behavioral Multiplier",
+        "value": 1.0105,
+        "additive": 0.0,
+        "evidence": "Open to work: Yes | Recruiter response rate: 65% | Notice: 120 days"
+      },
+      "weighted_total": 0.4551,
+      "why_not_notes": [
+        "No direct JD must-have skills matched (embeddings, vector DB, retrieval)",
+        "120-day notice period may delay onboarding"
+      ],
+      "naive_rank": 16,
+      "naive_rank_change": 2
+    },
+    {
+      "candidate_id": "CAND_0000044",
+      "rank": 15,
+      "score": 0.3190999925136566,
+      "reasoning": "6-year Frontend Engineer at Tech Mahindra. 6 years falls in JD's optimal 5-9 year band. Concern: notice period of 90 days above JD's preferred 30-day window.",
+      "tier_label": "Marginal Fit",
+      "confidence": "low",
+      "short_formula": "Semantic 0.66 \u00b7 Career 0.43 \u00b7 Experience 1.00 \u00b7 Behavioral \u00d70.94 \u2192 rank #15",
+      "formula": "Career 0.43\u00d70.25 + Skills 0.09\u00d70.20 + Experience 1.00\u00d70.10 + Location 0.40\u00d70.10 + Education 0.75\u00d70.05 + Semantic 0.66\u00d70.25 \u00d7 0.94 + 0.010 = 0.4493",
+      "score_card": {
+        "career_fit": {
+          "label": "Career Fit",
+          "score": 0.4256,
+          "weight": 0.25,
+          "contribution": 0.1064,
+          "evidence": "Title: Frontend Engineer at Tech Mahindra (6 yrs) | Highlight: Built the company's design system from scratch and led the migration from a lega..."
+        },
+        "skills_match": {
+          "label": "Skills Match",
+          "score": 0.0929,
+          "weight": 0.2,
+          "contribution": 0.0186,
+          "evidence": "No direct JD-skill overlap detected"
+        },
+        "experience_fit": {
+          "label": "Experience Fit",
+          "score": 1.0,
+          "weight": 0.1,
+          "contribution": 0.1,
+          "evidence": "6 yrs \u2014 within JD optimal band (5-9 yrs)"
+        },
+        "location_logistics": {
+          "label": "Location & Logistics",
+          "score": 0.4,
+          "weight": 0.1,
+          "contribution": 0.04,
+          "evidence": "Indore, Madhya Pradesh \u2014 India-based but outside JD-preferred cities"
+        },
+        "education": {
+          "label": "Education",
+          "score": 0.75,
+          "weight": 0.05,
+          "contribution": 0.0375,
+          "evidence": "M.Sc in Information Technology (TIER 3) | B.E. in Civil Engineering (TIER 3)"
+        },
+        "semantic_similarity": {
+          "label": "Semantic Similarity",
+          "score": 0.6627,
+          "weight": 0.25,
+          "contribution": 0.1657,
+          "evidence": "BGE embedding cosine similarity between candidate profile and JD"
+        }
+      },
+      "behavioral": {
+        "label": "Behavioral Multiplier",
+        "value": 0.9384,
+        "additive": 0.01,
+        "evidence": "Open to work: No | Recruiter response rate: 66% | GitHub activity: 6.5/100 | Notice: 90 days"
+      },
+      "weighted_total": 0.4682,
+      "why_not_notes": [
+        "No direct JD must-have skills matched (embeddings, vector DB, retrieval)"
+      ],
+      "naive_rank": 12,
+      "naive_rank_change": -3
+    },
+    {
+      "candidate_id": "CAND_0000018",
+      "rank": 16,
+      "score": 0.3111000061035156,
+      "reasoning": "7-year Frontend Engineer at Acme Corp. Career history shows production experience matching JD's emphasis on real-world deployment. Concern: 120-day notice period may delay onboarding.",
+      "tier_label": "Marginal Fit",
+      "confidence": "low",
+      "short_formula": "Semantic 0.67 \u00b7 Career 0.51 \u00b7 Experience 1.00 \u00b7 Behavioral \u00d70.90 \u2192 rank #16",
+      "formula": "Career 0.51\u00d70.25 + Skills 0.09\u00d70.20 + Experience 1.00\u00d70.10 + Location 0.38\u00d70.10 + Education 0.50\u00d70.05 + Semantic 0.67\u00d70.25 \u00d7 0.90 + 0.010 = 0.4383",
+      "score_card": {
+        "career_fit": {
+          "label": "Career Fit",
+          "score": 0.5059,
+          "weight": 0.25,
+          "contribution": 0.1265,
+          "evidence": "Title: Frontend Engineer at Acme Corp (7 yrs) | Product-company background | Highlight: Built and maintained the end-to-end test suite using Selenium and pytest, plus t..."
+        },
+        "skills_match": {
+          "label": "Skills Match",
+          "score": 0.0887,
+          "weight": 0.2,
+          "contribution": 0.0177,
+          "evidence": "No direct JD-skill overlap detected"
+        },
+        "experience_fit": {
+          "label": "Experience Fit",
+          "score": 1.0,
+          "weight": 0.1,
+          "contribution": 0.1,
+          "evidence": "7 yrs \u2014 within JD optimal band (5-9 yrs)"
+        },
+        "location_logistics": {
+          "label": "Location & Logistics",
+          "score": 0.38,
+          "weight": 0.1,
+          "contribution": 0.038,
+          "evidence": "Bhubaneswar, Odisha \u2014 India-based but outside JD-preferred cities"
+        },
+        "education": {
+          "label": "Education",
+          "score": 0.5,
+          "weight": 0.05,
+          "contribution": 0.025,
+          "evidence": "Ph.D in Computer Engineering (TIER 3)"
+        },
+        "semantic_similarity": {
+          "label": "Semantic Similarity",
+          "score": 0.6722,
+          "weight": 0.25,
+          "contribution": 0.168,
+          "evidence": "BGE embedding cosine similarity between candidate profile and JD"
+        }
+      },
+      "behavioral": {
+        "label": "Behavioral Multiplier",
+        "value": 0.9012,
+        "additive": 0.01,
+        "evidence": "Open to work: No | Recruiter response rate: 16% | Notice: 120 days"
+      },
+      "weighted_total": 0.4752,
+      "why_not_notes": [
+        "No direct JD must-have skills matched (embeddings, vector DB, retrieval)",
+        "120-day notice period may delay onboarding"
+      ],
+      "naive_rank": 13,
+      "naive_rank_change": -3
+    }
+  ],
+  "contrast": {
+    "honeypot_cards": [],
+    "demotion_cards": []
+  },
+  "naive_compare": {
+    "pipeline_top20": [
+      {
+        "pipeline_rank": 1,
+        "candidate_id": "CAND_0000031",
+        "pipeline_score": 0.7531999945640564,
+        "tier_label": "Moderate Fit",
+        "naive_rank": 1,
+        "rank_change": 0
+      },
+      {
+        "pipeline_rank": 2,
+        "candidate_id": "CAND_0000015",
+        "pipeline_score": 0.4009999930858612,
+        "tier_label": "Marginal Fit",
+        "naive_rank": 6,
+        "rank_change": 4
+      },
+      {
+        "pipeline_rank": 3,
+        "candidate_id": "CAND_0000014",
+        "pipeline_score": 0.39989998936653137,
+        "tier_label": "Moderate Fit",
+        "naive_rank": 5,
+        "rank_change": 2
+      },
+      {
+        "pipeline_rank": 4,
+        "candidate_id": "CAND_0000001",
+        "pipeline_score": 0.39750000834465027,
+        "tier_label": "Marginal Fit",
+        "naive_rank": 2,
+        "rank_change": -2
+      },
+      {
+        "pipeline_rank": 5,
+        "candidate_id": "CAND_0000025",
+        "pipeline_score": 0.3856000006198883,
+        "tier_label": "Marginal Fit",
+        "naive_rank": 15,
+        "rank_change": 10
+      },
+      {
+        "pipeline_rank": 6,
+        "candidate_id": "CAND_0000038",
+        "pipeline_score": 0.37439998984336853,
+        "tier_label": "Marginal Fit",
+        "naive_rank": 9,
+        "rank_change": 3
+      },
+      {
+        "pipeline_rank": 7,
+        "candidate_id": "CAND_0000023",
+        "pipeline_score": 0.3644999861717224,
+        "tier_label": "Marginal Fit",
+        "naive_rank": 14,
+        "rank_change": 7
+      },
+      {
+        "pipeline_rank": 8,
+        "candidate_id": "CAND_0000010",
+        "pipeline_score": 0.3628000020980835,
+        "tier_label": "Marginal Fit",
+        "naive_rank": 4,
+        "rank_change": -4
+      },
+      {
+        "pipeline_rank": 9,
+        "candidate_id": "CAND_0000043",
+        "pipeline_score": 0.3555000126361847,
+        "tier_label": "Marginal Fit",
+        "naive_rank": 3,
+        "rank_change": -6
+      },
+      {
+        "pipeline_rank": 10,
+        "candidate_id": "CAND_0000032",
+        "pipeline_score": 0.336899995803833,
+        "tier_label": "Marginal Fit",
+        "naive_rank": 7,
+        "rank_change": -3
+      },
+      {
+        "pipeline_rank": 11,
+        "candidate_id": "CAND_0000027",
+        "pipeline_score": 0.33000001311302185,
+        "tier_label": "Marginal Fit",
+        "naive_rank": 11,
+        "rank_change": 0
+      },
+      {
+        "pipeline_rank": 12,
+        "candidate_id": "CAND_0000035",
+        "pipeline_score": 0.3278999924659729,
+        "tier_label": "Marginal Fit",
+        "naive_rank": 8,
+        "rank_change": -4
+      },
+      {
+        "pipeline_rank": 13,
+        "candidate_id": "CAND_0000011",
+        "pipeline_score": 0.32580000162124634,
+        "tier_label": "Marginal Fit",
+        "naive_rank": 10,
+        "rank_change": -3
+      },
+      {
+        "pipeline_rank": 14,
+        "candidate_id": "CAND_0000048",
+        "pipeline_score": 0.3249000012874603,
+        "tier_label": "Marginal Fit",
+        "naive_rank": 16,
+        "rank_change": 2
+      },
+      {
+        "pipeline_rank": 15,
+        "candidate_id": "CAND_0000044",
+        "pipeline_score": 0.3190999925136566,
+        "tier_label": "Marginal Fit",
+        "naive_rank": 12,
+        "rank_change": -3
+      },
+      {
+        "pipeline_rank": 16,
+        "candidate_id": "CAND_0000018",
+        "pipeline_score": 0.3111000061035156,
+        "tier_label": "Marginal Fit",
+        "naive_rank": 13,
+        "rank_change": -3
+      }
+    ]
+  },
+  "jd_mode": "default"
+}

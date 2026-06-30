@@ -1,7 +1,7 @@
 # Redrob AI — Intelligent Candidate Discovery & Ranking
 **Track 1: Data & AI Challenge — Approach & Methodology**
 
-> Team: _TODO team name_ · Lead: Vishnu · Repo: _TODO github_ · Sandbox: _TODO link_
+> Team: GroundTruth · Lead: Vishnu · Repo: https://github.com/Vishnups08/AI-Candidate-Ranking-System · Sandbox: _TODO link_
 
 ---
 
@@ -160,9 +160,9 @@ The JD explicitly wants engineers who reason about **latency vs. quality**:
 
 ## Slide 10: Submission Assets
 
-- **Repo:** _TODO github_ — clean, tested, single-command reproduction.
+- **Repo:** https://github.com/Vishnups08/AI-Candidate-Ranking-System — clean, tested, single-command reproduction.
 - **Sandbox:** _TODO link_ — runs the ranker on a ≤100-candidate sample.
-- **Reproduce:** `python rank.py --candidates ./candidates.jsonl --out ./submission.csv`
-- **Output:** `submission.csv` — exactly 100 rows + header, validated.
+- **Reproduce:** `python rank.py --candidates ./candidates.jsonl --out ./submission.xlsx`
+- **Output:** `submission.xlsx` (and `submission.csv`) — exactly 100 rows + header, validated.
 - **Evidence of real engineering:** independent gold set, `RESULTS.md` tuning log
   with reverted experiments, 16 passing regression tests, iterative git history.

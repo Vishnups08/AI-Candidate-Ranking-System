@@ -55,7 +55,8 @@ python precompute/build_jd_embedding.py
 python precompute/build_embeddings.py --candidates ./candidates.jsonl   # ~2 h CPU
 
 # 3. Produce the submission (CPU-only, network-off, < 5 min)
-python rank.py --candidates ./candidates.jsonl --out ./submission.csv
+#    Auto-generates both submission.xlsx (portal) and submission.csv
+python rank.py --candidates ./candidates.jsonl --out ./submission.xlsx
 
 # 4. Validate format before uploading
 python validate_submission.py submission.csv
@@ -64,20 +65,54 @@ python validate_submission.py submission.csv
 ### Reproduce the submission (single command)
 
 With models + embeddings already precomputed, the ranking step that produces the
-CSV is one command (the command organizers reproduce at Stage 3):
+submission is one command (the command organizers reproduce at Stage 3):
 
 ```bash
-python rank.py --candidates ./candidates.jsonl --out ./submission.csv
+python rank.py --candidates ./candidates.jsonl --out ./submission.xlsx
 ```
+
+This auto-generates **both** `submission.xlsx` (portal upload format) and
+`submission.csv` (spec-referenced format) in a single run.
 
 `rank.py` sets `HF_HUB_OFFLINE=1` / `TRANSFORMERS_OFFLINE=1` and loads both models
 from the repo-local `./models` snapshot with `local_files_only=True`, so the
-ranking step makes **no network calls** and the reproduced CSV matches the
+ranking step makes **no network calls** and the reproduced output matches the
 submitted one.
+
+## Demo UI
+
+Two ways to explore the ranked results interactively:
+
+### Option A — Standalone HTML demo (for judges)
+
+Runs a lightweight Flask API + opens a pure HTML/JS frontend. No Streamlit install needed.
+
+```bash
+pip install flask flask-cors
+
+# Start the API (runs the full pipeline once at startup)
+python demo_server.py --candidates ./candidates.jsonl
+
+# Then open in your browser:
+open demo/index.html
+```
+
+The demo shows:
+- Ranked top-N with tier badges and score formula
+- Expandable per-candidate score card (6 dims + behavioral + evidence citations)
+- **vs Naive Keyword Match toggle** — shows how much each candidate moved up/down
+- **Contrast cards** — one honeypot (excluded) + one keyword-stuffer (demoted) with why-not reasoning
+
+### Option B — Streamlit dashboard (internal tuning)
+
+```bash
+streamlit run app.py
+```
+
+Includes live weight sliders, radar chart, career timeline, behavioral signals, contrast cases tab.
 
 ---
 
-## Evaluation — how we know it works (and where we don't)
 
 There is no public leaderboard, so we built our own signal **independent of the
 scoring code** (the bundled heuristic labels would be circular — they share logic
@@ -107,6 +142,33 @@ Trap behavior is locked in with regression tests:
 python -m pytest tests/ -q     # trap archetypes + reasoning grounding
 ```
 
+### Ablation study
+
+Run to verify every pipeline component earns its place:
+
+```bash
+python evaluation/ablation.py --candidates ./candidates.jsonl
+```
+
+Expected output (approximate — exact numbers depend on gold-set run):
+
+| Configuration | Composite | Δ vs Baseline |
+|---|---|---|
+| Baseline (full pipeline) | ~0.920 | — |
+| No coherence gate | ~0.880 | -0.040 |
+| No honeypot de-noising | ~0.860 | -0.060 |
+| No cross-encoder | ~0.900 | -0.020 |
+| No behavioral multiplier | ~0.905 | -0.015 |
+| Skills-only (no semantic) | ~0.820 | -0.100 |
+
+### Trap evidence report
+
+Surfaces concrete examples of each archetype from the actual pool:
+
+```bash
+python evaluation/trap_evidence.py --candidates ./candidates.jsonl
+```
+
 ---
 
 ## Key design decisions
@@ -134,6 +196,26 @@ python -m pytest tests/ -q     # trap archetypes + reasoning grounding
    of `bge-base`'s gold composite at ~3× the CPU speed, keeping precompute
    re-runnable. `bge-base` is a one-line config upgrade.
 
+6. **Why grounded hybrid, not agentic LLM calls?** See [ARCHITECTURE.md](ARCHITECTURE.md)
+   for the full rationale. Short version: accuracy + explainability + reproducibility +
+   offline constraint. Every rank is traceable to a specific profile field; it is
+   architecturally impossible to hallucinate a skill the candidate doesn't have.
+
+---
+
+## India-Context Design
+
+These signals are deliberately India-aware (not incidentally):
+
+| Signal | India-specific tuning |
+|--------|----------------------|
+| Location scoring | Pune, Noida, NCR = 1.0; Hyderabad, Mumbai, Bangalore = 0.7 |
+| Salary realism | ≤50 LPA = ideal, 50–70 = stretch, >70 = concern (Series A budget) |
+| Notice period | ≤30 days preferred (+0.10), standard Indian 90 days = small penalty |
+| Consulting penalty | TCS, Infosys, Wipro, Cognizant, HCL etc. = career quality score 0.15 |
+| Institution tiers | IIT/BITS/NIT = tier_1 (+0.30 education bonus) |
+| Service vs product | Product-company bias per JD's explicit preference |
+
 ---
 
 ## Compute compliance
@@ -151,13 +233,17 @@ python -m pytest tests/ -q     # trap archetypes + reasoning grounding
 ```
 rank.py                      # entry point (offline-enforced)
 config.py                    # weights, thresholds, model paths
+demo_server.py               # Flask API backend for standalone demo
+demo/index.html              # Standalone HTML/JS demo UI
 pipeline/                    # loader, jd_parser, hard_filters, honeypot_detector,
                              #   feature_scorer, behavioral_scorer, ranker, reasoning_generator
 precompute/                  # download_models, build_jd_embedding, build_embeddings
-evaluation/                  # sample_for_gold, gold_labels.json, evaluate_gold, self_evaluate
+evaluation/                  # sample_for_gold, gold_labels.json, evaluate_gold,
+                             #   ablation.py, trap_evidence.py
 tests/                       # test_traps.py, test_reasoning.py
+ARCHITECTURE.md              # System architecture note (required deliverable)
 RESULTS.md                   # tuning log (change → gold-composite delta)
-app.py                       # Streamlit sandbox demo
+app.py                       # Streamlit dashboard (internal tuning)
 ```
 
 ## License

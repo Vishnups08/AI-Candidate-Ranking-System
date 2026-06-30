@@ -17,6 +17,12 @@ from pipeline.jd_parser import load_jd_requirements
 from pipeline.hard_filters import apply_hard_filters
 from pipeline.honeypot_detector import filter_honeypots, detect_honeypot
 from pipeline.ranker import CandidateRanker
+from pipeline.reasoning_generator import (
+    generate_structured_explanation,
+    generate_honeypot_contrast_card,
+    generate_demotion_contrast_card,
+)
+from pipeline.behavioral_scorer import compute_behavioral_multiplier, compute_behavioral_additive
 
 
 # Set page config
@@ -181,6 +187,20 @@ st.sidebar.markdown("<div class='sidebar-header'>⚖️ NORMALIZED WEIGHTS</div>
 for dim, weight in config.WEIGHTS.items():
     st.sidebar.markdown(f"**{dim.replace('_', ' ').title()}**: `{weight:.3f}`")
 
+# India-context callout
+st.sidebar.markdown("<div class='sidebar-header'>🇮🇳 INDIA-CONTEXT DESIGN</div>", unsafe_allow_html=True)
+st.sidebar.markdown("""
+<div style='font-size:0.8rem;color:#94a3b8;line-height:1.6;'>
+<b>Deliberately India-aware signals:</b><br/>
+• <b>Preferred cities:</b> Pune, Noida, NCR (1.0×), Tier-1 cities (0.7×)<br/>
+• <b>INR LPA realism:</b> ≤50 LPA = ideal, 50–70 = stretch, >70 = concern<br/>
+• <b>Notice period:</b> ≤30 days = +0.10, 90+ = −0.05 to −0.15<br/>
+• <b>Consulting penalty:</b> TCS/Infosys/Wipro career = 0.15 career quality<br/>
+• <b>Institution tier:</b> IIT/BITS/NIT = tier_1 bonus (+0.30)<br/>
+• <b>Service vs product:</b> Product-company bias per JD<br/>
+</div>
+""", unsafe_allow_html=True)
+
 st.sidebar.markdown("<div class='sidebar-header'>📥 CANDIDATES DATA</div>", unsafe_allow_html=True)
 uploaded_file = st.sidebar.file_uploader("Upload candidates file (JSON/JSONL)", type=["json", "jsonl"])
 
@@ -209,37 +229,103 @@ else:
         st.error("Sample candidates file not found. Please upload a JSON or JSONL file.")
         st.stop()
 
+# Caching helper to load embedding model on the fly (offline-first, downloads if missing)
+@st.cache_resource
+def get_embedding_model():
+    from sentence_transformers import SentenceTransformer
+    _model_path = config._local_model_path(config.EMBEDDING_MODEL)
+    return SentenceTransformer(_model_path, device="cpu")
+
 # Load embeddings
 jd_embedding = None
 candidate_embeddings = {}
 emb_dir = Path("precompute/embeddings")
 
-# Load precomputed embeddings if candidate source is the default sample
-if "sample" in candidates_source.lower() and emb_dir.exists():
-    jd_emb_path = emb_dir / "jd_embedding.npy"
-    if jd_emb_path.exists():
-        jd_embedding = np.load(str(jd_emb_path))
+# Check if we have precomputed files
+jd_emb_path = emb_dir / "jd_embedding.npy"
+profile_emb_path = emb_dir / "candidate_profiles.npz"
+role_emb_path = emb_dir / "candidate_roles.npz"
+has_precomputed = (
+    "sample" in candidates_source.lower()
+    and jd_emb_path.exists()
+    and profile_emb_path.exists()
+    and role_emb_path.exists()
+)
+
+if has_precomputed:
+    # Load from precomputed files
+    jd_embedding = np.load(str(jd_emb_path))
     
-    profile_emb_path = emb_dir / "candidate_profiles.npz"
-    if profile_emb_path.exists():
-        data = np.load(str(profile_emb_path), allow_pickle=True)
-        for cid, emb in zip(data["candidate_ids"], data["embeddings"]):
-            if str(cid) not in candidate_embeddings:
-                candidate_embeddings[str(cid)] = {}
-            candidate_embeddings[str(cid)]["profile_embedding"] = emb
+    data = np.load(str(profile_emb_path), allow_pickle=True)
+    for cid, emb in zip(data["candidate_ids"], data["embeddings"]):
+        if str(cid) not in candidate_embeddings:
+            candidate_embeddings[str(cid)] = {}
+        candidate_embeddings[str(cid)]["profile_embedding"] = emb
+        
+    data = np.load(str(role_emb_path), allow_pickle=True)
+    for cid, role_embs in zip(data["candidate_ids"], data["role_embeddings"]):
+        cid_str = str(cid)
+        if cid_str not in candidate_embeddings:
+            candidate_embeddings[cid_str] = {}
+        candidate_embeddings[cid_str]["role_embeddings"] = role_embs
+else:
+    # Compute on the fly! (For cloud deployment or custom uploads)
+    with st.spinner("Initializing BGE-small semantic model and embedding candidates on-the-fly..."):
+        try:
+            model = get_embedding_model()
             
-    role_emb_path = emb_dir / "candidate_roles.npz"
-    if role_emb_path.exists():
-        data = np.load(str(role_emb_path), allow_pickle=True)
-        for cid, role_embs in zip(data["candidate_ids"], data["role_embeddings"]):
-            cid_str = str(cid)
-            if cid_str not in candidate_embeddings:
-                candidate_embeddings[cid_str] = {}
-            candidate_embeddings[cid_str]["role_embeddings"] = role_embs
+            # Embed JD
+            jd_text = jd.jd_core_text
+            jd_embedding = model.encode(config.EMBEDDING_QUERY_PREFIX + jd_text, normalize_embeddings=True)
+            
+            # Embed candidates
+            from precompute.build_embeddings import build_profile_text, build_role_texts
+            
+            profile_texts = [build_profile_text(c) for c in candidates]
+            profile_embs = model.encode(
+                [config.EMBEDDING_PASSAGE_PREFIX + t for t in profile_texts],
+                show_progress_bar=False,
+                normalize_embeddings=True
+            )
+            
+            for c, emb in zip(candidates, profile_embs):
+                cid = str(c["candidate_id"])
+                candidate_embeddings[cid] = {"profile_embedding": emb}
+                
+                # Embed roles
+                role_texts = build_role_texts(c)
+                if role_texts:
+                    role_embs = model.encode(
+                        [config.EMBEDDING_PASSAGE_PREFIX + rt for rt in role_texts],
+                        show_progress_bar=False,
+                        normalize_embeddings=True
+                    )
+                    candidate_embeddings[cid]["role_embeddings"] = role_embs
+                else:
+                    candidate_embeddings[cid]["role_embeddings"] = []
+            st.success(f"Successfully generated neural embeddings for {len(candidates)} candidates on-the-fly.")
+        except Exception as e:
+            st.warning(f"On-the-fly embedding failed: {e}. Falling back to keyword-based semantic matching.")
 
 # Pipeline execution
 filtered = apply_hard_filters(candidates)
 clean, honeypots = filter_honeypots(filtered)
+
+# Naive keyword score for each candidate (for vs-naive toggle)
+def _naive_keyword_score(candidate: dict) -> int:
+    jd_kw = {
+        "embedding", "embeddings", "retrieval", "vector", "search", "ranking",
+        "nlp", "machine learning", "ml", "python", "faiss", "pinecone",
+        "weaviate", "qdrant", "elasticsearch", "bm25", "recommendation",
+        "information retrieval", "sentence-transformers", "a/b testing", "ndcg",
+    }
+    return sum(
+        1 for s in candidate.get("skills", [])
+        if any(kw in s.get("name", "").lower() for kw in jd_kw)
+    )
+
+naive_scored = sorted(clean, key=lambda c: -_naive_keyword_score(c))
+naive_rank_map = {c["candidate_id"]: i + 1 for i, c in enumerate(naive_scored)}
 
 # Rank
 ranker = CandidateRanker(jd, jd_embedding, candidate_embeddings)
@@ -374,97 +460,152 @@ with right_col:
     )
     
     # Score Breakdown Tab, Career history Tab, Skills Tab, Behavioral Tab
-    t1, t2, t3, t4 = st.tabs(["📊 Score Breakdown", "💼 Career History", "🛠️ Skills & Pedigree", "📈 Behavioral Signals"])
+    t1, t2, t3, t4, t5 = st.tabs(["📊 Score Breakdown", "💼 Career History", "🛠️ Skills & Pedigree", "📈 Behavioral Signals", "🔍 Contrast Cases"])
     
     with t1:
-        st.markdown("##### Multi-Dimensional Score Radar")
-        
-        # Scorer breakdown
-        # Re-score candidate to get dimension score breakdown
-        sc = ranker.scorer.score_candidate(cand_detail)
-        dims = ["Career Fit", "Skills Match", "Experience Fit", "Location & Logistics", "Education", "Semantic Similarity"]
-        scores_list = [
-            sc["career_fit"],
-            sc["skills_match"],
-            sc["experience_fit"],
-            sc["location_logistics"],
-            sc["education"],
-            sc["semantic_similarity"]
-        ]
-        
-        # Radar Chart
-        fig = go.Figure()
-        fig.add_trace(go.Scatterpolar(
-            r=scores_list,
-            theta=dims,
-            fill='toself',
-            fillcolor='rgba(99, 102, 241, 0.2)',
-            line=dict(color='#6366f1', width=2),
-            name='Score'
-        ))
-        fig.update_layout(
-            polar=dict(
-                radialaxis=dict(visible=True, range=[0, 1]),
-                bgcolor='rgba(0,0,0,0)'
-            ),
-            showlegend=False,
-            margin=dict(l=40, r=40, t=20, b=20),
-            paper_bgcolor='rgba(0,0,0,0)',
-            plot_bgcolor='rgba(0,0,0,0)',
-            font=dict(color='#cbd5e1')
-        )
-        st.plotly_chart(fig, use_container_width=True)
-        
-        # Display weights and weighted values
-        st.markdown("##### Dimension Scores & Weighted Output")
-        
-        sc_map = {
-            "career_fit": "Career Fit",
-            "skills_match": "Skills Match",
-            "experience_fit": "Experience Fit",
-            "location_logistics": "Location & Logistics",
-            "education": "Education",
-            "semantic_similarity": "Semantic Similarity"
+        # Score Breakdown — using structured explanation
+        expl = cand_result.get("explanation", {})
+        sc = expl.get("score_card", {})
+        behavioral = expl.get("behavioral", {})
+
+        # Tier + confidence banner
+        tier_label = expl.get("tier_label", "")
+        confidence = expl.get("confidence", "")
+        col_tier, col_conf = st.columns(2)
+        with col_tier:
+            tier_color = {
+                "Exceptional Fit": "#8b5cf6", "Strong Fit": "#3b82f6",
+                "Good Fit": "#06b6d4", "Moderate Fit": "#f59e0b",
+                "Marginal Fit": "#f43f5e", "Weak Fit": "#64748b",
+            }.get(tier_label, "#64748b")
+            st.markdown(
+                f"<div style='padding:8px 16px;border-radius:8px;background:rgba(255,255,255,0.04);"
+                f"border-left:4px solid {tier_color};margin-bottom:12px;'>"
+                f"<span style='color:{tier_color};font-weight:700;'>{tier_label}</span></div>",
+                unsafe_allow_html=True,
+            )
+        with col_conf:
+            st.markdown(
+                f"<div style='padding:8px 16px;border-radius:8px;background:rgba(255,255,255,0.04);"
+                f"border-left:4px solid #64748b;margin-bottom:12px;'>"
+                f"<span style='color:#94a3b8;font-size:0.85rem;'>Confidence: </span>"
+                f"<span style='font-weight:600;color:#e2e8f0;'>{confidence}</span></div>",
+                unsafe_allow_html=True,
+            )
+
+        st.markdown("##### Dimension Score Breakdown")
+
+        dim_order = ["career_fit", "skills_match", "experience_fit",
+                     "location_logistics", "education", "semantic_similarity"]
+        dim_labels = {
+            "career_fit": "Career Fit", "skills_match": "Skills Match",
+            "experience_fit": "Experience Fit", "location_logistics": "Location & Logistics",
+            "education": "Education", "semantic_similarity": "Semantic Similarity",
         }
-        
-        for k, name in sc_map.items():
+        for dim in dim_order:
+            dim_data = sc.get(dim, {})
+            dim_score = dim_data.get("score", 0.0)
+            dim_weight = dim_data.get("weight", 0.0)
+            dim_contrib = dim_data.get("contribution", 0.0)
+            evidence = dim_data.get("evidence", "")
             st.markdown(
                 f"""
-                <div style='display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 5px;'>
-                    <span>{name}</span>
-                    <span><b>{sc[k]:.3f}</b> (Weight: {config.WEIGHTS[k]:.2f})</span>
+                <div style='display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:2px;'>
+                    <span style='color:#e2e8f0;font-weight:500;'>{dim_labels[dim]}</span>
+                    <span><b style='color:#06b6d4;'>{dim_score:.4f}</b>
+                    <span style='color:#64748b;font-size:0.75rem;'> ×{dim_weight:.3f} = {dim_contrib:.4f}</span></span>
                 </div>
+                <div style='font-size:0.75rem;color:#64748b;background:rgba(255,255,255,0.02);
+                    padding:3px 8px;border-radius:4px;margin-bottom:6px;'>{evidence}</div>
                 """,
                 unsafe_allow_html=True,
             )
-            st.progress(sc[k])
-            
-        # Multiplier
+            st.progress(dim_score)
+
+        # Behavioral block
         mult = cand_result.get("details", {}).get("behavioral_multiplier", 1.0)
+        additive = cand_result.get("details", {}).get("behavioral_additive", 0.0)
+        beh_evidence = behavioral.get("evidence", "")
+        weighted_total = expl.get("weighted_total", sc.get("weighted_total", 0.0))
+
         st.markdown(
             f"""
-            <div style='margin-top: 15px; padding: 10px; background: rgba(99, 102, 241, 0.1); border-radius: 8px;'>
-                <div style='display: flex; justify-content: space-between; font-size: 0.85rem;'>
-                    <span>Base Feature Score:</span>
-                    <span><b>{sc['weighted_total']:.3f}</b></span>
+            <div style='margin-top:12px;padding:12px;background:rgba(99,102,241,0.08);
+                border-radius:10px;border:1px solid rgba(99,102,241,0.2);'>
+                <div style='font-size:0.75rem;color:#8b5cf6;font-weight:600;
+                    text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;'>
+                    Score Computation
                 </div>
-                <div style='display: flex; justify-content: space-between; font-size: 0.85rem; margin-top: 3px;'>
-                    <span>Behavioral Multiplier:</span>
-                    <span><b>× {mult:.3f}</b></span>
+                <div style='display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:4px;'>
+                    <span style='color:#94a3b8;'>Base weighted total</span>
+                    <span style='font-family:monospace;'>{weighted_total:.4f}</span>
                 </div>
-                <div style='display: flex; justify-content: space-between; font-size: 0.95rem; font-weight: 700; margin-top: 8px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 5px;'>
-                    <span>Final Composite Score:</span>
-                    <span style='color: #60a5fa;'>{cand_result['score']:.3f}</span>
+                <div style='display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:2px;'>
+                    <span style='color:#94a3b8;'>Behavioral multiplier</span>
+                    <span style='font-family:monospace;color:#a78bfa;'>×{mult:.4f}</span>
+                </div>
+                <div style='font-size:0.72rem;color:#64748b;margin-bottom:6px;'>{beh_evidence}</div>
+                {'<div style="display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:4px;"><span style="color:#94a3b8;">Behavioral bonus</span><span style="font-family:monospace;">+'+str(round(additive,4))+'</span></div>' if additive > 0 else ''}
+                <div style='display:flex;justify-content:space-between;font-size:0.95rem;
+                    font-weight:700;border-top:1px solid rgba(255,255,255,0.08);
+                    padding-top:8px;margin-top:4px;'>
+                    <span>Final Composite Score</span>
+                    <span style='color:#60a5fa;'>{cand_result['score']:.4f}</span>
                 </div>
             </div>
             """,
             unsafe_allow_html=True,
         )
-        
+
+        # Formula line
+        short_formula = expl.get("short_formula", "")
+        full_formula = expl.get("formula", "")
+        if short_formula:
+            st.markdown("##### 🧮 Score Formula")
+            st.code(short_formula, language=None)
+
+        # Why-not notes
+        why_not = expl.get("why_not_notes", [])
+        if why_not:
+            st.markdown("##### ⚠️ Concerns")
+            for note in why_not:
+                st.markdown(
+                    f"<div style='font-size:0.82rem;color:#f59e0b;padding:5px 10px;"
+                    f"border-left:2px solid #f59e0b;background:rgba(245,158,11,0.07);"
+                    f"border-radius:0 6px 6px 0;margin-bottom:5px;'>⚠ {note}</div>",
+                    unsafe_allow_html=True,
+                )
+
+        # Vs Naive comparison
+        naive_rank = naive_rank_map.get(selected_candidate_id)
+        if naive_rank:
+            pipeline_rank = cand_result["rank"]
+            delta = naive_rank - pipeline_rank
+            arrow = "▲ promoted" if delta > 0 else ("▼ demoted" if delta < 0 else "same")
+            color = "#10b981" if delta > 0 else ("#f43f5e" if delta < 0 else "#64748b")
+            st.markdown("##### ⚡ vs Naive Keyword Ranking")
+            st.markdown(
+                f"<div style='display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;'>"
+                f"<div style='text-align:center;padding:12px;background:rgba(255,255,255,0.03);"
+                f"border-radius:8px;border:1px solid rgba(255,255,255,0.06);'>"
+                f"<div style='font-size:0.7rem;color:#64748b;'>Naive Rank</div>"
+                f"<div style='font-size:1.6rem;font-weight:800;color:#64748b;'>#{naive_rank}</div></div>"
+                f"<div style='text-align:center;padding:12px;background:rgba(99,102,241,0.08);"
+                f"border-radius:8px;border:1px solid rgba(99,102,241,0.3);'>"
+                f"<div style='font-size:0.7rem;color:#8b5cf6;'>Pipeline Rank</div>"
+                f"<div style='font-size:1.6rem;font-weight:800;color:#06b6d4;'>#{pipeline_rank}</div></div>"
+                f"</div>"
+                f"<div style='font-size:0.82rem;color:{color};padding:6px 12px;"
+                f"border-left:3px solid {color};background:rgba(255,255,255,0.02);"
+                f"border-radius:0 6px 6px 0;'>{arrow} {abs(delta)} places</div>",
+                unsafe_allow_html=True,
+            )
+
         st.markdown("##### 📝 System Reasoning")
         st.markdown(
             f"""
-            <div style='background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; line-height: 1.5;'>
+            <div style='background:rgba(255,255,255,0.02);padding:15px;border-radius:8px;
+                border:1px solid rgba(255,255,255,0.05);font-size:0.9rem;line-height:1.5;'>
                 {cand_result['reasoning']}
             </div>
             """,
@@ -536,3 +677,100 @@ with right_col:
             st.markdown(f"**Interview Attendance Rate:** `{signals.get('interview_completion_rate')*100:.1f}%`")
             st.markdown(f"**GitHub Activity Score:** `{signals.get('github_activity_score')}/100` (-1 if none)")
             st.markdown(f"**Saved by Recruiters (30d):** `{signals.get('saved_by_recruiters_30d')}`")
+
+    with t5:
+        st.markdown("##### 🔍 Why Our Pipeline Beats Naive Keyword Matching")
+        st.markdown(
+            "<div style='font-size:0.85rem;color:#94a3b8;margin-bottom:16px;'>"
+            "These 'why-not' cards show candidates a naive keyword matcher would rank highly — "
+            "and exactly why this pipeline demoted or excluded them."
+            "</div>",
+            unsafe_allow_html=True,
+        )
+
+        cc1, cc2 = st.columns(2)
+
+        with cc1:
+            st.markdown("**🛡 Honeypot Excluded**")
+            if honeypots:
+                hp = honeypots[0]
+                card = generate_honeypot_contrast_card(hp["candidate"], hp["reason"])
+                hp_profile = hp["candidate"].get("profile", {})
+                st.markdown(
+                    f"""
+                    <div style='background:rgba(244,63,94,0.07);border:1px solid rgba(244,63,94,0.3);
+                        border-radius:12px;padding:16px;'>
+                        <div style='font-weight:700;font-size:0.9rem;color:#f8fafc;margin-bottom:4px;'>
+                            {hp_profile.get('current_title','Unknown')} @ {hp_profile.get('current_company','Unknown')}
+                        </div>
+                        <div style='font-size:0.72rem;color:#f43f5e;font-weight:600;margin-bottom:10px;'>
+                            🚫 {card['outcome']}
+                        </div>
+                        <div style='font-size:0.75rem;color:#64748b;margin-bottom:6px;'>Detection flags:</div>
+                        {"".join(f"<div style='font-size:0.78rem;color:#94a3b8;padding:4px 8px;border-left:2px solid #f43f5e;background:rgba(255,255,255,0.02);border-radius:0 4px 4px 0;margin-bottom:4px;'>{f}</div>" for f in card['flag_explanations'])}
+                        <div style='font-size:0.7rem;color:#475569;margin-top:8px;font-style:italic;'>
+                            {card['pipeline_note']}
+                        </div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
+                )
+            else:
+                st.info("No honeypots detected in this dataset.")
+
+        with cc2:
+            st.markdown("**📉 Keyword-Stuffer Demoted**")
+            # Find the most-demoted candidate
+            demoted = None
+            for r in results:
+                cid = r["candidate_id"]
+                n_rank = naive_rank_map.get(cid, r["rank"])
+                drop = r["rank"] - n_rank
+                if drop >= 5:
+                    expl_d = r.get("explanation", {})
+                    sc_d = expl_d.get("score_card", {})
+                    skills_s = sc_d.get("skills_match", {}).get("score", 0)
+                    career_s = sc_d.get("career_fit", {}).get("score", 0)
+                    coh_est = max(0.25, min(1.0, career_s / max(skills_s, 0.01)))
+                    cand_d = next((c for c in candidates if c.get("candidate_id") == cid), None)
+                    if cand_d:
+                        demoted = generate_demotion_contrast_card(
+                            cand_d, n_rank, r["rank"], sc_d, coh_est
+                        )
+                        break
+
+            if demoted:
+                st.markdown(
+                    f"""
+                    <div style='background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.25);
+                        border-radius:12px;padding:16px;'>
+                        <div style='font-weight:700;font-size:0.9rem;color:#f8fafc;margin-bottom:4px;'>
+                            {demoted['title']} @ {demoted['company']}
+                        </div>
+                        <div style='font-size:0.72rem;color:#f59e0b;font-weight:600;margin-bottom:10px;'>
+                            ⚠ {demoted['outcome']}
+                        </div>
+                        <div style='display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;'>
+                            <div style='text-align:center;padding:10px;background:rgba(0,0,0,0.2);border-radius:8px;'>
+                                <div style='font-size:0.7rem;color:#64748b;'>Naive Rank</div>
+                                <div style='font-size:1.4rem;font-weight:800;color:#64748b;'>#{demoted['naive_rank']}</div>
+                            </div>
+                            <div style='text-align:center;padding:10px;background:rgba(245,158,11,0.1);border-radius:8px;'>
+                                <div style='font-size:0.7rem;color:#f59e0b;'>Pipeline Rank</div>
+                                <div style='font-size:1.4rem;font-weight:800;color:#06b6d4;'>#{demoted['pipeline_rank']}</div>
+                            </div>
+                        </div>
+                        <div style='font-size:0.78rem;color:#94a3b8;line-height:1.5;margin-bottom:8px;'>
+                            {demoted['demotion_reason']}
+                        </div>
+                        <div style='font-size:0.72rem;color:#475569;'>
+                            JD-skill hits: {demoted['jd_skill_hits']}/{demoted['total_skills']} skills |
+                            Coherence gate: ×{demoted['coherence_multiplier']}
+                        </div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
+                )
+            else:
+                st.info("No significantly demoted candidates found in top results.")
+

@@ -8,29 +8,30 @@
 # ============================================================================
 # Team identity
 # ============================================================================
-team_name: "TODO_YOUR_TEAM_NAME"
+team_name: "GroundTruth"
 
 primary_contact:
   name: "Vishnu"
-  email: "TODO_your.real.email@domain.com"
-  phone: "TODO_+91XXXXXXXXXX"
+  email: "psvishnu888@gmail.com"
+  phone: "+919611256942"
 
 team_members:
   - name: "Vishnu"
-    email: "TODO_your.real.email@domain.com"
+    email: "psvishnu888@gmail.com"
     role: "ML & Software Engineer"
 
 # ============================================================================
 # Code and reproducibility
 # ============================================================================
-github_repo: "TODO_https://github.com/<your-username>/redrob-ranker"
+github_repo: "https://github.com/Vishnups08/AI-Candidate-Ranking-System"
 sandbox_link: "TODO_deploy_and_paste_streamlit_or_colab_link"
 
-# Single command that produces the submission CSV (models + embeddings must be
+# Single command that produces the submission files (models + embeddings must be
 # pre-computed first: python precompute/download_models.py && \
 #   python precompute/build_jd_embedding.py && \
 #   python precompute/build_embeddings.py --candidates ./candidates.jsonl)
-reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+# The command auto-generates both submission.xlsx (portal) and submission.csv.
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.xlsx"
 
 # ============================================================================
 # Compute environment
@@ -51,8 +52,6 @@ compute:
 # ============================================================================
 ai_tools_used:
   - "Claude"
-  - "Gemini"
-  - "Cursor"
 
 ai_usage_summary: |
   AI assistants were used for coding, refactoring, architectural discussion,

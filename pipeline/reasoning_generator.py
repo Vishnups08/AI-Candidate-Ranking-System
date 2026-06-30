@@ -39,6 +39,362 @@ _JD_DOMAIN_KEYWORDS = {
 }
 
 
+# Tier labels for confidence display
+_TIER_LABELS = [
+    (0.95, "Exceptional Fit"),
+    (0.85, "Strong Fit"),
+    (0.70, "Good Fit"),
+    (0.55, "Moderate Fit"),
+    (0.40, "Marginal Fit"),
+    (0.00, "Weak Fit"),
+]
+
+_CONFIDENCE_LEVELS = [
+    (0.85, "high"),
+    (0.65, "medium"),
+    (0.00, "low"),
+]
+
+
+def _tier_label(score: float) -> str:
+    for threshold, label in _TIER_LABELS:
+        if score >= threshold:
+            return label
+    return "Weak Fit"
+
+
+def _confidence(score: float) -> str:
+    for threshold, label in _CONFIDENCE_LEVELS:
+        if score >= threshold:
+            return label
+    return "low"
+
+
+def _evidence_career_fit(facts: dict) -> str:
+    parts = []
+    title = facts["current_title"]
+    company = facts["current_company"]
+    yoe = facts["yoe"]
+    parts.append(f"Title: {title} at {company} ({yoe:.0f} yrs)")
+    if facts["is_product_company"]:
+        parts.append(f"Product-company background")
+    elif facts["consulting_career"]:
+        parts.append(f"Career-long consulting ({', '.join(facts['career_companies'][:2])})")
+    if facts["career_highlights"]:
+        h = facts["career_highlights"][0]
+        if h["highlight"]:
+            short = h["highlight"][:80] + "..." if len(h["highlight"]) > 80 else h["highlight"]
+            parts.append(f"Highlight: {short}")
+    return " | ".join(parts)
+
+
+def _evidence_skills_match(facts: dict) -> str:
+    parts = []
+    must = facts["must_have_skills"]
+    nice = facts["nice_to_have_skills"]
+    domain = facts["domain_skills"]
+    if must:
+        parts.append(f"JD must-haves matched: {', '.join(must[:5])}")
+    if nice:
+        parts.append(f"Nice-to-haves: {', '.join(nice[:3])}")
+    if domain:
+        parts.append(f"Domain skills: {', '.join(domain[:3])}")
+    if not parts:
+        parts.append("No direct JD-skill overlap detected")
+    return " | ".join(parts)
+
+
+def _evidence_experience_fit(facts: dict) -> str:
+    yoe = facts["yoe"]
+    if 5 <= yoe <= 9:
+        return f"{yoe:.0f} yrs — within JD optimal band (5-9 yrs)"
+    elif 4 <= yoe < 5:
+        return f"{yoe:.0f} yrs — slightly below optimal (JD: 5-9 yrs)"
+    elif 9 < yoe <= 12:
+        return f"{yoe:.0f} yrs — slightly above optimal (JD: 5-9 yrs)"
+    elif yoe < 4:
+        return f"{yoe:.0f} yrs — under-experienced for JD requirements"
+    else:
+        return f"{yoe:.0f} yrs — may be over-experienced for Series A founding role"
+
+
+def _evidence_location(facts: dict) -> str:
+    loc = facts["location"]
+    if facts["is_preferred_location"]:
+        return f"{loc} — JD-preferred location (Pune/Noida/NCR)"
+    elif facts["is_good_location"]:
+        return f"{loc} — Tier-1 city, JD-acceptable"
+    elif facts["is_india"]:
+        return f"{loc} — India-based but outside JD-preferred cities"
+    else:
+        return f"{loc} — outside India, JD does not sponsor visas"
+
+
+def _evidence_behavioral(facts: dict, multiplier: float) -> str:
+    parts = []
+    if facts["open_to_work"]:
+        parts.append("Open to work: Yes")
+    else:
+        parts.append("Open to work: No")
+    rate = facts["response_rate"]
+    parts.append(f"Recruiter response rate: {rate:.0%}")
+    if facts["github_score"] >= 0:
+        parts.append(f"GitHub activity: {facts['github_score']}/100")
+    notice = facts["notice_days"]
+    parts.append(f"Notice: {notice} days")
+    return " | ".join(parts)
+
+
+def generate_structured_explanation(
+    candidate: dict,
+    rank: int,
+    scores: dict,
+    multiplier: float,
+    additive: float,
+) -> dict:
+    """
+    Generate a recruiter-grade structured explanation for a candidate's rank.
+
+    Returns a dict with:
+    - score_card: per-dimension breakdown with score, weight, contribution, evidence
+    - formula: human-readable calculation string
+    - tier_label: e.g. 'Strong Fit'
+    - confidence: 'high' / 'medium' / 'low'
+    - narrative: the existing 1-3 sentence prose reasoning
+    - why_not_notes: list of concern strings (empty for top candidates)
+    """
+    import config as _config
+
+    profile = candidate.get("profile", {})
+    career = candidate.get("career_history", [])
+    skills = candidate.get("skills", [])
+    signals = candidate.get("redrob_signals", {})
+
+    facts = _extract_all_facts(profile, career, skills, signals, scores)
+
+    weights = _config.WEIGHTS
+    weighted_total = scores.get("weighted_total", 0.0)
+    final_score = weighted_total * multiplier + additive
+
+    # Build per-dimension score card
+    dimensions = {
+        "career_fit": {
+            "label": "Career Fit",
+            "score": round(scores.get("career_fit", 0), 4),
+            "weight": round(weights.get("career_fit", 0), 3),
+            "contribution": round(scores.get("career_fit", 0) * weights.get("career_fit", 0), 4),
+            "evidence": _evidence_career_fit(facts),
+        },
+        "skills_match": {
+            "label": "Skills Match",
+            "score": round(scores.get("skills_match", 0), 4),
+            "weight": round(weights.get("skills_match", 0), 3),
+            "contribution": round(scores.get("skills_match", 0) * weights.get("skills_match", 0), 4),
+            "evidence": _evidence_skills_match(facts),
+        },
+        "experience_fit": {
+            "label": "Experience Fit",
+            "score": round(scores.get("experience_fit", 0), 4),
+            "weight": round(weights.get("experience_fit", 0), 3),
+            "contribution": round(scores.get("experience_fit", 0) * weights.get("experience_fit", 0), 4),
+            "evidence": _evidence_experience_fit(facts),
+        },
+        "location_logistics": {
+            "label": "Location & Logistics",
+            "score": round(scores.get("location_logistics", 0), 4),
+            "weight": round(weights.get("location_logistics", 0), 3),
+            "contribution": round(scores.get("location_logistics", 0) * weights.get("location_logistics", 0), 4),
+            "evidence": _evidence_location(facts),
+        },
+        "education": {
+            "label": "Education",
+            "score": round(scores.get("education", 0), 4),
+            "weight": round(weights.get("education", 0), 3),
+            "contribution": round(scores.get("education", 0) * weights.get("education", 0), 4),
+            "evidence": _evidence_education(candidate),
+        },
+        "semantic_similarity": {
+            "label": "Semantic Similarity",
+            "score": round(scores.get("semantic_similarity", 0), 4),
+            "weight": round(weights.get("semantic_similarity", 0), 3),
+            "contribution": round(scores.get("semantic_similarity", 0) * weights.get("semantic_similarity", 0), 4),
+            "evidence": "BGE embedding cosine similarity between candidate profile and JD",
+        },
+    }
+
+    behavioral = {
+        "label": "Behavioral Multiplier",
+        "value": round(multiplier, 4),
+        "additive": round(additive, 4),
+        "evidence": _evidence_behavioral(facts, multiplier),
+    }
+
+    # Build formula string: "Career 0.90×0.25 + Skills 0.80×0.20 + ... × 1.20 = 1.08"
+    dim_parts = []
+    for key, dim in dimensions.items():
+        dim_parts.append(f"{dim['label'].split()[0]} {dim['score']:.2f}×{dim['weight']:.2f}")
+    formula = " + ".join(dim_parts)
+    if additive > 0:
+        formula += f" × {multiplier:.2f} + {additive:.3f} = {final_score:.4f}"
+    else:
+        formula += f" × {multiplier:.2f} = {final_score:.4f}"
+
+    # Short formula for display: top 3 dimensions
+    top_dims = sorted(dimensions.items(), key=lambda x: x[1]["contribution"], reverse=True)[:3]
+    short_formula = " · ".join(
+        f"{d['label'].split()[0]} {d['score']:.2f}"
+        for _, d in top_dims
+    )
+    short_formula += f" · Behavioral ×{multiplier:.2f} → rank #{rank}"
+
+    # Concerns (why-not notes)
+    why_not_notes = []
+    if facts["consulting_career"]:
+        why_not_notes.append("Career-long consulting — JD explicit disqualifier")
+    if not facts["must_have_skills"]:
+        why_not_notes.append("No direct JD must-have skills matched (embeddings, vector DB, retrieval)")
+    if facts["yoe"] < 5:
+        why_not_notes.append(f"Under-experienced: {facts['yoe']:.0f} yrs vs JD optimal 5-9 yrs")
+    elif facts["yoe"] > 12:
+        why_not_notes.append(f"Over-experienced: {facts['yoe']:.0f} yrs for Series A founding role")
+    if facts["notice_days"] > 90:
+        why_not_notes.append(f"{facts['notice_days']}-day notice period may delay onboarding")
+    if not facts["is_india"]:
+        why_not_notes.append(f"Based in {facts['location']}, {facts['country']} — no visa sponsorship")
+    if facts["salary_max"] > 70 and rank > 10:
+        why_not_notes.append(f"Salary expectation ({facts['salary_max']} LPA) likely above Series A budget")
+
+    narrative = generate_reasoning(candidate, rank, scores)
+
+    return {
+        "score_card": dimensions,
+        "behavioral": behavioral,
+        "weighted_total": round(weighted_total, 4),
+        "final_score": round(final_score, 4),
+        "formula": formula,
+        "short_formula": short_formula,
+        "tier_label": _tier_label(scores.get("weighted_total", 0)),
+        "confidence": _confidence(scores.get("weighted_total", 0)),
+        "narrative": narrative,
+        "why_not_notes": why_not_notes,
+    }
+
+
+def generate_honeypot_contrast_card(candidate: dict, honeypot_reason: str) -> dict:
+    """
+    Generate a 'why-not' contrast card for a honeypot candidate.
+    Shows judges exactly why the profile was rejected.
+    """
+    profile = candidate.get("profile", {})
+    flags = [f.strip() for f in honeypot_reason.split(";") if f.strip()]
+
+    flag_explanations = []
+    for flag in flags:
+        if "career_months" in flag:
+            flag_explanations.append(
+                f"⏱ Timeline impossibility: {flag} — "
+                "career history totals more months than years of experience allow."
+            )
+        elif "date_mismatch" in flag:
+            flag_explanations.append(
+                f"📅 Date math failure: {flag} — "
+                "start→end dates don't match claimed duration."
+            )
+        elif "impossible_skills" in flag:
+            flag_explanations.append(
+                f"🚫 Impossible skill claims: {flag} — "
+                "expert-level proficiency listed with 0 months experience."
+            )
+        elif "title_skill_absurdity" in flag:
+            flag_explanations.append(
+                f"🎭 Title-skill absurdity: {flag} — "
+                "non-tech title claims a slate of expert AI skills."
+            )
+        elif "career_overlap" in flag:
+            flag_explanations.append(
+                f"🔁 Concurrent role overlap: {flag} — "
+                "two full-time roles overlap by more than 3 months."
+            )
+        else:
+            flag_explanations.append(f"⚠ {flag}")
+
+    return {
+        "type": "honeypot",
+        "candidate_id": candidate.get("candidate_id", ""),
+        "title": profile.get("current_title", ""),
+        "company": profile.get("current_company", ""),
+        "outcome": "Excluded — profile contains internally impossible data",
+        "raw_reason": honeypot_reason,
+        "flag_explanations": flag_explanations,
+        "pipeline_note": "Removed in Stage 2 (Honeypot Detection). Never scored or ranked.",
+    }
+
+
+def generate_demotion_contrast_card(
+    candidate: dict,
+    naive_rank: int,
+    pipeline_rank: int,
+    scores: dict,
+    coherence_multiplier: float,
+) -> dict:
+    """
+    Generate a 'why-not' card for a keyword-stuffer that was demoted by the pipeline.
+    Shows the gap between naive keyword rank and pipeline rank.
+    """
+    profile = candidate.get("profile", {})
+    skills = candidate.get("skills", [])
+
+    skill_count = len(skills)
+    jd_skill_hits = sum(
+        1 for s in skills
+        if any(
+            kw in s.get("name", "").lower()
+            for kw in {"embedding", "retrieval", "vector", "search", "ranking",
+                       "nlp", "ml", "machine learning", "python", "faiss", "pinecone"}
+        )
+    )
+
+    return {
+        "type": "keyword_stuffer",
+        "candidate_id": candidate.get("candidate_id", ""),
+        "title": profile.get("current_title", ""),
+        "company": profile.get("current_company", ""),
+        "naive_rank": naive_rank,
+        "pipeline_rank": pipeline_rank,
+        "rank_drop": pipeline_rank - naive_rank,
+        "jd_skill_hits": jd_skill_hits,
+        "total_skills": skill_count,
+        "coherence_multiplier": round(coherence_multiplier, 3),
+        "skills_score_raw": round(scores.get("skills_match", 0), 4),
+        "career_fit_score": round(scores.get("career_fit", 0), 4),
+        "outcome": f"Demoted from naive rank #{naive_rank} to pipeline rank #{pipeline_rank}",
+        "demotion_reason": (
+            f"Skill-career coherence gate applied a {coherence_multiplier:.2f}× multiplier "
+            f"because the candidate's title/career history doesn't support the "
+            f"{jd_skill_hits} JD-relevant skills claimed. "
+            f"Padded skill lists on non-tech careers are discounted to prevent "
+            f"keyword-stuffing from defeating a retrieval-aware system."
+        ),
+    }
+
+
+def _evidence_education(candidate: dict) -> str:
+    edu = candidate.get("education", [])
+    certs = candidate.get("certifications", [])
+    parts = []
+    for e in edu[:2]:
+        deg = e.get("degree", "")
+        field = e.get("field_of_study", "")
+        tier = e.get("tier", "unknown")
+        if deg or field:
+            parts.append(f"{deg} in {field} ({tier.replace('_', ' ').upper()})")
+    if certs:
+        cert_names = [c.get("name", "") for c in certs[:2] if c.get("name")]
+        if cert_names:
+            parts.append(f"Certs: {', '.join(cert_names)}")
+    return " | ".join(parts) if parts else "No formal education data"
+
+
 def generate_reasoning(candidate: dict, rank: int, scores: dict) -> str:
     """
     Generate a unique, fact-grounded, 1-3 sentence reasoning for this candidate's rank.

@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redrob AI — Candidate Ranker</title>
+  <meta name="description" content="Live demo of the Redrob AI candidate ranking system. Type any JD and get ranked candidates with decomposed, evidence-cited explanations in seconds." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      /* Palette */
+      --bg:          #f5f7fa;
+      --bg-page:     #f0f2f5;
+      --surface:     #ffffff;
+      --surface2:    #f8f9fb;
+      --border:      #e4e7ec;
+      --border-hi:   #d0d5dd;
+      --text:        #101828;
+      --text2:       #344054;
+      --muted:       #667085;
+      --muted2:      #475467;
+      --blue:        #2563eb;
+      --blue-dark:   #1d4ed8;
+      --blue-light:  #eff6ff;
+      --blue-mid:    #dbeafe;
+      --green:       #059669;
+      --green-light: #ecfdf5;
+      --red:         #dc2626;
+      --red-light:   #fef2f2;
+      --amber:       #b45309;
+      --amber-light: #fffbeb;
+      --indigo:      #4338ca;
+      /* Shadows */
+      --shadow-xs:   0 1px 2px rgba(16,24,40,0.05);
+      --shadow-sm:   0 1px 3px rgba(16,24,40,0.1), 0 1px 2px rgba(16,24,40,0.06);
+      --shadow-md:   0 4px 8px -2px rgba(16,24,40,0.1), 0 2px 4px -2px rgba(16,24,40,0.06);
+      /* Radius */
+      --r-sm: 6px;
+      --r-md: 10px;
+      --r-lg: 14px;
+      --r-xl: 20px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-page);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout ──────────────────────────────────────────────────────────── */
+    .container { max-width: 1360px; margin: 0 auto; padding: 0 32px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+    @media (max-width: 1100px) { .grid-4 { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 760px) { .grid-2, .grid-4 { grid-template-columns: 1fr; } .main-grid { grid-template-columns: 1fr !important; } }
+
+    /* ── Header ─────────────────────────────────────────────────────────── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-xs);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .logo {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .logo-dot { width: 8px; height: 8px; background: var(--blue); border-radius: 50%; }
+    .logo span { font-weight: 400; color: var(--muted); }
+
+    .header-right { display: flex; align-items: center; gap: 12px; }
+    .mode-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--border-hi);
+      color: var(--muted2);
+      background: var(--surface2);
+      letter-spacing: 0.01em;
+    }
+    .mode-badge.live   { border-color: #6ee7b7; color: var(--green); background: var(--green-light); }
+    .mode-badge.static { border-color: #fcd34d; color: var(--amber); background: var(--amber-light); }
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .status-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--border-hi);
+      transition: all 0.3s;
+      flex-shrink: 0;
+    }
+    .status-dot.ready { background: var(--green); }
+    .status-dot.loading { background: var(--amber); animation: pulse 1s infinite; }
+
+    /* ── Hero section ────────────────────────────────────────────────────── */
+    .hero {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 0 40px;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      margin-bottom: 14px;
+    }
+    .hero h1 {
+      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .hero h1 .accent { color: var(--blue); }
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    /* ── Feature pills ──────────────────────────────────────────────────── */
+    .pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.73rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      color: var(--text2);
+      background: var(--surface);
+      letter-spacing: 0.01em;
+    }
+    .pill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--blue); }
+
+    /* ── JD input area ───────────────────────────────────────────────────── */
+    .jd-area {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 0;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .jd-area:focus-within {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.1), var(--shadow-sm);
+    }
+    .jd-area-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px 0;
+      font-size: 0.73rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .char-count { font-size: 0.72rem; color: var(--muted); font-weight: 400; text-transform: none; letter-spacing: 0; }
+    textarea#jdInput {
+      display: block;
+      background: transparent;
+      border: none;
+      outline: none;
+      width: 100%;
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.7;
+      resize: vertical;
+      min-height: 148px;
+      padding: 12px 18px 16px;
+    }
+    textarea#jdInput::placeholder { color: var(--muted); }
+    .jd-footer {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 12px 18px;
+      border-top: 1px solid var(--border);
+      background: var(--surface2);
+    }
+    .jd-footer-right { margin-left: auto; font-size: 0.78rem; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+
+    /* ── Buttons ─────────────────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: var(--r-md);
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.15s;
+      font-family: inherit;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 0 1px 2px rgba(37,99,235,0.3);
+    }
+    .btn-primary:hover { background: var(--blue-dark); box-shadow: 0 2px 6px rgba(37,99,235,0.4); }
+    .btn-primary:active { transform: translateY(1px); }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .btn-outline {
+      background: var(--surface);
+      color: var(--text2);
+      border: 1px solid var(--border-hi);
+      box-shadow: var(--shadow-xs);
+    }
+    .btn-outline:hover { background: var(--surface2); border-color: var(--blue); color: var(--blue); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border: none;
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      font-family: inherit;
+      border-radius: var(--r-sm);
+    }
+    .btn-ghost:hover { color: var(--text2); background: var(--surface2); }
+    .btn-sm { padding: 6px 13px; font-size: 0.8rem; }
+
+    /* ── Stats row ───────────────────────────────────────────────────────── */
+    .stats-section { padding: 24px 0; }
+    .stat-tile {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 20px 24px;
+      box-shadow: var(--shadow-xs);
+      transition: box-shadow 0.2s;
+    }
+    .stat-tile:hover { box-shadow: var(--shadow-sm); }
+    .stat-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .stat-value {
+      font-size: 1.9rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--text);
+      letter-spacing: -0.03em;
+    }
+    .stat-sub { font-size: 0.72rem; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+
+    /* ── Main content ────────────────────────────────────────────────────── */
+    .main-section { padding: 32px 0 80px; }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .toolbar-left h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .toolbar-left p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .toolbar-right { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+    /* ── Cards ───────────────────────────────────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-xs);
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .card:hover { box-shadow: var(--shadow-sm); }
+
+    /* ── Rank list ───────────────────────────────────────────────────────── */
+    .rank-list-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-xs);
+      overflow: hidden;
+    }
+    .rank-list-header {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface2);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .rank-items { padding: 8px; }
+    .rank-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 12px;
+      border-radius: var(--r-md);
+      border: 1px solid transparent;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.14s;
+      margin-bottom: 4px;
+    }
+    .rank-item:last-child { margin-bottom: 0; }
+    .rank-item:hover { background: var(--blue-light); border-color: var(--blue-mid); }
+    .rank-item.active { background: var(--blue-light); border-color: var(--blue); box-shadow: 0 0 0 1px rgba(37,99,235,0.2); }
+    .rank-num {
+      font-size: 0.82rem;
+      font-weight: 700;
+      min-width: 28px;
+      text-align: center;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .rank-num.top3 { color: var(--blue); }
+    .rank-info { flex: 1; min-width: 0; }
+    .rank-title { font-weight: 600; font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text); }
+    .rank-sub { font-size: 0.7rem; color: var(--muted); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .rank-right { text-align: right; flex-shrink: 0; }
+    .rank-score { font-size: 0.88rem; font-weight: 700; color: var(--blue); font-variant-numeric: tabular-nums; }
+    .rank-tier {
+      font-size: 0.64rem;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: var(--r-sm);
+      display: inline-block;
+      margin-top: 3px;
+    }
+
+    /* ── Tier colors ─────────────────────────────────────────────────────── */
+    .tier-exceptional { background: #eef2ff; color: var(--indigo); }
+    .tier-strong      { background: var(--blue-light); color: var(--blue-dark); }
+    .tier-good        { background: var(--green-light); color: var(--green); }
+    .tier-moderate    { background: var(--amber-light); color: var(--amber); }
+    .tier-marginal    { background: var(--red-light); color: var(--red); }
+    .tier-weak        { background: #f3f4f6; color: var(--muted); }
+
+    /* ── Detail panel ────────────────────────────────────────────────────── */
+    .detail-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-xs);
+      overflow: hidden;
+    }
+    .detail-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface2);
+    }
+    .detail-meta { font-size: 0.72rem; color: var(--muted); margin-bottom: 4px; }
+    .detail-name { font-size: 1.05rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
+    .detail-body { padding: 20px 24px; }
+
+    /* ── Tabs ────────────────────────────────────────────────────────────── */
+    .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+    .tab-btn {
+      padding: 9px 16px;
+      border: none;
+      background: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+    .tab-btn:hover { color: var(--text2); }
+    .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); font-weight: 600; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* ── Score rows ──────────────────────────────────────────────────────── */
+    .score-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 72px;
+      gap: 10px;
+      align-items: center;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .score-row:last-child { border-bottom: none; }
+    .score-dim-label { font-size: 0.8rem; font-weight: 500; color: var(--text2); }
+    .score-bar {
+      height: 5px;
+      border-radius: 3px;
+      background: var(--border);
+      overflow: hidden;
+    }
+    .score-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: var(--blue);
+      transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .evidence {
+      grid-column: 2;
+      font-size: 0.7rem;
+      color: var(--muted2);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 4px 9px;
+      margin-top: 5px;
+      line-height: 1.45;
+    }
+    .score-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      color: var(--blue);
+      text-align: right;
+      line-height: 1.3;
+    }
+    .score-weight {
+      font-size: 0.66rem;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ── Totals box ──────────────────────────────────────────────────────── */
+    .totals-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 14px 16px;
+      margin-top: 14px;
+    }
+    .totals-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      padding: 3px 0;
+    }
+    .totals-row .label { color: var(--muted); }
+    .totals-row .val { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
+    .totals-final {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+      margin-top: 8px;
+    }
+
+    /* ── Formula / reasoning box ─────────────────────────────────────────── */
+    .formula-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 12px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      color: var(--text2);
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+      line-height: 1.6;
+    }
+    .reasoning-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 14px 16px;
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--muted2);
+    }
+    .why-not-item {
+      font-size: 0.8rem;
+      color: var(--amber);
+      padding: 5px 10px;
+      border-left: 2px solid var(--amber);
+      background: var(--amber-light);
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      margin-bottom: 5px;
+    }
+
+    /* ── Section title ───────────────────────────────────────────────────── */
+    .section-title {
+      font-size: 0.69rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .section-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .section-sub {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    /* ── Divider ─────────────────────────────────────────────────────────── */
+    .divider { height: 1px; background: var(--border); margin: 40px 0; }
+
+    /* ── Toggle ──────────────────────────────────────────────────────────── */
+    .toggle-wrap { display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; }
+    .toggle-label { font-size: 0.82rem; color: var(--muted2); font-weight: 500; }
+    .toggle { position: relative; width: 38px; height: 21px; }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider {
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: var(--border-hi);
+      border: 1px solid var(--border-hi);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .toggle-slider::after {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      top: 2px;
+      left: 2px;
+      transition: 0.2s;
+    }
+    .toggle input:checked + .toggle-slider { background: var(--blue); border-color: var(--blue); }
+    .toggle input:checked + .toggle-slider::after { transform: translateX(17px); }
+
+    /* ── Spinner ─────────────────────────────────────────────────────────── */
+    .spinner {
+      width: 28px;
+      height: 28px;
+      border: 2.5px solid var(--border);
+      border-top-color: var(--blue);
+      border-radius: 50%;
+      animation: spin 0.75s linear infinite;
+      margin: 32px auto;
+    }
+
+    /* ── Contrast cards ──────────────────────────────────────────────────── */
+    .contrast-card {
+      border-radius: var(--r-lg);
+      padding: 20px;
+      border: 1px solid;
+    }
+    .contrast-card.hp { background: var(--red-light); border-color: #fecaca; }
+    .contrast-card.dm { background: var(--amber-light); border-color: #fde68a; }
+    .contrast-title { font-weight: 700; font-size: 0.9rem; color: var(--text); margin-bottom: 2px; }
+    .contrast-id { font-size: 0.72rem; color: var(--muted); }
+    .contrast-outcome-hp { font-size: 0.75rem; color: var(--red); font-weight: 600; margin: 10px 0; }
+    .contrast-outcome-dm { font-size: 0.75rem; color: var(--amber); font-weight: 600; margin: 10px 0; }
+    .flag-item {
+      font-size: 0.76rem;
+      color: var(--muted2);
+      padding: 5px 10px;
+      border-left: 2px solid var(--red);
+      margin-bottom: 5px;
+      background: var(--surface);
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      line-height: 1.45;
+    }
+    .pipeline-note { font-size: 0.7rem; color: var(--muted); margin-top: 10px; font-style: italic; }
+    .rank-compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+    .rank-box {
+      text-align: center;
+      padding: 12px;
+      border-radius: var(--r-md);
+      border: 1px solid;
+    }
+    .rank-box.naive { background: var(--surface); border-color: var(--border-hi); }
+    .rank-box.pipeline { background: var(--blue-light); border-color: var(--blue-mid); }
+    .rank-box-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); }
+    .rank-box-num { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin: 4px 0 2px; }
+    .rank-box.pipeline .rank-box-num { color: var(--blue); }
+    .rank-box.naive .rank-box-num { color: var(--muted); }
+    .rank-box-sub { font-size: 0.65rem; color: var(--muted); }
+
+    /* ── Compare table ───────────────────────────────────────────────────── */
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .compare-table th {
+      text-align: left;
+      padding: 9px 13px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.69rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: var(--surface2);
+    }
+    .compare-table td { padding: 9px 13px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tr:hover td { background: var(--blue-light); }
+    .rank-up   { color: var(--green); font-weight: 700; }
+    .rank-down { color: var(--red); font-weight: 700; }
+    .rank-same { color: var(--muted); }
+
+    /* ── Toast ───────────────────────────────────────────────────────────── */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      padding: 12px 18px;
+      border-radius: var(--r-md);
+      font-size: 0.84rem;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.25s;
+      pointer-events: none;
+      z-index: 999;
+      max-width: 360px;
+      box-shadow: var(--shadow-md);
+    }
+    #toast.show { opacity: 1; transform: none; }
+    #toast.success { background: var(--green-light); border: 1px solid #6ee7b7; color: var(--green); }
+    #toast.error   { background: var(--red-light); border: 1px solid #fca5a5; color: var(--red); }
+    #toast.info    { background: var(--blue-light); border: 1px solid var(--blue-mid); color: var(--blue); }
+
+    /* ── Select ──────────────────────────────────────────────────────────── */
+    .select-input {
+      background: var(--surface);
+      border: 1px solid var(--border-hi);
+      color: var(--text);
+      border-radius: var(--r-md);
+      padding: 8px 13px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      outline: none;
+      cursor: pointer;
+      box-shadow: var(--shadow-xs);
+      transition: border-color 0.15s;
+    }
+    .select-input:focus { border-color: var(--blue); }
+
+    /* ── Empty state ─────────────────────────────────────────────────────── */
+    .empty-state {
+      text-align: center;
+      padding: 56px 24px;
+    }
+    .empty-icon { font-size: 2rem; color: var(--border-hi); margin-bottom: 12px; }
+    .empty-text { color: var(--muted); font-size: 0.88rem; }
+
+    /* ── Animations ──────────────────────────────────────────────────────── */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
+    .fade-in { animation: fadeUp 0.28s ease both; }
+
+    /* ── Scrollbar ───────────────────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border-hi); border-radius: 3px; }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ────────────────────────────────────────────────────────────── -->
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        Redrob AI <span>/ Candidate Ranker</span>
+      </div>
+      <div class="header-right">
+        <span class="mode-badge" id="modeBadge">Initialising</span>
+        <div class="status-indicator">
+          <span class="status-dot" id="statusDot"></span>
+          <span id="statusText">Connecting…</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ── HERO ──────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">India Runs Hackathon · Track 1: Data &amp; AI</div>
+    <h1>Rank Any <span class="accent">Job Description</span><br>Instantly</h1>
+    <p class="hero-sub">
+      Paste any JD — the pipeline embeds it on-the-fly and re-ranks all candidates
+      in seconds. Every rank is decomposed into six evidence-cited dimensions.
+    </p>
+    <div class="pills">
+      <span class="pill"><span class="pill-dot"></span>BGE Embeddings</span>
+      <span class="pill"><span class="pill-dot"></span>Honeypot Detection</span>
+      <span class="pill"><span class="pill-dot"></span>6-Dim Scoring + Coherence Gate</span>
+      <span class="pill"><span class="pill-dot"></span>Behavioral Multiplier</span>
+      <span class="pill"><span class="pill-dot"></span>Cross-Encoder Re-Rank</span>
+    </div>
+
+    <div class="jd-area">
+      <div class="jd-area-header">
+        <span>Job Description</span>
+        <span class="char-count" id="charCount">0 chars</span>
+      </div>
+      <textarea id="jdInput" placeholder="Paste a JD here — e.g. 'Looking for a Senior ML Engineer with experience in embedding-based retrieval, vector databases (Faiss, Pinecone), and production-scale ranking systems…'"></textarea>
+      <div class="jd-footer">
+        <button class="btn btn-primary" id="rankBtn" onclick="rankWithJD()">
+          <span id="rankBtnIcon"></span>Rank with this JD
+        </button>
+        <button class="btn btn-outline btn-sm" onclick="loadDefaultJD()">Use default JD</button>
+        <button class="btn btn-ghost btn-sm" onclick="clearJD()">Clear</button>
+        <div class="jd-footer-right">
+          <span id="rankingTime"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ──────────────────────────────────────────────────────────────── -->
+<div class="container stats-section">
+  <div class="grid-4">
+    <div class="stat-tile">
+      <div class="stat-label">Total Candidates</div>
+      <div class="stat-value" id="statTotal">—</div>
+      <div class="stat-sub">in pool</div>
+    </div>
+    <div class="stat-tile">
+      <div class="stat-label">Passed Filters</div>
+      <div class="stat-value" id="statFiltered">—</div>
+      <div class="stat-sub">after hard filters + honeypot removal</div>
+    </div>
+    <div class="stat-tile" style="border-color:#fca5a5;">
+      <div class="stat-label" style="color:var(--red);">Honeypots Blocked</div>
+      <div class="stat-value" id="statHoneypots" style="color:var(--red);">—</div>
+      <div class="stat-sub">0 in top-100 (auto-fail threshold)</div>
+    </div>
+    <div class="stat-tile" style="border-color:#6ee7b7;">
+      <div class="stat-label" style="color:var(--green);">Top Score</div>
+      <div class="stat-value" id="statTopScore" style="color:var(--green);">—</div>
+      <div class="stat-sub">composite (max ~1.35)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MAIN ───────────────────────────────────────────────────────────────── -->
+<div class="container main-section">
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <h2 class="section-heading">Ranked Shortlist <span id="jdModeTag" style="font-size:0.78rem;font-weight:400;color:var(--muted);"></span></h2>
+      <p>Click any candidate to see the full decomposed score</p>
+    </div>
+    <div class="toolbar-right">
+      <label class="toggle-wrap">
+        <span class="toggle-label">vs Naive Keyword</span>
+        <label class="toggle"><input type="checkbox" id="naiveToggle" /><span class="toggle-slider"></span></label>
+      </label>
+      <select class="select-input" id="topNSelect">
+        <option value="10">Top 10</option>
+        <option value="20" selected>Top 20</option>
+        <option value="50">Top 50</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Main grid -->
+  <div class="main-grid" style="display:grid;grid-template-columns:380px 1fr;gap:20px;align-items:start;">
+
+    <!-- Rank list -->
+    <div>
+      <div class="rank-list-wrap">
+        <div class="rank-list-header">Candidates</div>
+        <div class="rank-items" id="rankList"><div class="spinner"></div></div>
+      </div>
+    </div>
+
+    <!-- Detail panel -->
+    <div>
+      <div id="detailPanel">
+        <div class="card">
+          <div class="empty-state">
+            <div class="empty-icon">◎</div>
+            <p class="empty-text">Select a candidate to see their full score breakdown</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Contrast section -->
+  <div style="margin-bottom:48px;">
+    <h2 class="section-heading">Why Our Pipeline Beats Naive Keyword Matching</h2>
+    <p class="section-sub">Candidates the naive approach would rank highly — and exactly why our pipeline excluded or demoted them.</p>
+    <div id="contrastGrid"><div class="spinner"></div></div>
+  </div>
+
+  <!-- Naive compare -->
+  <div id="naiveCompareSection" style="display:none;">
+    <h2 class="section-heading" style="margin-bottom:4px;">Pipeline vs Naive Keyword Match — Top 20</h2>
+    <p class="section-sub">Green = pipeline promoted this candidate vs naive. Red = coherence gate or signals demoted them.</p>
+    <div class="card" style="padding:0;overflow:hidden;">
+      <div id="naiveTable"><div class="spinner"></div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<!-- ── JS ────────────────────────────────────────────────────────────────── -->
+<script>
+const API = 'http://127.0.0.1:5050/api';
+const STATIC_DATA = 'data.json';
+
+let _results = [];
+let _contrast = { honeypot_cards: [], demotion_cards: [] };
+let _naive = { naive_top20: [], pipeline_top20: [] };
+let _naiveMode = false;
+let _activeId = null;
+let _isLive = false;
+let _currentJDMode = 'default';
+
+const $ = id => document.getElementById(id);
+
+function toast(msg, type = 'info', ms = 3500) {
+  const t = $('toast');
+  t.textContent = msg;
+  t.className = `show ${type}`;
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => { t.className = ''; }, ms);
+}
+
+function tierClass(tier) {
+  if (!tier) return 'tier-weak';
+  const t = tier.toLowerCase();
+  if (t.includes('exceptional')) return 'tier-exceptional';
+  if (t.includes('strong'))      return 'tier-strong';
+  if (t.includes('good'))        return 'tier-good';
+  if (t.includes('moderate'))    return 'tier-moderate';
+  if (t.includes('marginal'))    return 'tier-marginal';
+  return 'tier-weak';
+}
+
+function rankChangeHtml(delta) {
+  if (delta == null) return '<span class="rank-same">—</span>';
+  if (delta > 0)  return `<span class="rank-up">▲ ${delta}</span>`;
+  if (delta < 0)  return `<span class="rank-down">▼ ${Math.abs(delta)}</span>`;
+  return '<span class="rank-same">–</span>';
+}
+
+// ── Status ────────────────────────────────────────────────────────────────
+async function checkStatus() {
+  try {
+    const r = await fetch(`${API}/status`, { signal: AbortSignal.timeout(2500) });
+    const d = await r.json();
+    if (d.status === 'ok') {
+      _isLive = true;
+      $('statusDot').className = 'status-dot ready';
+      $('statusText').textContent = `Live — ${(d.total_candidates||0).toLocaleString()} candidates`;
+      $('modeBadge').textContent = 'Live';
+      $('modeBadge').className = 'mode-badge live';
+      $('statTotal').textContent    = (d.total_candidates||0).toLocaleString();
+      $('statFiltered').textContent = (d.after_honeypot_removal||0).toLocaleString();
+      $('statHoneypots').textContent= (d.honeypots_detected||0).toLocaleString();
+      $('statTopScore').textContent = d.top_score != null ? d.top_score.toFixed(4) : '—';
+      return true;
+    }
+  } catch (_) {}
+  return false;
+}
+
+// ── Static fallback ───────────────────────────────────────────────────────
+async function loadStaticData() {
+  try {
+    const r = await fetch(STATIC_DATA);
+    if (!r.ok) throw new Error('not found');
+    const d = await r.json();
+    _results = d.results || [];
+    _contrast = d.contrast || { honeypot_cards: [], demotion_cards: [] };
+    const stats = d.stats || {};
+    $('statTotal').textContent    = (stats.total_candidates||0).toLocaleString();
+    $('statFiltered').textContent = (stats.after_honeypot_removal||0).toLocaleString();
+    $('statHoneypots').textContent= (stats.honeypots_detected||0).toLocaleString();
+    $('statTopScore').textContent = stats.top_score != null ? stats.top_score.toFixed(4) : '—';
+    $('statusDot').className = 'status-dot ready';
+    $('statusText').textContent = 'Static mode';
+    $('modeBadge').textContent = 'Static';
+    $('modeBadge').className = 'mode-badge static';
+    $('jdModeTag').textContent = '— pre-ranked data';
+    renderRankList();
+    if (_results.length > 0) selectCandidate(_results[0]);
+    renderContrast();
+    return true;
+  } catch (e) {
+    $('rankList').innerHTML = `
+      <div style="padding:32px;text-align:center;">
+        <div style="font-size:1.5rem;color:var(--border-hi);margin-bottom:12px;">⚠</div>
+        <div style="font-weight:600;color:var(--red);margin-bottom:6px;">Server not running &amp; no static data found</div>
+        <div style="font-size:0.8rem;color:var(--muted);line-height:1.6;">
+          Start: <code style="background:var(--surface2);padding:2px 6px;border-radius:4px;font-size:0.75rem;">python demo_server.py --candidates &lt;file&gt;</code><br/>
+          Or export static: <code style="background:var(--surface2);padding:2px 6px;border-radius:4px;font-size:0.75rem;">curl localhost:5050/api/export-static</code>
+        </div>
+      </div>`;
+    return false;
+  }
+}
+
+// ── Load results ──────────────────────────────────────────────────────────
+async function loadResults() {
+  const n = $('topNSelect').value;
+  if (!_isLive) return;
+  try {
+    const r = await fetch(`${API}/rank?n=${n}`);
+    const d = await r.json();
+    _results = d.results || [];
+    _currentJDMode = 'default';
+    $('jdModeTag').textContent = '— default JD';
+    renderRankList();
+    if (_results.length > 0) selectCandidate(_results[0]);
+  } catch (e) {
+    toast('Could not load results: ' + e.message, 'error');
+  }
+}
+
+// ── Live JD ranking ───────────────────────────────────────────────────────
+async function rankWithJD() {
+  const jdText = $('jdInput').value.trim();
+  if (!jdText) { toast('Please enter a JD first', 'error'); return; }
+  if (jdText.length < 50) { toast('JD is too short (< 50 chars)', 'error'); return; }
+  if (!_isLive) {
+    toast('Live server not running. Start: python demo_server.py --candidates <file> --preload-model', 'error', 5000);
+    return;
+  }
+  const btn = $('rankBtn');
+  btn.disabled = true;
+  $('rankBtnIcon').textContent = '';
+  $('rankingTime').textContent = '';
+  $('rankList').innerHTML = '<div class="spinner"></div>';
+  $('detailPanel').innerHTML = '';
+  const t0 = Date.now();
+  try {
+    const n = $('topNSelect').value;
+    const r = await fetch(`${API}/rank-jd`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ jd_text: jdText, n }),
+    });
+    const d = await r.json();
+    if (d.error) { toast(d.error, 'error', 6000); return; }
+    _results = d.results || [];
+    _currentJDMode = 'custom';
+    const elapsed = d.elapsed_seconds || ((Date.now() - t0) / 1000).toFixed(2);
+    $('rankingTime').textContent = `Ranked in ${elapsed}s`;
+    $('jdModeTag').textContent = `— custom JD · ${(jdText.length/1000).toFixed(1)}k chars · ${d.jd_keywords_detected?.length || 0} keywords`;
+    toast(`Ranked ${d.total} candidates in ${elapsed}s`, 'success');
+    renderRankList();
+    if (_results.length > 0) selectCandidate(_results[0]);
+  } catch(e) {
+    toast('Ranking failed: ' + e.message, 'error');
+    $('rankList').innerHTML = '<div style="padding:20px;text-align:center;color:var(--red);">Ranking failed.</div>';
+  } finally {
+    btn.disabled = false;
+    $('rankBtnIcon').textContent = '';
+  }
+}
+
+const DEFAULT_JD = `Senior AI/ML Engineer — Retrieval & Ranking Systems (Series A, Founding Team)
+
+We're building the next generation of AI-powered candidate matching and job ranking. We need a founding ML Engineer who has shipped production retrieval systems at scale.
+
+Must-have skills: semantic embeddings, vector databases (Faiss, Pinecone, Weaviate), information retrieval, ranking algorithms (NDCG, BM25), Python.
+Nice-to-have: cross-encoder re-ranking, fine-tuning (LoRA/QLoRA), A/B testing ML systems, recommendation systems.
+
+Experience: 5-9 years. Location: Pune, Noida, or NCR preferred (India-based, hybrid). Series A budget: ≤50 LPA.
+
+Disqualifiers: career-long consulting firms (TCS, Infosys, Wipro), pure CV/speech without NLP, purely research background without production deployment.`;
+
+function loadDefaultJD() {
+  $('jdInput').value = DEFAULT_JD;
+  updateCharCount();
+  toast('Default JD loaded — click Rank to apply', 'info');
+}
+function clearJD() { $('jdInput').value = ''; updateCharCount(); }
+function updateCharCount() { $('charCount').textContent = $('jdInput').value.length.toLocaleString() + ' chars'; }
+$('jdInput').addEventListener('input', updateCharCount);
+
+// ── Render rank list ───────────────────────────────────────────────────────
+function renderRankList() {
+  const n = parseInt($('topNSelect').value);
+  const html = _results.slice(0, n).map(r => {
+    const top3 = r.rank <= 3;
+    const delta = _naiveMode && r.naive_rank_change != null
+      ? `<span style="font-size:0.68rem;margin-left:4px;">${rankChangeHtml(r.naive_rank_change)}</span>` : '';
+    return `
+      <div class="rank-item${r.candidate_id === _activeId ? ' active' : ''}"
+           onclick='selectCandidate(${JSON.stringify(r).replace(/'/g,"&#39;")})'>
+        <div class="rank-num ${top3 ? 'top3' : ''}">#${r.rank}</div>
+        <div class="rank-info">
+          <div class="rank-title">${r.candidate_id}</div>
+          <div class="rank-sub">${r.short_formula || ''}</div>
+        </div>
+        <div class="rank-right">
+          <div class="rank-score">${r.score.toFixed(4)}${delta}</div>
+          <span class="rank-tier ${tierClass(r.tier_label)}">${r.tier_label || ''}</span>
+        </div>
+      </div>`;
+  }).join('');
+  $('rankList').innerHTML = html || '<p style="color:var(--muted);padding:20px;text-align:center;">No results</p>';
+}
+
+// ── Candidate detail ───────────────────────────────────────────────────────
+function selectCandidate(r) {
+  _activeId = r.candidate_id;
+  renderRankList();
+
+  const sc = r.score_card || {};
+  const beh = r.behavioral || {};
+  const dims = [
+    {key:'career_fit',         label:'Career Fit'},
+    {key:'skills_match',       label:'Skills Match'},
+    {key:'experience_fit',     label:'Experience Fit'},
+    {key:'location_logistics', label:'Location & Logistics'},
+    {key:'education',          label:'Education'},
+    {key:'semantic_similarity',label:'Semantic Similarity'},
+  ];
+
+  const scoreRows = dims.map(({key, label}) => {
+    const d = sc[key] || {};
+    const score = d.score || 0;
+    return `
+      <div class="score-row">
+        <div class="score-dim-label">${label}</div>
+        <div>
+          <div class="score-bar"><div class="score-bar-fill" style="width:${(score*100).toFixed(0)}%"></div></div>
+          <div class="evidence">${d.evidence || '—'}</div>
+        </div>
+        <div class="score-val">
+          ${score.toFixed(4)}<br>
+          <span class="score-weight">×${(d.weight||0).toFixed(3)}</span>
+        </div>
+      </div>`;
+  }).join('');
+
+  const whyNot = (r.why_not_notes||[]).map(n => `<div class="why-not-item">${n}</div>`).join('');
+  const naiveTab = r.naive_rank ? `<button class="tab-btn" onclick="switchTab(event,'tn')">vs Naive</button>` : '';
+
+  $('detailPanel').innerHTML = `
+    <div class="detail-card fade-in">
+      <div class="detail-header">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+          <div>
+            <div class="detail-meta">Rank #${r.rank}${_currentJDMode === 'custom' ? ' · custom JD' : ''}</div>
+            <div class="detail-name">${r.candidate_id}</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0;">
+            <span class="rank-tier ${tierClass(r.tier_label)}" style="font-size:0.72rem;padding:3px 10px;">${r.tier_label}</span>
+            <div style="font-size:0.72rem;color:var(--muted);margin-top:5px;">Confidence: <strong style="color:var(--text2);">${r.confidence}</strong></div>
+          </div>
+        </div>
+        <div class="tabs" style="margin:16px 0 0;">
+          <button class="tab-btn active" onclick="switchTab(event,'ts')">Score</button>
+          <button class="tab-btn" onclick="switchTab(event,'tr')">Reasoning</button>
+          ${naiveTab}
+        </div>
+      </div>
+      <div class="detail-body">
+        <div class="tab-content active" id="ts">
+          <div class="section-title">Dimension Breakdown</div>
+          ${scoreRows}
+          <div class="totals-box">
+            <div class="totals-row">
+              <span class="label">Base weighted total</span>
+              <span class="val">${(r.weighted_total||0).toFixed(4)}</span>
+            </div>
+            <div class="totals-row">
+              <span class="label">Behavioral multiplier</span>
+              <span class="val" style="color:var(--blue);">×${(beh.value||1).toFixed(4)}</span>
+            </div>
+            ${beh.evidence ? `<div style="font-size:0.7rem;color:var(--muted);margin:2px 0 4px;">${beh.evidence}</div>` : ''}
+            ${(beh.additive||0)>0 ? `<div class="totals-row"><span class="label">Behavioral bonus</span><span class="val">+${(beh.additive||0).toFixed(4)}</span></div>` : ''}
+            <div class="totals-final">
+              <span>Final Score</span>
+              <span style="color:var(--blue);">${r.score.toFixed(4)}</span>
+            </div>
+          </div>
+          <div class="section-title" style="margin-top:18px;">Formula</div>
+          <div class="formula-box">${r.short_formula || ''}</div>
+          ${whyNot ? `<div class="section-title" style="margin-top:16px;">Concerns</div>${whyNot}` : ''}
+        </div>
+        <div class="tab-content" id="tr">
+          <div class="section-title">System Reasoning</div>
+          <div class="reasoning-box">${r.reasoning || 'No reasoning available.'}</div>
+          <div class="section-title" style="margin-top:18px;">Full Formula</div>
+          <div class="formula-box">${r.formula || ''}</div>
+        </div>
+        ${r.naive_rank ? `
+        <div class="tab-content" id="tn">
+          <div class="section-title">Pipeline vs Naive Keyword Rank</div>
+          <div class="rank-compare-grid">
+            <div class="rank-box naive">
+              <div class="rank-box-label">Naive Rank</div>
+              <div class="rank-box-num">#${r.naive_rank}</div>
+              <div class="rank-box-sub">JD keyword count</div>
+            </div>
+            <div class="rank-box pipeline">
+              <div class="rank-box-label">Pipeline Rank</div>
+              <div class="rank-box-num">#${r.rank}</div>
+              <div class="rank-box-sub">6-dim + behavioral</div>
+            </div>
+          </div>
+          ${(r.naive_rank_change||0)>0 ? `
+            <div style="color:var(--green);font-size:0.82rem;padding:9px 13px;background:var(--green-light);border-radius:var(--r-md);border-left:3px solid var(--green);">
+              ▲ Pipeline promoted +${r.naive_rank_change} — skills &amp; career confirmed genuine fit
+            </div>` : ''}
+          ${(r.naive_rank_change||0)<0 ? `
+            <div style="color:var(--red);font-size:0.82rem;padding:9px 13px;background:var(--red-light);border-radius:var(--r-md);border-left:3px solid var(--red);">
+              ▼ Pipeline demoted ${Math.abs(r.naive_rank_change)} — coherence gate discounted unverifiable skill claims
+            </div>` : ''}
+        </div>` : ''}
+      </div>
+    </div>`;
+}
+
+function switchTab(e, id) {
+  const p = $('detailPanel');
+  p.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  p.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  e.target.classList.add('active');
+  const tc = p.querySelector('#' + id);
+  if (tc) tc.classList.add('active');
+}
+
+// ── Contrast ───────────────────────────────────────────────────────────────
+async function loadContrast() {
+  if (!_isLive) { renderContrast(); return; }
+  try {
+    _contrast = await (await fetch(`${API}/contrast`)).json();
+    renderContrast();
+  } catch(e) {
+    $('contrastGrid').innerHTML = `<p style="color:var(--muted)">Contrast unavailable (${e.message})</p>`;
+  }
+}
+
+function renderContrast() {
+  const hpHtml = (_contrast.honeypot_cards||[]).map(c => `
+    <div class="contrast-card hp">
+      <div style="margin-bottom:10px;">
+        <div class="contrast-title">${c.title||''} @ ${c.company||''}</div>
+        <div class="contrast-id">${c.candidate_id}</div>
+      </div>
+      <div class="contrast-outcome-hp">${c.outcome}</div>
+      <div class="section-title">Detection flags</div>
+      ${(c.flag_explanations||[]).map(f => `<div class="flag-item">${f}</div>`).join('')}
+      <div class="pipeline-note">${c.pipeline_note||''}</div>
+    </div>`).join('') || '<div class="card" style="color:var(--muted)">No honeypot examples</div>';
+
+  const dmHtml = (_contrast.demotion_cards||[]).map(c => `
+    <div class="contrast-card dm">
+      <div style="margin-bottom:10px;">
+        <div class="contrast-title">${c.title||''} @ ${c.company||''}</div>
+        <div class="contrast-id">${c.candidate_id}</div>
+      </div>
+      <div class="contrast-outcome-dm">${c.outcome}</div>
+      <div class="rank-compare-grid">
+        <div class="rank-box naive">
+          <div class="rank-box-label">Naive Rank</div>
+          <div class="rank-box-num">#${c.naive_rank}</div>
+          <div class="rank-box-sub">keyword count</div>
+        </div>
+        <div class="rank-box pipeline">
+          <div class="rank-box-label">Pipeline Rank</div>
+          <div class="rank-box-num">#${c.pipeline_rank}</div>
+          <div class="rank-box-sub">6-dim + behavioral</div>
+        </div>
+      </div>
+      <div style="font-size:0.8rem;color:var(--muted2);line-height:1.55;margin-bottom:8px;">${c.demotion_reason}</div>
+      <div style="font-size:0.7rem;color:var(--muted);">Skill hits: ${c.jd_skill_hits}/${c.total_skills} &middot; Coherence gate: ×${c.coherence_multiplier}</div>
+    </div>`).join('') || '<div class="card" style="color:var(--muted)">No demotion examples</div>';
+
+  $('contrastGrid').innerHTML = `<div class="grid-2">${hpHtml}${dmHtml}</div>`;
+}
+
+// ── Naive compare ──────────────────────────────────────────────────────────
+async function loadNaiveCompare() {
+  if (!_isLive) return;
+  try {
+    _naive = await (await fetch(`${API}/naive-compare`)).json();
+    renderNaiveTable();
+  } catch(e) {
+    $('naiveTable').innerHTML = `<p style="padding:16px;color:var(--muted)">Unavailable (${e.message})</p>`;
+  }
+}
+
+function renderNaiveTable() {
+  const rows = (_naive.pipeline_top20||[]).map(r => `
+    <tr>
+      <td style="font-weight:700;color:var(--blue);">#${r.pipeline_rank}</td>
+      <td style="font-family:'JetBrains Mono',monospace;font-size:0.77rem;">${r.candidate_id}</td>
+      <td style="color:var(--muted2);">${r.title||''}</td>
+      <td style="font-family:'JetBrains Mono',monospace;">${(r.pipeline_score||0).toFixed(4)}</td>
+      <td><span class="rank-tier ${tierClass(r.tier_label)}">${r.tier_label||''}</span></td>
+      <td style="color:var(--muted);">${r.naive_rank ? '#'+r.naive_rank : '—'}</td>
+      <td>${rankChangeHtml(r.rank_change)}</td>
+    </tr>`).join('');
+  $('naiveTable').innerHTML = `
+    <table class="compare-table">
+      <thead><tr>
+        <th>Pipeline</th><th>Candidate</th><th>Title</th>
+        <th>Score</th><th>Tier</th><th>Naive</th><th>Δ</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+$('naiveToggle').addEventListener('change', e => {
+  _naiveMode = e.target.checked;
+  $('naiveCompareSection').style.display = _naiveMode ? 'block' : 'none';
+  renderRankList();
+  if (_naiveMode && (_naive.pipeline_top20||[]).length === 0) loadNaiveCompare();
+});
+
+$('topNSelect').addEventListener('change', () => {
+  if (_isLive && _currentJDMode === 'default') loadResults();
+  else renderRankList();
+});
+
+// ── Init ───────────────────────────────────────────────────────────────────
+async function init() {
+  const live = await checkStatus();
+  if (live) {
+    await loadResults();
+    await loadContrast();
+  } else {
+    $('statusDot').className = 'status-dot';
+    $('statusText').textContent = 'Server offline — static mode';
+    await loadStaticData();
+  }
+}
+init();
+</script>
+</body>
+</html>

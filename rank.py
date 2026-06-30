@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
 Redrob AI Candidate Ranking System
-Main entry point for producing the submission CSV.
+Main entry point for producing the submission Excel file.
 
 Usage:
-    python rank.py --candidates ./candidates.jsonl --out ./submission.csv
+    python rank.py --candidates ./candidates.jsonl --out ./submission.xlsx
 """
 
 import argparse
@@ -160,10 +160,10 @@ def main():
     else:
         print("  All validations passed [OK]")
 
-    # Write output
+    # Write output (produces both .xlsx and .csv for portal + spec compliance)
     output_path = Path(args.out)
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    CandidateRanker.write_csv(results, str(output_path))
+    CandidateRanker.write_output(results, str(output_path))
 
     # Summary
     elapsed = time.time() - start_time

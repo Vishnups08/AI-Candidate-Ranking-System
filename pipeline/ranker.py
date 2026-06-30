@@ -13,7 +13,7 @@ import config
 from pipeline.jd_parser import JDRequirements, load_jd_requirements
 from pipeline.feature_scorer import FeatureScorer
 from pipeline.behavioral_scorer import compute_behavioral_multiplier, compute_behavioral_additive
-from pipeline.reasoning_generator import generate_reasoning
+from pipeline.reasoning_generator import generate_reasoning, generate_structured_explanation
 
 
 class CandidateRanker:
@@ -131,14 +131,24 @@ class CandidateRanker:
             score = entry["final_score"]
             feature_scores = entry["feature_scores"]
 
-            # Generate reasoning
+            # Generate reasoning (plain text for CSV)
             reasoning = generate_reasoning(candidate, rank, feature_scores)
+
+            # Generate structured explanation (rich breakdown for UI/demo)
+            explanation = generate_structured_explanation(
+                candidate,
+                rank,
+                feature_scores,
+                entry["behavioral_multiplier"],
+                entry["behavioral_additive"],
+            )
 
             results.append({
                 "candidate_id": candidate["candidate_id"],
                 "rank": rank,
                 "score": round(score, 4),
                 "reasoning": reasoning,
+                "explanation": explanation,
                 "details": {
                     "feature_scores": feature_scores,
                     "behavioral_multiplier": entry["behavioral_multiplier"],
@@ -149,21 +159,53 @@ class CandidateRanker:
         return results
 
     @staticmethod
+    def _build_dataframe(results: list[dict]):
+        """Build a pandas DataFrame from ranked results."""
+        import pandas as pd
+
+        data = []
+        for result in results:
+            data.append({
+                config.OUTPUT_COLUMNS[0]: result["candidate_id"],
+                config.OUTPUT_COLUMNS[1]: result["rank"],
+                config.OUTPUT_COLUMNS[2]: result["score"],
+                config.OUTPUT_COLUMNS[3]: result["reasoning"],
+            })
+        return pd.DataFrame(data)
+
+    @staticmethod
+    def write_xlsx(results: list[dict], output_path: str):
+        """Write results to Excel (XLSX) in submission format."""
+        df = CandidateRanker._build_dataframe(results)
+        df.to_excel(output_path, index=False, engine='openpyxl')
+        print(f"  Written {len(results)} rows to {output_path}")
+
+    @staticmethod
     def write_csv(results: list[dict], output_path: str):
         """Write results to CSV in submission format."""
-        with open(output_path, "w", newline="", encoding="utf-8") as f:
-            writer = csv.writer(f)
-            writer.writerow(config.OUTPUT_COLUMNS)
-
-            for result in results:
-                writer.writerow([
-                    result["candidate_id"],
-                    result["rank"],
-                    result["score"],
-                    result["reasoning"],
-                ])
-
+        df = CandidateRanker._build_dataframe(results)
+        df.to_csv(output_path, index=False, encoding='utf-8')
         print(f"  Written {len(results)} rows to {output_path}")
+
+    @staticmethod
+    def write_output(results: list[dict], output_path: str):
+        """Auto-detect format from extension and write both CSV + XLSX.
+
+        The submission spec references CSV while the portal upload field
+        expects XLSX. We always produce both so either can be submitted.
+        """
+        from pathlib import Path
+
+        p = Path(output_path)
+        stem = p.stem
+        parent = p.parent
+
+        xlsx_path = parent / f"{stem}.xlsx"
+        csv_path = parent / f"{stem}.csv"
+
+        CandidateRanker.write_xlsx(results, str(xlsx_path))
+        CandidateRanker.write_csv(results, str(csv_path))
+        print(f"  Both formats ready: {xlsx_path}  &  {csv_path}")
 
     @staticmethod
     def validate_results(results: list[dict], strict: bool = True) -> list[str]:
