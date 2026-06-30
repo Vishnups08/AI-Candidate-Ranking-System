@@ -24,7 +24,7 @@ team_members:
 # Code and reproducibility
 # ============================================================================
 github_repo: "https://github.com/Vishnups08/AI-Candidate-Ranking-System"
-sandbox_link: "TODO_deploy_and_paste_streamlit_or_colab_link"
+sandbox_link: "https://groundtruth-ai-candidate-ranking-system.streamlit.app/"
 
 # Single command that produces the submission files (models + embeddings must be
 # pre-computed first: python precompute/download_models.py && \
