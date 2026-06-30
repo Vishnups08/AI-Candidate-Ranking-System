@@ -111,6 +111,20 @@ streamlit run app.py
 
 Includes live weight sliders, radar chart, career timeline, behavioral signals, contrast cases tab.
 
+### Option C — Next.js React Dashboard (Standalone UI)
+
+A modern, highly responsive Next.js frontend built with React and Tailwind CSS that connects to the Python Flask API backend.
+
+```bash
+# 1. Start the Flask API server
+python demo_server.py --candidates ./candidates.jsonl --port 5050
+
+# 2. Run the Next.js dev server
+npm run dev --prefix frontend
+```
+
+Then open `http://localhost:3000` to inspect candidate shortlist tables, details tabs, and run dynamic neural re-ranking tests.
+
 ---
 
 
