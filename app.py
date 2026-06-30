@@ -33,7 +33,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# Custom premium styling (Sleek Dark Mode & Glassmorphism)
+# Custom premium styling (Sleek Light Mode & Clean Architecture)
 st.markdown(
     """
     <style>
@@ -44,36 +44,34 @@ st.markdown(
         font-family: 'Plus Jakarta Sans', sans-serif;
     }
     
-    /* Global theme overrides */
+    /* Global light theme overrides */
     .stApp {
-        background: radial-gradient(circle at top right, #1a1a2e, #0f0f1b);
-        color: #e2e8f0;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        color: #0f172a;
     }
     
-    /* Glassmorphism containers */
+    /* Sleek card containers */
     .glass-card {
-        background: rgba(255, 255, 255, 0.03);
+        background: #ffffff;
         border-radius: 16px;
         padding: 24px;
-        border: 1px rgba(255, 255, 255, 0.08) solid;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
         margin-bottom: 20px;
     }
     
     .glass-metric {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+        background: #ffffff;
         border-radius: 12px;
         padding: 16px;
-        border: 1px rgba(255, 255, 255, 0.05) solid;
+        border: 1px solid #e2e8f0;
         text-align: center;
-        box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
     }
     
     /* Header Gradient */
     .gradient-text {
-        background: linear-gradient(135deg, #a78bfa 0%, #3b82f6 50%, #60a5fa 100%);
+        background: linear-gradient(135deg, #6366f1 0%, #2563eb 50%, #06b6d4 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 800;
@@ -81,11 +79,11 @@ st.markdown(
     
     /* Accent borders */
     .accent-border-violet {
-        border-left: 4px solid #8b5cf6;
+        border-left: 4px solid #6366f1;
     }
     
     .accent-border-blue {
-        border-left: 4px solid #3b82f6;
+        border-left: 4px solid #2563eb;
     }
 
     .accent-border-emerald {
@@ -104,23 +102,23 @@ st.markdown(
         padding: 10px 24px;
         border-radius: 8px;
         font-weight: 600;
-        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
         transition: all 0.2s ease-in-out;
     }
     div.stButton > button:first-child:hover {
         background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
     }
     
     /* Clean sidebar headers */
     .sidebar-header {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: 700;
-        color: #f8fafc;
+        color: #0f172a;
         margin-top: 15px;
         margin-bottom: 10px;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+        border-bottom: 1px solid #e2e8f0;
         padding-bottom: 5px;
     }
     
@@ -133,8 +131,8 @@ st.markdown(
 st.markdown(
     """
     <div style='text-align: center; padding: 20px 0px 10px 0px;'>
-        <h1 style='font-size: 2.8rem; margin-bottom: 5px;'><span class='gradient-text'>Redrob AI</span> Candidate discovery</h1>
-        <p style='color: #94a3b8; font-size: 1.1rem; max-width: 700px; margin: 0 auto;'>
+        <h1 style='font-size: 2.8rem; margin-bottom: 5px; color: #0f172a;'><span class='gradient-text'>Redrob AI</span> Candidate discovery</h1>
+        <p style='color: #475569; font-size: 1.1rem; max-width: 700px; margin: 0 auto;'>
             A premium, multi-dimensional candidate discovery and ranking system powered by BGE Semantic Embeddings and verified behavioral signals.
         </p>
     </div>
@@ -190,7 +188,7 @@ for dim, weight in config.WEIGHTS.items():
 # India-context callout
 st.sidebar.markdown("<div class='sidebar-header'>🇮🇳 INDIA-CONTEXT DESIGN</div>", unsafe_allow_html=True)
 st.sidebar.markdown("""
-<div style='font-size:0.8rem;color:#94a3b8;line-height:1.6;'>
+<div style='font-size:0.8rem;color:#334155;line-height:1.6;'>
 <b>Deliberately India-aware signals:</b><br/>
 • <b>Preferred cities:</b> Pune, Noida, NCR (1.0×), Tier-1 cities (0.7×)<br/>
 • <b>INR LPA realism:</b> ≤50 LPA = ideal, 50–70 = stretch, >70 = concern<br/>
@@ -337,9 +335,9 @@ with c1:
     st.markdown(
         f"""
         <div class='glass-metric accent-border-violet'>
-            <div style='font-size: 0.85rem; color: #a78bfa; font-weight: 600; text-transform: uppercase;'>Total Candidates</div>
-            <div style='font-size: 1.8rem; font-weight: 800; margin-top: 5px;'>{len(candidates)}</div>
-            <div style='font-size: 0.75rem; color: #64748b; margin-top: 3px;'>Source: {candidates_source}</div>
+            <div style='font-size: 0.85rem; color: #4f46e5; font-weight: 700; text-transform: uppercase;'>Total Candidates</div>
+            <div style='font-size: 1.8rem; font-weight: 800; margin-top: 5px; color: #0f172a;'>{len(candidates)}</div>
+            <div style='font-size: 0.75rem; color: #475569; margin-top: 3px;'>Source: {candidates_source}</div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -348,9 +346,9 @@ with c2:
     st.markdown(
         f"""
         <div class='glass-metric accent-border-blue'>
-            <div style='font-size: 0.85rem; color: #60a5fa; font-weight: 600; text-transform: uppercase;'>Passed Filters</div>
-            <div style='font-size: 1.8rem; font-weight: 800; margin-top: 5px;'>{len(filtered)}</div>
-            <div style='font-size: 0.75rem; color: #10b981; margin-top: 3px;'>Pass rate: {len(filtered)/len(candidates)*100:.1f}%</div>
+            <div style='font-size: 0.85rem; color: #2563eb; font-weight: 700; text-transform: uppercase;'>Passed Filters</div>
+            <div style='font-size: 1.8rem; font-weight: 800; margin-top: 5px; color: #0f172a;'>{len(filtered)}</div>
+            <div style='font-size: 0.75rem; color: #059669; margin-top: 3px;'>Pass rate: {len(filtered)/len(candidates)*100:.1f}%</div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -359,9 +357,9 @@ with c3:
     st.markdown(
         f"""
         <div class='glass-metric accent-border-rose'>
-            <div style='font-size: 0.85rem; color: #f43f5e; font-weight: 600; text-transform: uppercase;'>Honeypots Blocked</div>
-            <div style='font-size: 1.8rem; font-weight: 800; margin-top: 5px;'>{len(honeypots)}</div>
-            <div style='font-size: 0.75rem; color: #f43f5e; margin-top: 3px;'>Excluded from score</div>
+            <div style='font-size: 0.85rem; color: #e11d48; font-weight: 700; text-transform: uppercase;'>Honeypots Blocked</div>
+            <div style='font-size: 1.8rem; font-weight: 800; margin-top: 5px; color: #0f172a;'>{len(honeypots)}</div>
+            <div style='font-size: 0.75rem; color: #e11d48; margin-top: 3px;'>Excluded from score</div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -371,9 +369,9 @@ with c4:
     st.markdown(
         f"""
         <div class='glass-metric accent-border-emerald'>
-            <div style='font-size: 0.85rem; color: #34d399; font-weight: 600; text-transform: uppercase;'>Top Match Score</div>
-            <div style='font-size: 1.8rem; font-weight: 800; margin-top: 5px;'>{top_score:.3f}</div>
-            <div style='font-size: 0.75rem; color: #64748b; margin-top: 3px;'>Max possible: 1.350</div>
+            <div style='font-size: 0.85rem; color: #059669; font-weight: 700; text-transform: uppercase;'>Top Match Score</div>
+            <div style='font-size: 1.8rem; font-weight: 800; margin-top: 5px; color: #0f172a;'>{top_score:.3f}</div>
+            <div style='font-size: 0.75rem; color: #475569; margin-top: 3px;'>Max possible: 1.350</div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -446,11 +444,11 @@ with right_col:
     st.markdown(
         f"""
         <div class='glass-card accent-border-blue'>
-            <h4 style='margin-top: 0px; margin-bottom: 5px; color: #f8fafc;'>{profile.get('anonymized_name', 'Anonymous Candidate')}</h4>
-            <div style='color: #60a5fa; font-weight: 600; font-size: 0.95rem; margin-bottom: 10px;'>{profile.get('current_title', 'Developer')} @ {profile.get('current_company', 'Tech Company')}</div>
-            <div style='color: #e2e8f0; font-style: italic; font-size: 0.9rem; margin-bottom: 15px;'>"{profile.get('headline', '')}"</div>
-            <p style='color: #94a3b8; font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px;'>{profile.get('summary', '')}</p>
-            <div style='display: flex; gap: 20px; font-size: 0.85rem; color: #cbd5e1;'>
+            <h4 style='margin-top: 0px; margin-bottom: 5px; color: #0f172a;'>{profile.get('anonymized_name', 'Anonymous Candidate')}</h4>
+            <div style='color: #2563eb; font-weight: 600; font-size: 0.95rem; margin-bottom: 10px;'>{profile.get('current_title', 'Developer')} @ {profile.get('current_company', 'Tech Company')}</div>
+            <div style='color: #334155; font-style: italic; font-size: 0.9rem; margin-bottom: 15px;'>"{profile.get('headline', '')}"</div>
+            <p style='color: #475569; font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px;'>{profile.get('summary', '')}</p>
+            <div style='display: flex; gap: 20px; font-size: 0.85rem; color: #475569;'>
                 <div>📍 <b>Location:</b> {profile.get('location', 'India')}</div>
                 <div>💼 <b>Experience:</b> {profile.get('years_of_experience', 0)} years</div>
             </div>
@@ -479,17 +477,17 @@ with right_col:
                 "Marginal Fit": "#f43f5e", "Weak Fit": "#64748b",
             }.get(tier_label, "#64748b")
             st.markdown(
-                f"<div style='padding:8px 16px;border-radius:8px;background:rgba(255,255,255,0.04);"
-                f"border-left:4px solid {tier_color};margin-bottom:12px;'>"
+                f"<div style='padding:8px 16px;border-radius:8px;background:#f8fafc;"
+                f"border-left:4px solid {tier_color};margin-bottom:12px;border-top:1px solid #e2e8f0;border-right:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;'>"
                 f"<span style='color:{tier_color};font-weight:700;'>{tier_label}</span></div>",
                 unsafe_allow_html=True,
             )
         with col_conf:
             st.markdown(
-                f"<div style='padding:8px 16px;border-radius:8px;background:rgba(255,255,255,0.04);"
-                f"border-left:4px solid #64748b;margin-bottom:12px;'>"
-                f"<span style='color:#94a3b8;font-size:0.85rem;'>Confidence: </span>"
-                f"<span style='font-weight:600;color:#e2e8f0;'>{confidence}</span></div>",
+                f"<div style='padding:8px 16px;border-radius:8px;background:#f8fafc;"
+                f"border-left:4px solid #64748b;margin-bottom:12px;border-top:1px solid #e2e8f0;border-right:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;'>"
+                f"<span style='color:#475569;font-size:0.85rem;'>Confidence: </span>"
+                f"<span style='font-weight:600;color:#0f172a;'>{confidence}</span></div>",
                 unsafe_allow_html=True,
             )
 
@@ -511,12 +509,12 @@ with right_col:
             st.markdown(
                 f"""
                 <div style='display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:2px;'>
-                    <span style='color:#e2e8f0;font-weight:500;'>{dim_labels[dim]}</span>
-                    <span><b style='color:#06b6d4;'>{dim_score:.4f}</b>
-                    <span style='color:#64748b;font-size:0.75rem;'> ×{dim_weight:.3f} = {dim_contrib:.4f}</span></span>
+                    <span style='color:#0f172a;font-weight:600;'>{dim_labels[dim]}</span>
+                    <span><b style='color:#0284c7;'>{dim_score:.4f}</b>
+                    <span style='color:#475569;font-size:0.75rem;'> ×{dim_weight:.3f} = {dim_contrib:.4f}</span></span>
                 </div>
-                <div style='font-size:0.75rem;color:#64748b;background:rgba(255,255,255,0.02);
-                    padding:3px 8px;border-radius:4px;margin-bottom:6px;'>{evidence}</div>
+                <div style='font-size:0.75rem;color:#475569;background:#f8fafc;border:1px solid #e2e8f0;
+                    padding:5px 8px;border-radius:4px;margin-bottom:6px;'>{evidence}</div>
                 """,
                 unsafe_allow_html=True,
             )
@@ -530,27 +528,27 @@ with right_col:
 
         st.markdown(
             f"""
-            <div style='margin-top:12px;padding:12px;background:rgba(99,102,241,0.08);
-                border-radius:10px;border:1px solid rgba(99,102,241,0.2);'>
-                <div style='font-size:0.75rem;color:#8b5cf6;font-weight:600;
+            <div style='margin-top:12px;padding:12px;background:#eef2ff;
+                border-radius:10px;border:1px solid #c7d2fe;'>
+                <div style='font-size:0.75rem;color:#4f46e5;font-weight:700;
                     text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;'>
                     Score Computation
                 </div>
-                <div style='display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:4px;'>
-                    <span style='color:#94a3b8;'>Base weighted total</span>
-                    <span style='font-family:monospace;'>{weighted_total:.4f}</span>
+                <div style='display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:4px;color:#334155;'>
+                    <span>Base weighted total</span>
+                    <span style='font-family:monospace;font-weight:600;'>{weighted_total:.4f}</span>
                 </div>
-                <div style='display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:2px;'>
-                    <span style='color:#94a3b8;'>Behavioral multiplier</span>
-                    <span style='font-family:monospace;color:#a78bfa;'>×{mult:.4f}</span>
+                <div style='display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:2px;color:#334155;'>
+                    <span>Behavioral multiplier</span>
+                    <span style='font-family:monospace;color:#4f46e5;font-weight:600;'>×{mult:.4f}</span>
                 </div>
-                <div style='font-size:0.72rem;color:#64748b;margin-bottom:6px;'>{beh_evidence}</div>
-                {'<div style="display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:4px;"><span style="color:#94a3b8;">Behavioral bonus</span><span style="font-family:monospace;">+'+str(round(additive,4))+'</span></div>' if additive > 0 else ''}
+                <div style='font-size:0.72rem;color:#475569;margin-bottom:6px;'>{beh_evidence}</div>
+                {'<div style="display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:4px;color:#334155;"><span>Behavioral bonus</span><span style="font-family:monospace;font-weight:600;">+'+str(round(additive,4))+'</span></div>' if additive > 0 else ''}
                 <div style='display:flex;justify-content:space-between;font-size:0.95rem;
-                    font-weight:700;border-top:1px solid rgba(255,255,255,0.08);
-                    padding-top:8px;margin-top:4px;'>
+                    font-weight:700;border-top:1px solid #c7d2fe;
+                    padding-top:8px;margin-top:4px;color:#0f172a;'>
                     <span>Final Composite Score</span>
-                    <span style='color:#60a5fa;'>{cand_result['score']:.4f}</span>
+                    <span style='color:#1d4ed8;'>{cand_result['score']:.4f}</span>
                 </div>
             </div>
             """,
@@ -570,8 +568,8 @@ with right_col:
             st.markdown("##### ⚠️ Concerns")
             for note in why_not:
                 st.markdown(
-                    f"<div style='font-size:0.82rem;color:#f59e0b;padding:5px 10px;"
-                    f"border-left:2px solid #f59e0b;background:rgba(245,158,11,0.07);"
+                    f"<div style='font-size:0.82rem;color:#b45309;padding:5px 10px;"
+                    f"border-left:2px solid #d97706;background:#fffbeb;border-top:1px solid #fde68a;border-right:1px solid #fde68a;border-bottom:1px solid #fde68a;"
                     f"border-radius:0 6px 6px 0;margin-bottom:5px;'>⚠ {note}</div>",
                     unsafe_allow_html=True,
                 )
@@ -582,21 +580,23 @@ with right_col:
             pipeline_rank = cand_result["rank"]
             delta = naive_rank - pipeline_rank
             arrow = "▲ promoted" if delta > 0 else ("▼ demoted" if delta < 0 else "same")
-            color = "#10b981" if delta > 0 else ("#f43f5e" if delta < 0 else "#64748b")
+            color = "#059669" if delta > 0 else ("#e11d48" if delta < 0 else "#475569")
+            bg_color = "#ecfdf5" if delta > 0 else ("#fff1f2" if delta < 0 else "#f8fafc")
+            border_color = "#a7f3d0" if delta > 0 else ("#fecdd3" if delta < 0 else "#e2e8f0")
             st.markdown("##### ⚡ vs Naive Keyword Ranking")
             st.markdown(
                 f"<div style='display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;'>"
-                f"<div style='text-align:center;padding:12px;background:rgba(255,255,255,0.03);"
-                f"border-radius:8px;border:1px solid rgba(255,255,255,0.06);'>"
-                f"<div style='font-size:0.7rem;color:#64748b;'>Naive Rank</div>"
-                f"<div style='font-size:1.6rem;font-weight:800;color:#64748b;'>#{naive_rank}</div></div>"
-                f"<div style='text-align:center;padding:12px;background:rgba(99,102,241,0.08);"
-                f"border-radius:8px;border:1px solid rgba(99,102,241,0.3);'>"
-                f"<div style='font-size:0.7rem;color:#8b5cf6;'>Pipeline Rank</div>"
-                f"<div style='font-size:1.6rem;font-weight:800;color:#06b6d4;'>#{pipeline_rank}</div></div>"
+                f"<div style='text-align:center;padding:12px;background:#f8fafc;"
+                f"border-radius:8px;border:1px solid #e2e8f0;'>"
+                f"<div style='font-size:0.7rem;color:#475569;'>Naive Rank</div>"
+                f"<div style='font-size:1.6rem;font-weight:800;color:#475569;'>#{naive_rank}</div></div>"
+                f"<div style='text-align:center;padding:12px;background:#e0e7ff;"
+                f"border-radius:8px;border:1px solid #a5b4fc;'>"
+                f"<div style='font-size:0.7rem;color:#4f46e5;'>Pipeline Rank</div>"
+                f"<div style='font-size:1.6rem;font-weight:800;color:#2563eb;'>#{pipeline_rank}</div></div>"
                 f"</div>"
                 f"<div style='font-size:0.82rem;color:{color};padding:6px 12px;"
-                f"border-left:3px solid {color};background:rgba(255,255,255,0.02);"
+                f"border-left:3px solid {color};background:{bg_color};border-top:1px solid {border_color};border-right:1px solid {border_color};border-bottom:1px solid {border_color};"
                 f"border-radius:0 6px 6px 0;'>{arrow} {abs(delta)} places</div>",
                 unsafe_allow_html=True,
             )
@@ -604,8 +604,8 @@ with right_col:
         st.markdown("##### 📝 System Reasoning")
         st.markdown(
             f"""
-            <div style='background:rgba(255,255,255,0.02);padding:15px;border-radius:8px;
-                border:1px solid rgba(255,255,255,0.05);font-size:0.9rem;line-height:1.5;'>
+            <div style='background:#ffffff;padding:15px;border-radius:8px;
+                border:1px solid #e2e8f0;font-size:0.9rem;line-height:1.5;color:#1e293b;'>
                 {cand_result['reasoning']}
             </div>
             """,
@@ -624,10 +624,10 @@ with right_col:
             
             st.markdown(
                 f"""
-                <div style='padding-left: 15px; border-left: 2px solid #3b82f6; margin-bottom: 20px;'>
-                    <div style='font-weight: 700; font-size: 0.95rem; color: #f8fafc;'>{title}</div>
-                    <div style='font-size: 0.85rem; color: #60a5fa; margin-bottom: 5px;'>{company} | {start} to {end} ({dur} mo)</div>
-                    <div style='font-size: 0.85rem; color: #94a3b8;'>{desc}</div>
+                <div style='padding-left: 15px; border-left: 2px solid #2563eb; margin-bottom: 20px;'>
+                    <div style='font-weight: 700; font-size: 0.95rem; color: #1e293b;'>{title}</div>
+                    <div style='font-size: 0.85rem; color: #2563eb; margin-bottom: 5px;'>{company} | {start} to {end} ({dur} mo)</div>
+                    <div style='font-size: 0.85rem; color: #475569;'>{desc}</div>
                 </div>
                 """,
                 unsafe_allow_html=True,
@@ -654,9 +654,9 @@ with right_col:
                 st.markdown(
                     f"""
                     <div style='margin-bottom: 10px;'>
-                        <div style='font-weight: 600; font-size: 0.85rem;'>{deg} in {field}</div>
-                        <div style='font-size: 0.8rem; color: #94a3b8;'>{inst} ({tier})</div>
-                        <div style='font-size: 0.8rem; color: #94a3b8;'>Grade: {grade}</div>
+                        <div style='font-weight: 600; font-size: 0.85rem; color: #1e293b;'>{deg} in {field}</div>
+                        <div style='font-size: 0.8rem; color: #475569;'>{inst} ({tier})</div>
+                        <div style='font-size: 0.8rem; color: #64748b;'>Grade: {grade}</div>
                     </div>
                     """,
                     unsafe_allow_html=True,
@@ -681,7 +681,7 @@ with right_col:
     with t5:
         st.markdown("##### 🔍 Why Our Pipeline Beats Naive Keyword Matching")
         st.markdown(
-            "<div style='font-size:0.85rem;color:#94a3b8;margin-bottom:16px;'>"
+            "<div style='font-size:0.85rem;color:#475569;margin-bottom:16px;'> "
             "These 'why-not' cards show candidates a naive keyword matcher would rank highly — "
             "and exactly why this pipeline demoted or excluded them."
             "</div>",
@@ -698,17 +698,17 @@ with right_col:
                 hp_profile = hp["candidate"].get("profile", {})
                 st.markdown(
                     f"""
-                    <div style='background:rgba(244,63,94,0.07);border:1px solid rgba(244,63,94,0.3);
+                    <div style='background:rgba(244,63,94,0.03);border:1px solid rgba(244,63,94,0.18);
                         border-radius:12px;padding:16px;'>
-                        <div style='font-weight:700;font-size:0.9rem;color:#f8fafc;margin-bottom:4px;'>
+                        <div style='font-weight:700;font-size:0.9rem;color:#1e293b;margin-bottom:4px;'>
                             {hp_profile.get('current_title','Unknown')} @ {hp_profile.get('current_company','Unknown')}
                         </div>
                         <div style='font-size:0.72rem;color:#f43f5e;font-weight:600;margin-bottom:10px;'>
                             🚫 {card['outcome']}
                         </div>
-                        <div style='font-size:0.75rem;color:#64748b;margin-bottom:6px;'>Detection flags:</div>
-                        {"".join(f"<div style='font-size:0.78rem;color:#94a3b8;padding:4px 8px;border-left:2px solid #f43f5e;background:rgba(255,255,255,0.02);border-radius:0 4px 4px 0;margin-bottom:4px;'>{f}</div>" for f in card['flag_explanations'])}
-                        <div style='font-size:0.7rem;color:#475569;margin-top:8px;font-style:italic;'>
+                        <div style='font-size:0.75rem;color:#475569;margin-bottom:6px;'>Detection flags:</div>
+                        {"".join(f"<div style='font-size:0.78rem;color:#334155;padding:4px 8px;border-left:2px solid #f43f5e;background:#ffffff;border-top:1px solid #e2e8f0;border-right:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;border-radius:0 4px 4px 0;margin-bottom:4px;'>{f}</div>" for f in card['flag_explanations'])}
+                        <div style='font-size:0.7rem;color:#64748b;margin-top:8px;font-style:italic;'>
                             {card['pipeline_note']}
                         </div>
                     </div>
@@ -742,28 +742,28 @@ with right_col:
             if demoted:
                 st.markdown(
                     f"""
-                    <div style='background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.25);
+                    <div style='background:rgba(245,158,11,0.03);border:1px solid rgba(245,158,11,0.18);
                         border-radius:12px;padding:16px;'>
-                        <div style='font-weight:700;font-size:0.9rem;color:#f8fafc;margin-bottom:4px;'>
+                        <div style='font-weight:700;font-size:0.9rem;color:#1e293b;margin-bottom:4px;'>
                             {demoted['title']} @ {demoted['company']}
                         </div>
-                        <div style='font-size:0.72rem;color:#f59e0b;font-weight:600;margin-bottom:10px;'>
+                        <div style='font-size:0.72rem;color:#b45309;font-weight:600;margin-bottom:10px;'>
                             ⚠ {demoted['outcome']}
                         </div>
                         <div style='display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;'>
-                            <div style='text-align:center;padding:10px;background:rgba(0,0,0,0.2);border-radius:8px;'>
+                            <div style='text-align:center;padding:10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;'>
                                 <div style='font-size:0.7rem;color:#64748b;'>Naive Rank</div>
                                 <div style='font-size:1.4rem;font-weight:800;color:#64748b;'>#{demoted['naive_rank']}</div>
                             </div>
-                            <div style='text-align:center;padding:10px;background:rgba(245,158,11,0.1);border-radius:8px;'>
-                                <div style='font-size:0.7rem;color:#f59e0b;'>Pipeline Rank</div>
-                                <div style='font-size:1.4rem;font-weight:800;color:#06b6d4;'>#{demoted['pipeline_rank']}</div>
+                            <div style='text-align:center;padding:10px;background:rgba(99,102,241,0.05);border:1px solid rgba(99,102,241,0.15);border-radius:8px;'>
+                                <div style='font-size:0.7rem;color:#4f46e5;'>Pipeline Rank</div>
+                                <div style='font-size:1.4rem;font-weight:800;color:#2563eb;'>#{demoted['pipeline_rank']}</div>
                             </div>
                         </div>
-                        <div style='font-size:0.78rem;color:#94a3b8;line-height:1.5;margin-bottom:8px;'>
+                        <div style='font-size:0.78rem;color:#475569;line-height:1.5;margin-bottom:8px;'>
                             {demoted['demotion_reason']}
                         </div>
-                        <div style='font-size:0.72rem;color:#475569;'>
+                        <div style='font-size:0.72rem;color:#64748b;'>
                             JD-skill hits: {demoted['jd_skill_hits']}/{demoted['total_skills']} skills |
                             Coherence gate: ×{demoted['coherence_multiplier']}
                         </div>
