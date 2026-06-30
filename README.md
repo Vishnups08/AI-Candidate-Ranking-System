@@ -1,3 +1,13 @@
+---
+title: AI Candidate Ranking System Backend
+emoji: 🎯
+colorFrom: indigo
+colorTo: blue
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # Redrob AI — Candidate Ranking System
 
 **India Runs Hackathon · Track 1: Data & AI Challenge**
