@@ -36,7 +36,7 @@ export default function CustomScan() {
   const [customJdText, setCustomJdText] = useState("");
   const [candidateFile, setCandidateFile] = useState(null);
   const [isScanning, setIsScanning] = useState(false);
-  const [isApiLoading, setIsApiLoading] = useState(true);
+  const [isApiLoading, setIsApiLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
   const fileInputRef = useRef(null);
 
@@ -79,8 +79,18 @@ export default function CustomScan() {
     }
   };
 
+  // Ping backend on mount to check connection status
   useEffect(() => {
-    fetchData();
+    const pingBackend = async () => {
+      try {
+        const res = await fetch(`${apiHost}/api/status`);
+        if (!res.ok) throw new Error();
+        setApiError(null);
+      } catch (err) {
+        setApiError("Hugging Face API server is not responding. Please wait for it to wake up.");
+      }
+    };
+    pingBackend();
   }, []);
 
   // Update selected candidate details when rank selection changes
@@ -402,8 +412,8 @@ export default function CustomScan() {
                   ))}
                   {results.length === 0 && (
                     <tr>
-                      <td colSpan={4} className="p-8 text-center text-slate-400">
-                        {isApiLoading ? "Loading candidate results..." : "No candidates found."}
+                      <td colSpan={4} className="p-8 text-center text-slate-400 font-semibold leading-relaxed">
+                        {isScanning ? "Scanning candidates..." : "No candidates scanned yet. Select a candidate file, paste a Job Description, and click Scan."}
                       </td>
                     </tr>
                   )}
