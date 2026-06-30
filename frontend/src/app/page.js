@@ -163,22 +163,10 @@ export default function Home() {
               Custom File Scan
             </a>
 
-            {/* API URL Config */}
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-slate-500 font-semibold uppercase">API Host:</span>
-              <input 
-                type="text" 
-                value={apiHost}
-                onChange={(e) => setApiHost(e.target.value)}
-                onBlur={() => fetchData(apiHost)}
-                className="text-xs bg-slate-100 border border-slate-200 rounded px-2 py-1 font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500 w-44"
-              />
-            </div>
-            
             {/* Status indicator */}
-            <div className="flex items-center gap-2 bg-slate-100 border border-slate-200 rounded-full px-3 py-1 text-xs">
+            <div className="flex items-center gap-2 bg-slate-100 border border-slate-200 rounded-full px-3 py-1.5 text-xs font-semibold text-slate-700">
               <span className={`w-2.5 h-2.5 rounded-full ${apiError ? 'bg-rose-500 animate-pulse' : 'bg-emerald-500'}`} />
-              <span className="font-semibold text-slate-700">{apiError ? 'Offline' : 'Ready'}</span>
+              <span>{apiError ? 'Cloud API Offline' : 'Cloud API Connected'}</span>
             </div>
           </div>
         </div>
