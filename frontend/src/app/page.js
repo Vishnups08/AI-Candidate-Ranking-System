@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { 
   Users, 
   ShieldCheck, 
@@ -13,18 +13,17 @@ import {
   ArrowUpRight, 
   ChevronRight,
   TrendingDown,
-  Briefcase,
-  MapPin,
-  Clock,
-  BookOpen
+  Upload,
+  FileCheck
 } from "lucide-react";
 
 export default function Home() {
-  const [apiHost, setApiHost] = useState(
+  const [apiHost] = useState(
     typeof window !== "undefined"
-      ? (process.env.NEXT_PUBLIC_API_HOST || "https://ai-candidate-ranking-system-kpap.onrender.com")
-      : "https://ai-candidate-ranking-system-kpap.onrender.com"
+      ? (process.env.NEXT_PUBLIC_API_HOST || "https://vishnups08-ai-candidate-ranking-system-backend.hf.space")
+      : "https://vishnups08-ai-candidate-ranking-system-backend.hf.space"
   );
+  
   const [status, setStatus] = useState(null);
   const [results, setResults] = useState([]);
   const [contrastData, setContrastData] = useState({ honeypot_cards: [], demotion_cards: [] });
@@ -35,9 +34,11 @@ export default function Home() {
   const [selectedTab, setSelectedTab] = useState("score");
   
   const [customJdText, setCustomJdText] = useState("");
-  const [isReranking, setIsReranking] = useState(false);
+  const [candidateFile, setCandidateFile] = useState(null);
+  const [isScanning, setIsScanning] = useState(false);
   const [isApiLoading, setIsApiLoading] = useState(true);
   const [apiError, setApiError] = useState(null);
+  const fileInputRef = useRef(null);
 
   // Fetch initial data
   const fetchData = async (host = apiHost) => {
@@ -72,7 +73,7 @@ export default function Home() {
       }
     } catch (err) {
       console.error(err);
-      setApiError("Flask API server is not running. Please start it using: python demo_server.py --candidates precompute/sample_candidates.json");
+      setApiError("Hugging Face API server is not responding. Please wait for it to wake up or run: python demo_server.py --candidates precompute/sample_candidates.json --port 5050");
     } finally {
       setIsApiLoading(false);
     }
@@ -92,42 +93,68 @@ export default function Home() {
     }
   }, [selectedRank, results]);
 
-  // Handle custom JD re-ranking
-  const handleRerank = async () => {
-    if (!customJdText.trim()) return;
-    setIsReranking(true);
+  // Handle Custom Scan (Upload File + Re-rank with custom JD)
+  const handleCustomScan = async () => {
+    if (!candidateFile && !customJdText.trim()) {
+      alert("Please upload a candidate file or provide a job description to scan.");
+      return;
+    }
+    
+    setIsScanning(true);
     try {
-      const res = await fetch(`${apiHost}/api/rank-jd`, {
+      // 1. Upload new candidates pool if a file is selected
+      if (candidateFile) {
+        const formData = new FormData();
+        formData.append("file", candidateFile);
+        const uploadRes = await fetch(`${apiHost}/api/upload`, {
+          method: "POST",
+          body: formData,
+        });
+        const uploadData = await uploadRes.json();
+        if (uploadData.error) {
+          alert(`Candidate Upload Error: ${uploadData.error}`);
+          setIsScanning(false);
+          return;
+        }
+      }
+
+      // 2. Re-rank using custom Job Description text
+      const jdText = customJdText.trim() 
+        ? customJdText 
+        : "Senior Python Developer with 6 years of experience. Must know Go, Docker, and Milvus vector database.";
+      
+      const rankRes = await fetch(`${apiHost}/api/rank-jd`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ jd_text: customJdText, n: 50 }),
+        body: JSON.stringify({ jd_text: jdText, n: 50 }),
       });
-      const data = await res.json();
-      if (data.error) {
-        alert(data.error);
+      const rankData = await rankRes.json();
+      if (rankData.error) {
+        alert(`Ranking Error: ${rankData.error}`);
+        setIsScanning(false);
         return;
       }
+
+      // Update UI state with new results
+      setResults(rankData.results || []);
       
-      // Update results dynamically
-      setResults(data.results || []);
-      
-      // Refresh status details
+      // Refresh status numbers
       const statusRes = await fetch(`${apiHost}/api/status`);
       const statusData = await statusRes.json();
       setStatus(statusData);
 
-      // Select top candidate
-      if (data.results && data.results.length > 0) {
+      // Auto-select top rank candidate
+      if (rankData.results && rankData.results.length > 0) {
         setSelectedRank(1);
-        setSelectedCandidate(data.results[0]);
+        setSelectedCandidate(rankData.results[0]);
       }
-      
-      alert("Pipeline successfully re-ranked candidates on-the-fly!");
+
+      alert("Custom scan completed successfully! Rankings have been updated below.");
     } catch (err) {
       console.error(err);
-      alert("Failed to connect to Python backend for custom ranking.");
+      alert("Custom scan failed. Please check if Hugging Face backend is running.");
     } finally {
-      setIsReranking(false);
+      setIsScanning(false);
     }
   };
 
@@ -141,7 +168,7 @@ export default function Home() {
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "nextjs_shortlist_export.csv");
+    link.setAttribute("download", "custom_scan_shortlist.csv");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -158,22 +185,10 @@ export default function Home() {
           </div>
           
           <div className="flex items-center gap-4">
-            {/* API URL Config */}
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-slate-500 font-semibold uppercase">API Host:</span>
-              <input 
-                type="text" 
-                value={apiHost}
-                onChange={(e) => setApiHost(e.target.value)}
-                onBlur={() => fetchData(apiHost)}
-                className="text-xs bg-slate-100 border border-slate-200 rounded px-2 py-1 font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500 w-44"
-              />
-            </div>
-            
             {/* Status indicator */}
-            <div className="flex items-center gap-2 bg-slate-100 border border-slate-200 rounded-full px-3 py-1 text-xs">
+            <div className="flex items-center gap-2 bg-slate-100 border border-slate-200 rounded-full px-3 py-1.5 text-xs font-semibold text-slate-700">
               <span className={`w-2.5 h-2.5 rounded-full ${apiError ? 'bg-rose-500 animate-pulse' : 'bg-emerald-500'}`} />
-              <span className="font-semibold text-slate-700">{apiError ? 'Offline' : 'Ready'}</span>
+              <span>{apiError ? 'Cloud API Offline' : 'Cloud API Connected'}</span>
             </div>
           </div>
         </div>
@@ -187,8 +202,10 @@ export default function Home() {
           <div className="bg-rose-50 border border-rose-200 text-rose-800 rounded-xl p-4 flex gap-3 shadow-sm items-start">
             <AlertTriangle className="text-rose-500 flex-shrink-0 mt-0.5" size={20} />
             <div className="flex-1">
-              <h4 className="font-bold text-sm">Flask Server Connection Failure</h4>
-              <p className="text-xs mt-1 text-rose-600 leading-relaxed font-mono">{apiError}</p>
+              <h4 className="font-bold text-sm">Python Backend Offline</h4>
+              <p className="text-xs mt-1 text-rose-600 leading-relaxed font-semibold">
+                Please wait for the Hugging Face Space to wake up, or start the server locally and connect.
+              </p>
             </div>
             <button 
               onClick={() => fetchData()}
@@ -206,7 +223,7 @@ export default function Home() {
               Candidate <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500">Discovery Engine</span>
             </h1>
             <p className="text-sm text-slate-500 mt-1">
-              Full-context candidate discovery platform matching career histories, technical depth, and pedigree.
+              Decoupled candidate evaluation pipeline using BGE embeddings, hard filters, and coherence screening.
             </p>
           </div>
           <button 
@@ -260,31 +277,67 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Hero Feature: Custom JD Input */}
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
-          <div className="flex items-center gap-2 mb-4">
+        {/* Hero Feature: Decoupled Custom Scan */}
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 flex flex-col gap-5">
+          <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
             <Search className="text-indigo-600" size={18} />
-            <h3 className="font-bold text-base text-slate-800">Verify Generalizability: Custom Job Description Re-ranking</h3>
+            <h3 className="font-bold text-base text-slate-800">🔍 Decoupled Custom Evaluation (JD & Candidate Pool)</h3>
           </div>
-          <div className="flex flex-col gap-3">
-            <textarea
-              placeholder="Paste any custom Job Description here to test the pipeline on-the-fly (e.g. 'Backend Engineer with 5 years experience in Go and Milvus'). Candidate vectors will be scored against your custom input instantly."
-              value={customJdText}
-              onChange={(e) => setCustomJdText(e.target.value)}
-              className="w-full h-24 border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 placeholder:text-slate-400 bg-slate-50 focus:bg-white transition"
-            />
-            <div className="flex items-center justify-between gap-4">
-              <span className="text-xs text-slate-500 leading-normal">
-                🧠 Uses **BGE-small-en-v1.5** local cosine similarity + dynamic skill matching on-the-fly.
-              </span>
-              <button
-                onClick={handleRerank}
-                disabled={isReranking || !customJdText.trim() || apiError}
-                className="bg-indigo-600 text-white font-bold text-sm px-5 py-2.5 rounded-xl hover:bg-indigo-700 disabled:bg-slate-300 disabled:cursor-not-allowed transition shadow-md shadow-indigo-100 flex items-center gap-2"
-              >
-                {isReranking ? "Re-scoring Candidates..." : "Run Neural Re-rank"}
-              </button>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Left: Custom JD Input */}
+            <div className="flex flex-col gap-2">
+              <label className="text-xs text-slate-500 font-bold uppercase tracking-wider">Target Job Description:</label>
+              <textarea
+                placeholder="Paste the target Job Description (e.g. 'Senior Software Engineer at Swiggy. Experience in Go and Pinecone vector database.')"
+                value={customJdText}
+                onChange={(e) => setCustomJdText(e.target.value)}
+                className="flex-1 h-32 border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 placeholder:text-slate-400 bg-slate-50 focus:bg-white transition resize-none"
+              />
             </div>
+            
+            {/* Right: Candidate File Upload */}
+            <div className="flex flex-col gap-2">
+              <label className="text-xs text-slate-500 font-bold uppercase tracking-wider">Upload Candidate Pool:</label>
+              <div 
+                onClick={() => fileInputRef.current?.click()}
+                className={`flex-1 h-32 border-2 border-dashed border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/10 rounded-xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer transition ${candidateFile ? 'bg-indigo-50/20 border-indigo-400' : 'bg-slate-50'}`}
+              >
+                <input 
+                  type="file" 
+                  ref={fileInputRef}
+                  accept=".json,.jsonl"
+                  onChange={(e) => setCandidateFile(e.target.files[0] || null)}
+                  className="hidden"
+                />
+                {candidateFile ? (
+                  <>
+                    <FileCheck className="text-indigo-600" size={32} />
+                    <span className="text-xs font-bold text-slate-700">{candidateFile.name}</span>
+                    <span className="text-[10px] text-slate-400">{(candidateFile.size / 1024).toFixed(1)} KB · Click to change file</span>
+                  </>
+                ) : (
+                  <>
+                    <Upload className="text-slate-400" size={32} />
+                    <span className="text-xs font-semibold text-slate-600">Select candidates.json / .jsonl file</span>
+                    <span className="text-[10px] text-slate-400">Leave blank to use preloaded 50 candidates</span>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between gap-4 border-t border-slate-100 pt-4 mt-2">
+            <span className="text-xs text-slate-400 font-medium">
+              🧠 Evaluates candidate profiles on-the-fly against target JD using BGE cosine similarity and Redrob signals.
+            </span>
+            <button
+              onClick={handleCustomScan}
+              disabled={isScanning || apiError}
+              className="bg-indigo-600 text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-indigo-700 disabled:bg-slate-300 disabled:cursor-not-allowed transition shadow-md shadow-indigo-150 flex items-center gap-2"
+            >
+              {isScanning ? "Processing Candidates & Scores..." : "Run Custom Evaluation Scan"}
+            </button>
           </div>
         </div>
 
@@ -363,12 +416,12 @@ export default function Home() {
                     {selectedCandidate.candidate_id}
                   </div>
                 </div>
-                <div className="text-xs text-slate-500 italic mt-1 leading-relaxed">
+                <div className="text-xs text-slate-500 italic mt-1 leading-relaxed font-semibold">
                   "{selectedCandidate.reasoning}"
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 text-center text-slate-400 text-sm">
+              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 text-center text-slate-400 text-sm font-semibold">
                 Select a candidate to view details
               </div>
             )}
