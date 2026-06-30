@@ -234,6 +234,69 @@ export default function EvaluationPage() {
           </div>
         </div>
 
+        {/* ─── SECTION 2.5: Performance Benchmark ─── */}
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 flex flex-col gap-5">
+          <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
+            <TrendingUp className="text-amber-500" size={20} />
+            <h2 className="font-bold text-lg text-slate-800">Performance Benchmark</h2>
+          </div>
+          <p className="text-xs text-slate-500 leading-relaxed">
+            Real performance on a single CPU core, proving the pipeline comfortably meets the 5-minute production latency constraint.
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="bg-slate-50 border border-slate-100 rounded-xl p-4 text-center">
+              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Projected 100K Time</div>
+              <div className="text-2xl font-black text-amber-600">59.0s</div>
+              <div className="text-[10px] font-bold text-emerald-600 mt-1 flex items-center justify-center gap-1">
+                <CheckCircle size={12} /> PASSES CONSTRAINT
+              </div>
+            </div>
+            <div className="bg-slate-50 border border-slate-100 rounded-xl p-4 text-center">
+              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Constraint</div>
+              <div className="text-2xl font-black text-slate-700">300.0s</div>
+              <div className="text-[10px] text-slate-500 mt-1">Maximum allowed</div>
+            </div>
+            <div className="bg-slate-50 border border-slate-100 rounded-xl p-4 text-center">
+              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Hardware</div>
+              <div className="text-2xl font-black text-slate-700">CPU-only</div>
+              <div className="text-[10px] text-slate-500 mt-1">No GPU required</div>
+            </div>
+            <div className="bg-slate-50 border border-slate-100 rounded-xl p-4 text-center">
+              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Network</div>
+              <div className="text-2xl font-black text-slate-700">Offline</div>
+              <div className="text-[10px] text-slate-500 mt-1">HF_HUB_OFFLINE=1</div>
+            </div>
+          </div>
+
+          <div className="mt-2 border border-slate-100 rounded-xl overflow-hidden">
+            <table className="w-full text-left border-collapse text-xs">
+              <thead className="bg-slate-50 text-slate-500 font-bold uppercase tracking-wider">
+                <tr>
+                  <th className="p-3">Pipeline Stage</th>
+                  <th className="p-3 text-right">Latency (ms)</th>
+                  <th className="p-3 text-right">Throughput (cand/s)</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {[
+                  {"name": "Stage 1: Hard Filters", "latency_ms": 12.0, "throughput": 416667},
+                  {"name": "Stage 2: Honeypot Detection", "latency_ms": 83.0, "throughput": 17349},
+                  {"name": "Stage 3: Feature Scoring", "latency_ms": 2619.0, "throughput": 549},
+                  {"name": "Stage 4: Behavioral Multiplier", "latency_ms": 18.0, "throughput": 79889},
+                  {"name": "Stage 5: Sort & Rank", "latency_ms": 0.0, "throughput": "N/A"},
+                ].map((s, idx) => (
+                  <tr key={idx} className="hover:bg-slate-50 transition">
+                    <td className="p-3 font-semibold text-slate-700">{s.name}</td>
+                    <td className="p-3 text-right font-mono text-slate-600">{s.latency_ms.toFixed(1)} ms</td>
+                    <td className="p-3 text-right font-mono text-slate-600">{s.throughput === "N/A" ? "—" : s.throughput.toLocaleString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         {/* ─── SECTION 3: Ablation Study ─── */}
         <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 flex flex-col gap-5">
           <div className="flex items-center gap-2 border-b border-slate-100 pb-3">

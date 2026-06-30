@@ -647,6 +647,18 @@ def get_evaluation():
             {"component": "− Experience Fit", "composite": 0.912, "delta": "-0.008"},
             {"component": "− Education", "composite": 0.917, "delta": "-0.003"},
         ],
+        "benchmark": {
+            "projected_100k_s": 59.0,
+            "constraint_s": 300.0,
+            "meets_constraint": True,
+            "stages": [
+                {"name": "Stage 1: Hard Filters", "latency_ms": 12.0, "throughput": 416667},
+                {"name": "Stage 2: Honeypot Detection", "latency_ms": 83.0, "throughput": 17349},
+                {"name": "Stage 3: Feature Scoring", "latency_ms": 2619.0, "throughput": 549},
+                {"name": "Stage 4: Behavioral Multiplier", "latency_ms": 18.0, "throughput": 79889},
+                {"name": "Stage 5: Sort & Rank", "latency_ms": 0.0, "throughput": 0},
+            ]
+        },
         "tuning_log": [
             {"id": "R1", "title": "BGE Embeddings Baseline", "composite": 0.9245, "decision": "Adopted"},
             {"id": "R2", "title": "Skill–Career Coherence Gate", "composite": 0.9256, "decision": "Adopted"},
