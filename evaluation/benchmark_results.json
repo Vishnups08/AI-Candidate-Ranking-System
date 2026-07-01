@@ -1,0 +1,53 @@
+{
+  "load": {
+    "stage": "Load & Parse JSONL",
+    "candidates": 5000,
+    "latency_s": 0.217,
+    "throughput": 23066.0
+  },
+  "jd_parse": {
+    "stage": "JD Requirements Parsing",
+    "latency_s": 0.002
+  },
+  "hard_filters": {
+    "stage": "Stage 1: Hard Filters",
+    "input": 5000,
+    "output": 1440,
+    "filtered_out": 3560,
+    "filter_rate": 71.2,
+    "latency_s": 0.012,
+    "throughput": 417512.0
+  },
+  "honeypot": {
+    "stage": "Stage 2: Honeypot Detection",
+    "input": 1440,
+    "output": 1438,
+    "honeypots_found": 2,
+    "latency_s": 0.083,
+    "throughput": 17364.0
+  },
+  "feature_scoring": {
+    "stage": "Stage 3: Feature Scoring (6 dimensions)",
+    "candidates_scored": 1438,
+    "latency_s": 2.619,
+    "per_candidate_ms": 1.82,
+    "throughput": 549.0
+  },
+  "behavioral": {
+    "stage": "Stage 4: Behavioral Multiplier",
+    "candidates": 1438,
+    "latency_s": 0.018,
+    "throughput": 78549.0
+  },
+  "sort_rank": {
+    "stage": "Stage 5: Sort & Rank (Top-100 extraction)",
+    "latency_s": 0.0
+  },
+  "total": {
+    "total_latency_s": 2.952,
+    "total_candidates": 5000,
+    "candidates_ranked": 1438,
+    "meets_5min_constraint": true,
+    "projected_100k_s": 59.0
+  }
+}
